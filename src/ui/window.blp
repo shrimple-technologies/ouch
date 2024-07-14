@@ -1,0 +1,187 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.ApplicationWindow window {
+	default-height: 621;
+	default-width: 1300;
+	height-request: 500;
+	width-request: 500;
+
+	Adw.OverlaySplitView osv {
+		show-sidebar: true;
+
+		sidebar: Adw.NavigationPage {
+			title: "Ouch";
+
+			Adw.ToolbarView {
+				[top]
+				Adw.HeaderBar {
+					[start]
+					Button menu {
+						icon-name: "open-menu-symbolic";
+						tooltip-text: _("Menu");
+					}
+
+					[start]
+					ToggleButton toggle_sidebar {
+						icon-name: "sidebar-show-symbolic";
+						tooltip-text: _("Toggle sidebar");
+						active: true;
+					}
+
+					show-title: false;
+				}
+
+				[bottom]
+				Adw.HeaderBar {
+					[start]
+					Button {
+						icon-name: "user-trash-symbolic";
+						tooltip-text: _("Archive");
+					}
+
+					[end]
+					Button button_newtab {
+						icon-name: "list-add-symbolic";
+						tooltip-text: _("New tab");
+					}
+
+					show-title: false;
+				}
+
+				Box {
+					orientation: vertical;
+					margin-start: 10;
+					margin-end: 10;
+					spacing: 10;
+
+					Separator sp {
+						visible: false;
+					}
+
+					ListBox {
+						Adw.ActionRow tab {
+							visible: false;
+						}
+
+						styles [
+							"navigation-sidebar",
+						]
+					}
+				}
+			}
+		};
+
+		content: Adw.NavigationPage {
+			title: "Ouch";
+
+			Adw.ToolbarView {
+				[top]
+				Adw.HeaderBar {
+					title-widget: Entry url_bar {
+						input-purpose: url;
+					};
+
+					[start]
+					Button button_forward {
+						icon-name: "go-previous-symbolic";
+						tooltip-text: _("Back");
+					}
+
+					[start]
+					Button button_back {
+						icon-name: "go-next-symbolic";
+						tooltip-text: _("Forward");
+					}
+
+					[start]
+					Button button_reload {
+						icon-name: "view-refresh-symbolic";
+						tooltip-text: _("Reload");
+					}
+
+					[start]
+					Button button_stop {
+						icon-name: "process-stop-symbolic";
+						tooltip-text: _("Stop");
+						visible: false;
+					}
+				}
+
+				Box {
+					orientation: horizontal;
+
+					Box truncated_sidebar {
+						orientation: vertical;
+						visible: false;
+
+						Adw.ToolbarView {
+							vexpand: true;
+
+							[top]
+							WindowControls {
+								side: end;
+								margin-top: 5;
+								margin-start: 5;
+							}
+
+							[bottom]
+							ToggleButton toggle_sidebar_truncated {
+								icon-name: "sidebar-show-symbolic";
+								tooltip-text: _("Toggle sidebar");
+								margin-bottom: 5;
+								margin-start: 5;
+								active: false;
+
+								styles [
+									"flat",
+								]
+							}
+
+							[bottom]
+							Button {
+								icon-name: "open-menu-symbolic";
+								tooltip-text: _("Menu");
+								margin-bottom: 5;
+								margin-start: 5;
+
+								styles [
+									"flat",
+								]
+							}
+						}
+					}
+
+					Box {
+						orientation: horizontal;
+
+						Frame {
+							margin-start: 5;
+							margin-end: 5;
+							margin-top: 5;
+							margin-bottom: 5;
+							hexpand: true;
+
+							styles [
+								"view",
+							]
+						}
+
+						Frame {
+							margin-start: 5;
+							margin-end: 5;
+							margin-top: 5;
+							margin-bottom: 5;
+							hexpand: true;
+							visible: false;
+
+							styles [
+								"view",
+							]
+						}
+					}
+				}
+			}
+		};
+	}
+}
