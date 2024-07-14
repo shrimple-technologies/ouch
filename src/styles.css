@@ -1,3 +1,15 @@
+:root {
+	/*
+	saving this for libadwaita v1.5.0
+
+	--accent-color: #6f8396;
+	--background: oklab(
+		from var(--accent-color)
+		var(--standalone-color-oklab)
+	);
+	*/
+}
+
 navigation-view-page {
 	background: #f6f5f4;
 }
