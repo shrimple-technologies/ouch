@@ -78,8 +78,23 @@ Adw.ApplicationWindow window {
 			Adw.ToolbarView {
 				[top]
 				Adw.HeaderBar {
-					title-widget: Entry url_bar {
-						input-purpose: url;
+					title-widget: Box {
+						orientation: horizontal;
+						spacing: 7;
+						
+						Button {
+							icon-name: "edit-copy-symbolic";
+							tooltip-text: _("Copy link");
+						}
+
+						Entry url_bar {
+							input-purpose: url;
+						}
+
+						Button {
+							icon-name: "applications-system-symbolic";
+							tooltip-text: _("Website settings");
+						}
 					};
 
 					[start]
@@ -106,60 +121,25 @@ Adw.ApplicationWindow window {
 						tooltip-text: _("Stop");
 						visible: false;
 					}
+
+					[end]
+					ToggleButton {
+						icon-name: "view-dual-symbolic";
+						tooltip-text: _("Toggle split view");
+					}
 				}
 
 				Box {
 					orientation: horizontal;
 
-					Box truncated_sidebar {
-						orientation: vertical;
-						visible: false;
-
-						Adw.ToolbarView {
-							vexpand: true;
-
-							[top]
-							WindowControls {
-								side: end;
-								margin-top: 5;
-								margin-start: 5;
-							}
-
-							[bottom]
-							ToggleButton toggle_sidebar_truncated {
-								icon-name: "sidebar-show-symbolic";
-								tooltip-text: _("Toggle sidebar");
-								margin-bottom: 5;
-								margin-start: 5;
-								active: false;
-
-								styles [
-									"flat",
-								]
-							}
-
-							[bottom]
-							Button {
-								icon-name: "open-menu-symbolic";
-								tooltip-text: _("Menu");
-								margin-bottom: 5;
-								margin-start: 5;
-
-								styles [
-									"flat",
-								]
-							}
-						}
-					}
-
 					Box {
 						orientation: horizontal;
 
 						Frame {
-							margin-start: 5;
-							margin-end: 5;
-							margin-top: 5;
-							margin-bottom: 5;
+							margin-start: 10;
+							margin-end: 10;
+							// margin-top: 10;
+							margin-bottom: 10;
 							hexpand: true;
 
 							styles [
