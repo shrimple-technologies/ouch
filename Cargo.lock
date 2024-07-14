@@ -455,6 +455,7 @@ dependencies = [
 name = "ouch"
 version = "0.1.0"
 dependencies = [
+ "gio",
  "gtk4",
  "libadwaita",
 ]

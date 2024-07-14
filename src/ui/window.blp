@@ -29,6 +29,12 @@ Adw.ApplicationWindow window {
 						active: true;
 					}
 
+					[start]
+					Button {
+						icon-name: "folder-download-symbolic";
+						tooltip-text: _("Downloads");
+					}
+
 					show-title: false;
 				}
 
@@ -43,7 +49,7 @@ Adw.ApplicationWindow window {
 					[end]
 					Button button_newtab {
 						icon-name: "list-add-symbolic";
-						tooltip-text: _("New tab");
+						tooltip-text: _("New...");
 					}
 
 					show-title: false;
@@ -52,11 +58,27 @@ Adw.ApplicationWindow window {
 				Box {
 					orientation: vertical;
 					margin-start: 10;
-					margin-end: 10;
 					spacing: 10;
 
-					Separator sp {
-						visible: false;
+					Label {
+						label: "Main";
+						halign: start;
+
+						styles [
+							"dim-label",
+							"caption-heading"
+						]
+					}
+
+					Separator sp {}
+
+					Button {
+						label: "New tab";
+						hexpand: true;
+
+						styles [
+							"flat"
+						]
 					}
 
 					ListBox {
@@ -89,6 +111,7 @@ Adw.ApplicationWindow window {
 
 						Entry url_bar {
 							input-purpose: url;
+							width-request: 50;
 						}
 
 						Button {
@@ -138,7 +161,6 @@ Adw.ApplicationWindow window {
 						Frame {
 							margin-start: 10;
 							margin-end: 10;
-							// margin-top: 10;
 							margin-bottom: 10;
 							hexpand: true;
 
@@ -165,3 +187,7 @@ Adw.ApplicationWindow window {
 		};
 	}
 }
+
+/* menu menu {
+
+} */
