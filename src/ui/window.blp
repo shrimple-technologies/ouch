@@ -47,9 +47,10 @@ Adw.ApplicationWindow window {
 					}
 
 					[end]
-					Button button_newtab {
+					MenuButton button_new {
 						icon-name: "list-add-symbolic";
 						tooltip-text: _("New...");
+						menu-model: new_menu;
 					}
 
 					show-title: false;
@@ -71,15 +72,6 @@ Adw.ApplicationWindow window {
 					}
 
 					Separator sp {}
-
-					Button {
-						label: "New tab";
-						hexpand: true;
-
-						styles [
-							"flat"
-						]
-					}
 
 					ListBox {
 						Adw.ActionRow tab {
@@ -188,6 +180,7 @@ Adw.ApplicationWindow window {
 	}
 }
 
-/* menu menu {
-
-} */
+menu new_menu {
+	item (_("New room"))
+	item (_("New tab"))
+}
