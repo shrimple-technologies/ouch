@@ -12,6 +12,5 @@ blueprint-compiler batch-compile \
 	ui \
 	src/ui/window.blp
 cargo build
-# optionally run ouch
 # cargo run
 ```
