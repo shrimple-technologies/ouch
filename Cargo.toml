@@ -8,6 +8,6 @@ default = ["css"]
 css = []
 
 [dependencies]
-adw = { version = "0.7.0", package = "libadwaita", features = ["v1_4"] }
+adw = { version = "0.7.0", package = "libadwaita", features = ["v1_5"] }
 gio = { version = "0.20.0", features = ["v2_80"] }
 gtk = { version = "0.9.0", package = "gtk4", features = ["gnome_46", "v4_12"] }
