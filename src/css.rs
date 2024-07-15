@@ -1,6 +1,10 @@
 pub fn init(_app: &adw::Application) {
 	let provider = gtk::CssProvider::new();
-	provider.load_from_string(include_str!("styles.css"));
+	if adw::StyleManager::get_dark() {
+		provider.load_from_string(include_str!("css/dark.css"));
+	} else {
+		provider.load_from_string(include_str!("css/light.css"));
+	}
 
 	gtk::style_context_add_provider_for_display(
 		&gtk::gdk::Display::default()
