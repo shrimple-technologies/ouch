@@ -8,9 +8,9 @@ To build Ouch, you need [GTK 4](https://gitlab.gnome.org/GNOME/gtk), [libadwaita
 
 ```sh
 blueprint-compiler batch-compile \
-	ui \
-	ui \
-	src/ui/window.blp
+    ui \
+    ui \
+    src/ui/window.blp
 cargo build
 # cargo run
 ```

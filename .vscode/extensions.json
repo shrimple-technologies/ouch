@@ -1,5 +1,6 @@
 {
 	"recommendations": [
-		"bodil.blueprint-gtk"
+		"bodil.blueprint-gtk",
+		"rust-lang.rust-analyzer"
 	]
 }
