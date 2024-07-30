@@ -1,5 +1,6 @@
 using Gtk 4.0;
 using Adw 1;
+using WebKit 6.0;
 
 Adw.ApplicationWindow window {
 	default-height: 621;
@@ -150,7 +151,7 @@ Adw.ApplicationWindow window {
 					Box {
 						orientation: horizontal;
 
-						Frame {
+						Frame frame {
 							margin-start: 10;
 							margin-end: 10;
 							margin-bottom: 10;
