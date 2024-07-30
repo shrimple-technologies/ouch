@@ -120,9 +120,8 @@ Adw.ApplicationWindow window {
 							tooltip-text: _("Copy link");
 						}
 
-						Entry url_bar {
-							input-purpose: url;
-							width-request: 300;
+						Button url_bar {
+							label: "start.ubuntu.com";
 						}
 
 						Button {
@@ -234,6 +233,28 @@ Adw.ApplicationWindow window {
 	}
 	
 	styles [ "devel" ]
+}
+
+Adw.Dialog url_dialog {
+  	can-close: false;
+  	presentation-mode: floating;
+	follows-content-size: true;
+
+  	Adw.Clamp {
+		Box {
+			orientation: vertical;
+			margin-top: 10;
+			margin-bottom: 10;
+			margin-start: 10;
+			margin-end: 10;
+			spacing: 10;
+
+			Entry {
+				input-purpose: url;
+				hexpand: true;
+			}
+		}
+  	}
 }
 
 menu new_menu {

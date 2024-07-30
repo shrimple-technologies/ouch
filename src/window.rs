@@ -11,6 +11,12 @@ pub fn init(app: &adw::Application) {
 	let web_view_frame = builder
 		.object::<gtk::Frame>("frame")
 		.expect("Couldn't get web view frame");
+	let url_dialog = builder
+		.object::<adw::Dialog>("url_dialog")
+		.expect("Couldn't get url dialog");
+	let url_bar = builder
+		.object::<gtk::Button>("url_bar")
+		.expect("Couldn't get url bar");
 	let _progress = builder
 		.object::<gtk::ProgressBar>("progress")
 		.expect("Couldn't get web view progress");
@@ -25,15 +31,15 @@ pub fn init(app: &adw::Application) {
         false
     });
 
-	/* web_view.connect_notify(Some("estimated-load-progress"), move |web_view, _| {
-		progress.set_fraction(web_view.estimated_load_progress());
-	}); */
-
 	web_view.load_uri("https://start.ubuntu.com/");
 	web_view_frame.set_child(Some(&web_view));
 
 	window.set_application(Some(app));
 	window.present();
+
+	url_bar.connect_clicked(move |_| {
+		url_dialog.present(Some(&window));
+	});
 }
 
 fn error_page(msg: &str) -> String {
