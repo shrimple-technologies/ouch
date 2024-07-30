@@ -6,10 +6,28 @@ Adw.ApplicationWindow window {
 	default-height: 621;
 	default-width: 1300;
 	height-request: 500;
-	width-request: 500;
+	width-request: 450;
+
+	Adw.Breakpoint {
+        condition ("max-width: 600sp")
+        setters {
+            osv.collapsed: true;
+			top_hb.show-end-title-buttons: false;
+			bottom_hb.visible: true;
+			url_bar.hexpand: true;
+			frame.margin-bottom: 0;
+
+			button_forward.visible: false;
+			button_back.visible: false;
+			button_reload.visible: false;
+			button_stop.visible: false;
+        }
+    }
+
 
 	Adw.OverlaySplitView osv {
 		show-sidebar: true;
+		collapsed: false;
 
 		sidebar: Adw.NavigationPage {
 			title: "Ouch";
@@ -92,7 +110,7 @@ Adw.ApplicationWindow window {
 
 			Adw.ToolbarView {
 				[top]
-				Adw.HeaderBar {
+				Adw.HeaderBar top_hb {
 					title-widget: Box {
 						orientation: horizontal;
 						spacing: 7;
@@ -143,6 +161,37 @@ Adw.ApplicationWindow window {
 						icon-name: "view-dual-symbolic";
 						tooltip-text: _("Toggle split view");
 					}
+				}
+
+				[bottom]
+				Adw.HeaderBar bottom_hb {
+					visible: false;
+					show-end-title-buttons: false;
+					title-widget: Box {
+						orientation: horizontal;
+						spacing: 7;
+
+						Button {
+							icon-name: "go-previous-symbolic";
+							tooltip-text: _("Back");
+						}
+
+						Button {
+							icon-name: "go-next-symbolic";
+							tooltip-text: _("Forward");
+						}
+
+						Button {
+							icon-name: "view-refresh-symbolic";
+							tooltip-text: _("Reload");
+						}
+
+						Button {
+							icon-name: "process-stop-symbolic";
+							tooltip-text: _("Stop");
+							visible: false;
+						}
+					};
 				}
 
 				[top]

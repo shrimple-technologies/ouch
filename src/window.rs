@@ -11,7 +11,7 @@ pub fn init(app: &adw::Application) {
 	let web_view_frame = builder
 		.object::<gtk::Frame>("frame")
 		.expect("Couldn't get web view frame");
-	let progress = builder
+	let _progress = builder
 		.object::<gtk::ProgressBar>("progress")
 		.expect("Couldn't get web view progress");
 
