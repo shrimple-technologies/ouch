@@ -104,7 +104,7 @@ Adw.ApplicationWindow window {
 
 						Entry url_bar {
 							input-purpose: url;
-							width-request: 50;
+							width-request: 300;
 						}
 
 						Button {
@@ -143,6 +143,11 @@ Adw.ApplicationWindow window {
 						icon-name: "view-dual-symbolic";
 						tooltip-text: _("Toggle split view");
 					}
+				}
+
+				[top]
+				ProgressBar progress {
+					styles ["osd"]
 				}
 
 				Box {
