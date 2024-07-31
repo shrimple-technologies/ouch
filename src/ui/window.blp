@@ -6,7 +6,7 @@ Adw.ApplicationWindow window {
 	default-height: 621;
 	default-width: 1300;
 	height-request: 500;
-	width-request: 450;
+	width-request: 350;
 
 	Adw.Breakpoint {
         condition ("max-width: 600sp")
@@ -14,6 +14,7 @@ Adw.ApplicationWindow window {
             osv.collapsed: true;
 			bottom_hb.visible: true;
 			frame.margin-bottom: 0;
+			toggle_sidebar.active: false;
 
 			button_forward.visible: false;
 			button_back.visible: false;
@@ -37,13 +38,6 @@ Adw.ApplicationWindow window {
 					Button menu {
 						icon-name: "open-menu-symbolic";
 						tooltip-text: _("Menu");
-					}
-
-					[start]
-					ToggleButton toggle_sidebar {
-						icon-name: "sidebar-show-symbolic";
-						tooltip-text: _("Toggle sidebar");
-						active: true;
 					}
 
 					[start]
@@ -119,7 +113,7 @@ Adw.ApplicationWindow window {
 						}
 
 						Button url_bar {
-							label: "start.ubuntu.com";
+							label: "wikiwand.com";
 						}
 
 						Button {
@@ -127,6 +121,13 @@ Adw.ApplicationWindow window {
 							tooltip-text: _("Website settings");
 						}
 					};
+
+					[start]
+					ToggleButton toggle_sidebar {
+						icon-name: "sidebar-show-symbolic";
+						tooltip-text: _("Toggle sidebar");
+						active: true;
+					}
 
 					[start]
 					Button button_forward {
@@ -250,6 +251,16 @@ Adw.Dialog url_dialog {
 			Entry {
 				input-purpose: url;
 				hexpand: true;
+			}
+
+			Adw.ActionRow {
+				title: "what is y2k";
+				subtitle: "Search on Google";
+			}
+
+			Adw.ActionRow {
+				title: "what is yapping";
+				subtitle: "Search on Google";
 			}
 		}
   	}

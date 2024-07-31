@@ -22,7 +22,6 @@ pub fn init(app: &adw::Application) {
 		.expect("Couldn't get web view progress");
 
 	let web_view = WebView::new();
-
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
         if !error.matches(NetworkError::Cancelled) {
             let content = error_page(error.message());
@@ -31,7 +30,7 @@ pub fn init(app: &adw::Application) {
         false
     });
 
-	web_view.load_uri("https://start.ubuntu.com/");
+	web_view.load_uri("https://wikiwand.com/en/%22Hello%2C_World!%22_program");
 	web_view_frame.set_child(Some(&web_view));
 
 	window.set_application(Some(app));

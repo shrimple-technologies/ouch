@@ -1,6 +1,6 @@
+use gtk::{glib, prelude::*};
 #[cfg(feature = "css")] mod css;
 mod window;
-use gtk::{glib, prelude::*};
 
 fn main() -> glib::ExitCode {
 	let app = adw::Application::builder()
