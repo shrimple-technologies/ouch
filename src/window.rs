@@ -30,6 +30,7 @@ pub fn init(app: &adw::Application) {
 		.expect("Couldn't get url bar");
 
 	let url_dialog_c = url_dialog.clone();
+	let url_dialog_c2 = url_dialog.clone();
 
 	let web_view = WebView::new();
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
@@ -45,6 +46,10 @@ pub fn init(app: &adw::Application) {
 
 	window.set_application(Some(app));
 	window.present();
+
+	url_dialog.connect_close_attempt(move |_| {
+		url_dialog_c2.force_close();
+	});
 
 	#[allow(deprecated)] // i do not give two shits, rust
 	url_bar.connect_activate(clone!(@weak web_view => move |url_bar| {
