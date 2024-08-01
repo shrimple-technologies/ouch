@@ -63,7 +63,7 @@ pub fn init(app: &adw::Application) {
 		false
 	});
 
-	web_view.load_uri("https://wikiwand.com/en/%22Hello%2C_World!%22_program");
+	url_dialog.present(Some(&window));
 	web_view_frame.set_child(Some(&web_view));
 
 	window.set_application(Some(app));
