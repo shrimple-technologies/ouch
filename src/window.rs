@@ -8,6 +8,9 @@ pub fn init(app: &adw::Application) {
 	let window = builder
 		.object::<adw::ApplicationWindow>("window")
 		.expect("Couldn't get window");
+	let osv = builder
+		.object::<adw::OverlaySplitView>("osv")
+		.expect("Couldn't get osv");
 	let web_view_frame = builder
 		.object::<gtk::Frame>("frame")
 		.expect("Couldn't get web view frame");
@@ -17,9 +20,9 @@ pub fn init(app: &adw::Application) {
 	let url_bar = builder
 		.object::<gtk::Button>("url_bar")
 		.expect("Couldn't get url bar");
-	let _progress = builder
-		.object::<gtk::ProgressBar>("progress")
-		.expect("Couldn't get web view progress");
+	let toggle_sidebar = builder
+		.object::<gtk::ToggleButton>("toggle_sidebar")
+		.expect("Couldn't get sidebar toggle");
 
 	let web_view = WebView::new();
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
@@ -35,6 +38,10 @@ pub fn init(app: &adw::Application) {
 
 	window.set_application(Some(app));
 	window.present();
+
+	toggle_sidebar.clone().connect_clicked(move |_| {
+		osv.set_show_sidebar(toggle_sidebar.is_active());
+	});
 
 	url_bar.connect_clicked(move |_| {
 		url_dialog.present(Some(&window));
