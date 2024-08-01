@@ -48,10 +48,10 @@ pub fn init(app: &adw::Application) {
 
 	#[allow(deprecated)] // i do not give two shits, rust
 	url_bar.connect_activate(clone!(@weak web_view => move |url_bar| {
-        let url = url_bar.buffer().text().as_str().to_string();
-        web_view.load_uri(&format!("https://{url}"));
+		let url = url_bar.buffer().text().as_str().to_string();
+		web_view.load_uri(&format!("https://{url}"));
 		url_dialog.force_close();
-    }));
+	}));
 
 	toggle_sidebar.clone().connect_clicked(move |_| {
 		osv.set_show_sidebar(toggle_sidebar.is_active());
