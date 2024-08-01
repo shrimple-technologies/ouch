@@ -30,6 +30,12 @@ pub fn init(app: &adw::Application) {
 		.object::<gtk::Entry>("url_bar")
 		.expect("Couldn't get url bar");
 
+	let help_overlay = gtk::Builder::from_string(
+		include_str!("ui/help-overlay.ui")
+	)
+		.object::<gtk::ShortcutsWindow>("help_overlay")
+		.expect("Couldn't get help overlay");
+
 	let about = gtk::Builder::from_string(
 		include_str!("ui/about.ui")
 	)
@@ -69,7 +75,7 @@ pub fn init(app: &adw::Application) {
 	window.set_application(Some(app));
 	window.present();
 
-	let action_close = ActionEntry::builder("close")
+	let action_quit = ActionEntry::builder("quit")
 		.activate(|window: &adw::ApplicationWindow, _, _| {
 			window.close();
 		})
@@ -86,7 +92,12 @@ pub fn init(app: &adw::Application) {
 			about.present();
 		})
 		.build();
-	window.add_action_entries([action_close, action_cmd, action_about]);
+	let action_help = ActionEntry::builder("show-help-overlay")
+		.activate(move |_, _, _| {
+			help_overlay.present();
+		})
+		.build();
+	window.add_action_entries([action_quit, action_cmd, action_about, action_help]);
 
 	url_dialog.connect_close_attempt(move |_| {
 		url_dialog_c2.force_close();

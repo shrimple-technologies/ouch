@@ -1,0 +1,26 @@
+using Gtk 4.0;
+
+ShortcutsWindow help_overlay {
+	modal: true;
+
+  	ShortcutsSection {
+		section-name: "shortcuts";
+		max-height: 10;
+
+		ShortcutsGroup {
+	  		title: "General";
+
+			ShortcutsShortcut {
+				title: "Open command palette";
+				action-name: "app.cmd";
+				accelerator: "<Ctrl>L";
+	  		}
+
+	  		ShortcutsShortcut {
+				title: "Quit";
+				action-name: "app.quit";
+				accelerator: "<Ctrl>Q";
+	  		}
+		}
+  	}
+}

@@ -3,7 +3,8 @@ build:
 		src/ui \
 		src/ui \
 		src/ui/window.blp \
-		src/ui/about.blp
+		src/ui/about.blp \
+		src/ui/help-overlay.blp
 	@cargo build
 
 run:
@@ -11,5 +12,6 @@ run:
 		src/ui \
 		src/ui \
 		src/ui/window.blp \
-		src/ui/about.blp
+		src/ui/about.blp \
+		src/ui/help-overlay.blp
 	@cargo run
