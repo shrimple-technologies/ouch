@@ -1,4 +1,5 @@
 use adw::prelude::*;
+use gio::ActionEntry;
 use glib::clone;
 use gtk::glib;
 use webkit6::{prelude::*, NetworkError, WebView};
@@ -29,10 +30,31 @@ pub fn init(app: &adw::Application) {
 		.object::<gtk::Entry>("url_bar")
 		.expect("Couldn't get url bar");
 
+	let about = gtk::Builder::from_string(
+		include_str!("ui/about.ui")
+	)
+		.object::<adw::AboutWindow>("about")
+		.expect("Couldn't get about window");
+	about.set_developers(&[
+		"Max Walters",
+		"Ally Walters"
+	]);
+	about.add_acknowledgement_section(Some("Acknowledgements"), &[
+		"The Browser Company",
+		"The GNOME Developers"
+	]);
+	about.add_acknowledgement_section(Some("Banner designs"), &[
+		"Max Walters"
+	]);
+
 	let url_dialog_c = url_dialog.clone();
 	let url_dialog_c2 = url_dialog.clone();
+	let url_dialog_c3 = url_dialog.clone();
+	let url_bar_c = url_bar.clone();
+	let window_c = window.clone();
 
 	let web_view = WebView::new();
+	let web_view_c = web_view.clone();
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
 			let content = error_page(error.message());
@@ -46,6 +68,25 @@ pub fn init(app: &adw::Application) {
 
 	window.set_application(Some(app));
 	window.present();
+
+	let action_close = ActionEntry::builder("close")
+		.activate(|window: &adw::ApplicationWindow, _, _| {
+			window.close();
+		})
+		.build();
+	let action_cmd = ActionEntry::builder("cmd")
+		.activate(move |_, _, _| {
+			let buffer = gtk::EntryBuffer::new(web_view_c.uri());
+			url_bar_c.set_buffer(&buffer);
+			url_dialog_c3.present(Some(&window_c));
+		})
+		.build();
+	let action_about = ActionEntry::builder("about")
+		.activate(move |_, _, _| {
+			about.present();
+		})
+		.build();
+	window.add_action_entries([action_close, action_cmd, action_about]);
 
 	url_dialog.connect_close_attempt(move |_| {
 		url_dialog_c2.force_close();

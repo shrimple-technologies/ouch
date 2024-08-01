@@ -35,8 +35,9 @@ Adw.ApplicationWindow window {
 				[top]
 				Adw.HeaderBar {
 					[start]
-					Button menu {
+					MenuButton menu {
 						icon-name: "open-menu-symbolic";
+						menu-model: main_menu;
 						tooltip-text: _("Menu");
 					}
 
@@ -264,6 +265,10 @@ Adw.Dialog url_dialog {
 			}
 		}
   	}
+}
+
+menu main_menu {
+	item (_("About Ouch"), "win.about")
 }
 
 menu new_menu {

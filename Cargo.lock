@@ -478,6 +478,7 @@ dependencies = [
 name = "ouch"
 version = "0.2.0"
 dependencies = [
+ "gio",
  "gtk4",
  "libadwaita",
  "webkit6",
