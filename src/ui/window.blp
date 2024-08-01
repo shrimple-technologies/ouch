@@ -112,7 +112,7 @@ Adw.ApplicationWindow window {
 							tooltip-text: _("Copy link");
 						}
 
-						Button url_bar {
+						Button url_button {
 							label: "wikiwand.com";
 						}
 
@@ -236,7 +236,7 @@ Adw.ApplicationWindow window {
 
 Adw.Dialog url_dialog {
   	can-close: false;
-  	presentation-mode: floating;
+  	presentation-mode: auto;
 	follows-content-size: true;
 
   	Adw.Clamp {
@@ -248,7 +248,7 @@ Adw.Dialog url_dialog {
 			margin-end: 10;
 			spacing: 10;
 
-			Entry {
+			Entry url_bar {
 				input-purpose: url;
 				hexpand: true;
 			}

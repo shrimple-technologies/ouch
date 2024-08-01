@@ -1,4 +1,6 @@
 use adw::prelude::*;
+use glib::clone;
+use gtk::glib;
 use webkit6::{prelude::*, NetworkError, WebView};
 
 pub fn init(app: &adw::Application) {
@@ -17,12 +19,17 @@ pub fn init(app: &adw::Application) {
 	let url_dialog = builder
 		.object::<adw::Dialog>("url_dialog")
 		.expect("Couldn't get url dialog");
-	let url_bar = builder
-		.object::<gtk::Button>("url_bar")
-		.expect("Couldn't get url bar");
+	let url_button = builder
+		.object::<gtk::Button>("url_button")
+		.expect("Couldn't get url button");
 	let toggle_sidebar = builder
 		.object::<gtk::ToggleButton>("toggle_sidebar")
 		.expect("Couldn't get sidebar toggle");
+	let url_bar = builder
+		.object::<gtk::Entry>("url_bar")
+		.expect("Couldn't get url bar");
+
+	let url_dialog_c = url_dialog.clone();
 
 	let web_view = WebView::new();
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
@@ -39,12 +46,21 @@ pub fn init(app: &adw::Application) {
 	window.set_application(Some(app));
 	window.present();
 
+	#[allow(deprecated)] // i do not give two shits, rust
+	url_bar.connect_activate(clone!(@weak web_view => move |url_bar| {
+        let url = url_bar.buffer().text().as_str().to_string();
+        web_view.load_uri(&format!("https://{url}"));
+		url_dialog.force_close();
+    }));
+
 	toggle_sidebar.clone().connect_clicked(move |_| {
 		osv.set_show_sidebar(toggle_sidebar.is_active());
 	});
 
-	url_bar.connect_clicked(move |_| {
-		url_dialog.present(Some(&window));
+	url_button.connect_clicked(move |_| {
+		let buffer = gtk::EntryBuffer::new(web_view.uri());
+		url_bar.set_buffer(&buffer);
+		url_dialog_c.present(Some(&window));
 	});
 }
 
