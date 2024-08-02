@@ -3,6 +3,7 @@ use gio::ActionEntry;
 use glib::clone;
 use gtk::glib;
 use webkit6::{prelude::*, NetworkError, WebView};
+use url::{Url, ParseError};
 
 pub fn init(app: &adw::Application) {
 	let builder = gtk::Builder::from_string(
@@ -64,6 +65,7 @@ pub fn init(app: &adw::Application) {
 	let url_dialog_c5 = url_dialog.clone();
 	let url_bar_c = url_bar.clone();
 	let url_bar_c2 = url_bar.clone();
+	let url_button_c = url_button.clone();
 	let window_c = window.clone();
 
 	let web_view = WebView::new();
@@ -116,6 +118,19 @@ pub fn init(app: &adw::Application) {
 	url_bar.connect_activate(clone!(@weak web_view => move |url_bar| {
 		let url = url_bar.buffer().text().as_str().to_string();
 		web_view.load_uri(&format!("https://{url}"));
+		
+		let url = Url::parse(
+			&web_view.uri()
+				.expect("Couldn't get web view's url")
+				.as_str()
+			);
+		url_button_c.set_label(
+			url
+				.expect("Couldn't get url")
+				.host_str()
+				.expect("Couldn't get url's host")
+		);
+		
 		url_dialog_c4.force_close();
 	}));
 
