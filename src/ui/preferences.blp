@@ -1,0 +1,71 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.PreferencesDialog preferences {
+	search-enabled: true;
+
+	Adw.PreferencesPage {
+		title: "General";
+		icon-name: "applications-system-symbolic";
+
+		Adw.PreferencesGroup {
+			title: "Accessibility";
+
+			Adw.SwitchRow  {
+				title: "Enable gestures";
+				subtitle: "Gestures allow you to easily do actions by swiping. You may want to enable this setting if you are on a mobile device, or use a touchscreen.";
+				active: false;
+			}
+		}
+
+		Adw.PreferencesGroup {
+			title: "Appearance";
+
+			Adw.SwitchRow  {
+				title: "Enable dark mode";
+				subtitle: "Dark mode makes Ouch use a dark appearance, meant to be easy on the eyes.";
+				active: false;
+			}
+		}
+
+		Adw.PreferencesGroup {
+			title: "Developers";
+
+			Adw.SwitchRow  {
+				title: "Enable developer tools";
+				subtitle: "Developer tools enables you to inspect a website, and make live changes to the website.";
+				active: false;
+			}
+		}
+	}
+
+	Adw.PreferencesPage {
+		title: "Browser";
+		icon-name: "web-browser-symbolic";
+
+		Adw.PreferencesGroup {
+			title: "Security";
+
+			Adw.SwitchRow  {
+				title: "JavaScript";
+				subtitle: "JavaScript is required to make some websites work. If you disable this, then most websites will not load or work correctly anymore.";
+				active: true;
+			}
+
+			Adw.SwitchRow  {
+				title: "Enable clipboard access for websites";
+				subtitle: "You may want to enable this setting if you mostly use websites that directly grab text from your clipboard (e.g. designing websites)";
+				active: false;
+			}
+		}
+
+		Adw.PreferencesGroup {
+			title: "Privacy";
+
+			Adw.EntryRow  {
+				title: "User Agent";
+				show-apply-button: true;
+			}
+		}
+	}
+}

@@ -40,6 +40,12 @@ pub fn init(app: &adw::Application) {
 		.object::<gtk::ShortcutsWindow>("help_overlay")
 		.expect("Couldn't get help overlay");
 
+	let preferences = gtk::Builder::from_string(
+		include_str!("ui/preferences.ui")
+	)
+		.object::<adw::PreferencesDialog>("preferences")
+		.expect("Couldn't get preferences dialog");
+
 	let about = gtk::Builder::from_string(
 		include_str!("ui/about.ui")
 	)
@@ -67,6 +73,7 @@ pub fn init(app: &adw::Application) {
 	let url_bar_c2 = url_bar.clone();
 	let url_button_c = url_button.clone();
 	let window_c = window.clone();
+	let window_c2 = window.clone();
 
 	let web_view = WebView::new();
 	let web_view_c = web_view.clone();
@@ -108,7 +115,12 @@ pub fn init(app: &adw::Application) {
 			help_overlay.present();
 		})
 		.build();
-	window.add_action_entries([action_quit, action_cmd, action_about, action_help]);
+	let action_preferences = ActionEntry::builder("show-preferences")
+		.activate(move |_, _, _| {
+			preferences.present(Some(&window_c2));
+		})
+		.build();
+	window.add_action_entries([action_quit, action_cmd, action_about, action_help, action_preferences]);
 
 	url_dialog.connect_close_attempt(move |_| {
 		url_dialog_c2.force_close();

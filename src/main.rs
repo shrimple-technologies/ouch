@@ -12,6 +12,7 @@ fn main() -> glib::ExitCode {
 
 	app.set_accels_for_action("win.quit", &["<Ctrl>Q"]);
 	app.set_accels_for_action("win.cmd", &["<Ctrl>L"]);
+	app.set_accels_for_action("win.show-preferences", &["<Ctrl>comma"]);
 
 	app.run()
 }
