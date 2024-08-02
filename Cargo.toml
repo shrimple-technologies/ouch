@@ -3,10 +3,6 @@ name = "ouch"
 version = "0.2.0"
 edition = "2021"
 
-[features]
-default = ["css"]
-css = []
-
 [dependencies]
 adw = { version = "0.7.0", package = "libadwaita", features = ["v1_5"] }
 gio = { version = "0.20.0", features = ["v2_80"] }

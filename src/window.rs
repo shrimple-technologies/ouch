@@ -29,6 +29,9 @@ pub fn init(app: &adw::Application) {
 	let url_bar = builder
 		.object::<gtk::Entry>("url_bar")
 		.expect("Couldn't get url bar");
+	let url_bar_button = builder
+		.object::<gtk::Button>("url_bar_button")
+		.expect("Couldn't get url bar button");
 
 	let help_overlay = gtk::Builder::from_string(
 		include_str!("ui/help-overlay.ui")
@@ -53,14 +56,20 @@ pub fn init(app: &adw::Application) {
 		"Max Walters"
 	]);
 
+	// the army
 	let url_dialog_c = url_dialog.clone();
 	let url_dialog_c2 = url_dialog.clone();
 	let url_dialog_c3 = url_dialog.clone();
+	let url_dialog_c4 = url_dialog.clone();
+	let url_dialog_c5 = url_dialog.clone();
 	let url_bar_c = url_bar.clone();
+	let url_bar_c2 = url_bar.clone();
 	let window_c = window.clone();
 
 	let web_view = WebView::new();
 	let web_view_c = web_view.clone();
+	let web_view_c2 = web_view.clone();
+	
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
 			let content = error_page(error.message());
@@ -107,7 +116,7 @@ pub fn init(app: &adw::Application) {
 	url_bar.connect_activate(clone!(@weak web_view => move |url_bar| {
 		let url = url_bar.buffer().text().as_str().to_string();
 		web_view.load_uri(&format!("https://{url}"));
-		url_dialog.force_close();
+		url_dialog_c4.force_close();
 	}));
 
 	toggle_sidebar.clone().connect_clicked(move |_| {
@@ -118,6 +127,12 @@ pub fn init(app: &adw::Application) {
 		let buffer = gtk::EntryBuffer::new(web_view.uri());
 		url_bar.set_buffer(&buffer);
 		url_dialog_c.present(Some(&window));
+	});
+
+	url_bar_button.connect_clicked(move |_| {
+		let url = url_bar_c2.buffer().text().as_str().to_string();
+		web_view_c2.load_uri(&format!("https://{url}"));
+		url_dialog_c5.force_close();
 	});
 }
 

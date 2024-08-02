@@ -15,6 +15,7 @@ Adw.ApplicationWindow window {
 			bottom_hb.visible: true;
 			frame.margin-bottom: 0;
 			toggle_sidebar.active: false;
+			url_bar_button.visible: true;
 
 			button_forward.visible: false;
 			button_back.visible: false;
@@ -249,12 +250,23 @@ Adw.Dialog url_dialog {
 			margin-end: 10;
 			spacing: 10;
 
-			Entry url_bar {
-				input-purpose: url;
-				hexpand: true;
+			Box {
+				orientation: horizontal;
+				spacing: 10;
+			
+				Entry url_bar {
+					input-purpose: url;
+					hexpand: true;
+				}
+
+				Button url_bar_button {
+					icon-name: "go-next-symbolic";
+					visible: false;
+					styles [ "suggested-action" ]
+				}
 			}
 
-			Adw.ActionRow {
+			/* Adw.ActionRow {
 				title: "what is y2k";
 				subtitle: "Search on Google";
 			}
@@ -262,7 +274,7 @@ Adw.Dialog url_dialog {
 			Adw.ActionRow {
 				title: "what is yapping";
 				subtitle: "Search on Google";
-			}
+			} */
 		}
   	}
 }
