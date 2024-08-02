@@ -3,7 +3,7 @@ use gio::ActionEntry;
 use glib::clone;
 use gtk::glib;
 use webkit6::{prelude::*, NetworkError, WebView};
-use url::{Url, ParseError};
+use url::Url;
 
 pub fn init(app: &adw::Application) {
 	let builder = gtk::Builder::from_string(
