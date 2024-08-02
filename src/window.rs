@@ -2,13 +2,11 @@ use adw::prelude::*;
 use gio::ActionEntry;
 use glib::clone;
 use gtk::glib;
-use webkit6::{prelude::*, NetworkError, WebView};
 use url::Url;
+use webkit6::{prelude::*, NetworkError, WebView};
 
 pub fn init(app: &adw::Application) {
-	let builder = gtk::Builder::from_string(
-		include_str!("ui/window.ui")
-	);
+	let builder = gtk::Builder::from_string(include_str!("ui/window.ui"));
 	let window = builder
 		.object::<adw::ApplicationWindow>("window")
 		.expect("Couldn't get window");
@@ -34,51 +32,26 @@ pub fn init(app: &adw::Application) {
 		.object::<gtk::Button>("url_bar_button")
 		.expect("Couldn't get url bar button");
 
-	let help_overlay = gtk::Builder::from_string(
-		include_str!("ui/help-overlay.ui")
-	)
+	let help_overlay = gtk::Builder::from_string(include_str!("ui/help-overlay.ui"))
 		.object::<gtk::ShortcutsWindow>("help_overlay")
 		.expect("Couldn't get help overlay");
 
-	let preferences = gtk::Builder::from_string(
-		include_str!("ui/preferences.ui")
-	)
+	let preferences = gtk::Builder::from_string(include_str!("ui/preferences.ui"))
 		.object::<adw::PreferencesDialog>("preferences")
 		.expect("Couldn't get preferences dialog");
 
-	let about = gtk::Builder::from_string(
-		include_str!("ui/about.ui")
-	)
+	let about = gtk::Builder::from_string(include_str!("ui/about.ui"))
 		.object::<adw::AboutWindow>("about")
 		.expect("Couldn't get about window");
-	about.set_developers(&[
-		"Max Walters",
-		"Ally Walters"
-	]);
-	about.add_acknowledgement_section(Some("Acknowledgements"), &[
-		"The Browser Company",
-		"The GNOME Developers"
-	]);
-	about.add_acknowledgement_section(Some("Banner designs"), &[
-		"Max Walters"
-	]);
-
-	// the army
-	let url_dialog_c = url_dialog.clone();
-	let url_dialog_c2 = url_dialog.clone();
-	let url_dialog_c3 = url_dialog.clone();
-	let url_dialog_c4 = url_dialog.clone();
-	let url_dialog_c5 = url_dialog.clone();
-	let url_bar_c = url_bar.clone();
-	let url_bar_c2 = url_bar.clone();
-	let url_button_c = url_button.clone();
-	let window_c = window.clone();
-	let window_c2 = window.clone();
+	about.set_developers(&["Max Walters", "Ally Walters"]);
+	about.add_acknowledgement_section(
+		Some("Acknowledgements"),
+		&["The Browser Company", "The GNOME Developers"],
+	);
+	about.add_acknowledgement_section(Some("Banner designs"), &["Max Walters"]);
 
 	let web_view = WebView::new();
-	let web_view_c = web_view.clone();
-	let web_view_c2 = web_view.clone();
-	
+
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
 			let content = error_page(error.message());
@@ -99,11 +72,21 @@ pub fn init(app: &adw::Application) {
 		})
 		.build();
 	let action_cmd = ActionEntry::builder("cmd")
-		.activate(move |_, _, _| {
-			let buffer = gtk::EntryBuffer::new(web_view_c.uri());
-			url_bar_c.set_buffer(&buffer);
-			url_dialog_c3.present(Some(&window_c));
-		})
+		.activate(clone!(
+			#[weak]
+			web_view,
+			#[weak]
+			url_bar,
+			#[weak]
+			url_dialog,
+			#[weak]
+			window,
+			move |_, _, _| {
+				let buffer = gtk::EntryBuffer::new(web_view.uri());
+				url_bar.set_buffer(&buffer);
+				url_dialog.present(Some(&window));
+			}
+		))
 		.build();
 	let action_about = ActionEntry::builder("about")
 		.activate(move |_, _, _| {
@@ -116,55 +99,94 @@ pub fn init(app: &adw::Application) {
 		})
 		.build();
 	let action_preferences = ActionEntry::builder("show-preferences")
-		.activate(move |_, _, _| {
-			preferences.present(Some(&window_c2));
-		})
+		.activate(clone!(
+			#[weak]
+			window,
+			move |_, _, _| {
+				preferences.present(Some(&window));
+			}
+		))
 		.build();
-	window.add_action_entries([action_quit, action_cmd, action_about, action_help, action_preferences]);
+	window.add_action_entries([
+		action_quit,
+		action_cmd,
+		action_about,
+		action_help,
+		action_preferences,
+	]);
 
-	url_dialog.connect_close_attempt(move |_| {
-		url_dialog_c2.force_close();
-	});
+	url_dialog.connect_close_attempt(clone!(
+		#[weak]
+		url_dialog,
+		move |_| {
+			url_dialog.force_close();
+		}
+	));
 
 	#[allow(deprecated)] // i do not give two shits, rust
-	url_bar.connect_activate(clone!(@weak web_view => move |url_bar| {
-		let url = url_bar.buffer().text().as_str().to_string();
-		web_view.load_uri(&format!("https://{url}"));
-		
-		let url = Url::parse(
-			&web_view.uri()
-				.expect("Couldn't get web view's url")
-				.as_str()
+	url_bar.connect_activate(clone!(
+		#[weak]
+		web_view,
+		#[weak]
+		url_dialog,
+		#[weak]
+		url_button,
+		move |url_bar| {
+			let url = url_bar.buffer().text().as_str().to_string();
+			web_view.load_uri(&format!("https://{url}"));
+
+			let url = Url::parse(
+				&web_view
+					.uri()
+					.expect("Couldn't get web view's url")
+					.as_str(),
 			);
-		url_button_c.set_label(
-			url
-				.expect("Couldn't get url")
-				.host_str()
-				.expect("Couldn't get url's host")
-		);
-		
-		url_dialog_c4.force_close();
-	}));
+			url_button.set_label(
+				url.expect("Couldn't get url")
+					.host_str()
+					.expect("Couldn't get url's host"),
+			);
+
+			url_dialog.force_close();
+		}
+	));
 
 	toggle_sidebar.clone().connect_clicked(move |_| {
 		osv.set_show_sidebar(toggle_sidebar.is_active());
 	});
 
-	url_button.connect_clicked(move |_| {
-		let buffer = gtk::EntryBuffer::new(web_view.uri());
-		url_bar.set_buffer(&buffer);
-		url_dialog_c.present(Some(&window));
-	});
+	url_button.connect_clicked(clone!(
+		#[weak]
+		url_dialog,
+		#[weak]
+		web_view,
+		#[weak]
+		url_bar,
+		move |_| {
+			let buffer = gtk::EntryBuffer::new(web_view.uri());
+			url_bar.set_buffer(&buffer);
+			url_dialog.present(Some(&window));
+		}
+	));
 
-	url_bar_button.connect_clicked(move |_| {
-		let url = url_bar_c2.buffer().text().as_str().to_string();
-		web_view_c2.load_uri(&format!("https://{url}"));
-		url_dialog_c5.force_close();
-	});
+	url_bar_button.connect_clicked(clone!(
+		#[weak]
+		url_bar,
+		#[weak]
+		web_view,
+		#[weak]
+		url_dialog,
+		move |_| {
+			let url = url_bar.buffer().text().as_str().to_string();
+			web_view.load_uri(&format!("https://{url}"));
+			url_dialog.force_close();
+		}
+	));
 }
 
 fn error_page(msg: &str) -> String {
-	format!(r#"
+	format!(
+		r#"
 		<!doctype html>
 			<html>
 				<head>
@@ -190,5 +212,6 @@ fn error_page(msg: &str) -> String {
 					<h3>There was an error loading this website</h3>
 					<small>{msg}</small>
 				</body>
-			</html>"#)
+			</html>"#
+	)
 }
