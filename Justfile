@@ -6,7 +6,18 @@ build:
 		src/ui/about.blp \
 		src/ui/help-overlay.blp \
 		src/ui/preferences.blp
-	@cargo build
+	@cargo build --features devel
+
+build-release:
+	@blueprint-compiler batch-compile \
+		src/ui \
+		src/ui \
+		src/ui/window.blp \
+		src/ui/about.blp \
+		src/ui/help-overlay.blp \
+		src/ui/preferences.blp
+	@cargo build --release
+	@cp target/release/ouch .
 
 run:
 	@blueprint-compiler batch-compile \
@@ -16,4 +27,4 @@ run:
 		src/ui/about.blp \
 		src/ui/help-overlay.blp \
 		src/ui/preferences.blp
-	@cargo run
+	@cargo run --features devel

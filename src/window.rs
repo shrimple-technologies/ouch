@@ -50,6 +50,8 @@ pub fn init(app: &adw::Application) {
 	);
 	about.add_acknowledgement_section(Some("Banner designs"), &["Max Walters"]);
 
+	#[cfg(feature = "devel")] window.add_css_class("devel");
+
 	let web_view = WebView::new();
 
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
@@ -73,13 +75,13 @@ pub fn init(app: &adw::Application) {
 		.build();
 	let action_cmd = ActionEntry::builder("cmd")
 		.activate(clone!(
-			#[weak]
+			#[strong]
 			web_view,
-			#[weak]
+			#[strong]
 			url_bar,
-			#[weak]
+			#[strong]
 			url_dialog,
-			#[weak]
+			#[strong]
 			window,
 			move |_, _, _| {
 				let buffer = gtk::EntryBuffer::new(web_view.uri());
@@ -100,7 +102,7 @@ pub fn init(app: &adw::Application) {
 		.build();
 	let action_preferences = ActionEntry::builder("show-preferences")
 		.activate(clone!(
-			#[weak]
+			#[strong]
 			window,
 			move |_, _, _| {
 				preferences.present(Some(&window));
@@ -116,20 +118,19 @@ pub fn init(app: &adw::Application) {
 	]);
 
 	url_dialog.connect_close_attempt(clone!(
-		#[weak]
+		#[strong]
 		url_dialog,
 		move |_| {
 			url_dialog.force_close();
 		}
 	));
 
-	#[allow(deprecated)] // i do not give two shits, rust
 	url_bar.connect_activate(clone!(
-		#[weak]
+		#[strong]
 		web_view,
-		#[weak]
+		#[strong]
 		url_dialog,
-		#[weak]
+		#[strong]
 		url_button,
 		move |url_bar| {
 			let url = url_bar.buffer().text().as_str().to_string();
@@ -156,11 +157,11 @@ pub fn init(app: &adw::Application) {
 	});
 
 	url_button.connect_clicked(clone!(
-		#[weak]
+		#[strong]
 		url_dialog,
-		#[weak]
+		#[strong]
 		web_view,
-		#[weak]
+		#[strong]
 		url_bar,
 		move |_| {
 			let buffer = gtk::EntryBuffer::new(web_view.uri());
@@ -170,11 +171,11 @@ pub fn init(app: &adw::Application) {
 	));
 
 	url_bar_button.connect_clicked(clone!(
-		#[weak]
+		#[strong]
 		url_bar,
-		#[weak]
+		#[strong]
 		web_view,
-		#[weak]
+		#[strong]
 		url_dialog,
 		move |_| {
 			let url = url_bar.buffer().text().as_str().to_string();

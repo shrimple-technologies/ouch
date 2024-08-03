@@ -3,6 +3,9 @@ name = "ouch"
 version = "0.3.0"
 edition = "2021"
 
+[features]
+devel = []
+
 [dependencies]
 adw = { version = "0.7.0", package = "libadwaita", features = ["v1_5"] }
 gio = { version = "0.20.0", features = ["v2_80"] }
