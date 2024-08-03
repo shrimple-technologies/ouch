@@ -50,7 +50,8 @@ pub fn init(app: &adw::Application) {
 	);
 	about.add_acknowledgement_section(Some("Banner designs"), &["Max Walters"]);
 
-	#[cfg(feature = "devel")] window.add_css_class("devel");
+	#[cfg(feature = "devel")]
+	window.add_css_class("devel");
 
 	let web_view = WebView::new();
 
