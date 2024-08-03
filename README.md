@@ -8,7 +8,5 @@ To build Ouch, you need [GTK 4](https://gitlab.gnome.org/GNOME/gtk), [libadwaita
 
 ```sh
 just # build ouch
-
-# optionally run ouch
-# just run
+just run # run ouch
 ```
