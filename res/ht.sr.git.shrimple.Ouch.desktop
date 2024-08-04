@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Ouch Browser
+Exec=ouch
+Icon=ht.sr.git.shrimple.Ouch
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

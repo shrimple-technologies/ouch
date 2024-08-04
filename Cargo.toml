@@ -1,10 +1,11 @@
 [package]
 name = "ouch"
-version = "0.3.0"
+version = "0.4.0"
 edition = "2021"
 
 [features]
 devel = []
+flatpak = []
 
 [dependencies]
 adw = { version = "0.7.0", package = "libadwaita", features = ["v1_5"] }

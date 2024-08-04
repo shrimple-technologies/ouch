@@ -58,7 +58,9 @@
 			"build-commands": [
 				"blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/help-overlay.blp src/ui/preferences.blp",
 				"cargo build --release",
-				"install -Dm 755 target/release/ouch --target-directory ${FLATPAK_DEST}/bin"
+				"install -Dm 755 target/release/ouch --target-directory ${FLATPAK_DEST}/bin",
+				"install -Dm 644 res/ht.sr.git.shrimple.Ouch.desktop --target-directory ${FLATPAK_DEST}/share/applications",
+				"install -Dm 644 res/ht.sr.git.shrimple.Ouch.svg --target-directory ${FLATPAK_DEST}/share/icons/hicolor/apps"
 			],
 			"sources": [
 				{
