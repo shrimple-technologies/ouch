@@ -2,9 +2,17 @@
 target/
 ouch
 
+# files packed for distribution
+ouch-*.*.*.tar.gz
+ouch-*.*.*/
+
 # gtk builder files
 *.ui
+
+# temporary folder
+.tmp/
 
 # flatpak-builder outputs
 .build
 .flatpak-builder
+ht.sr.git.shrimple.Ouch.flatpak

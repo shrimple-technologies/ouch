@@ -1,3 +1,5 @@
+VERSION := "0.3.0"
+
 build:
 	@blueprint-compiler batch-compile \
 		src/ui \
@@ -19,8 +21,34 @@ build-release:
 	@cargo build --release
 
 build-flatpak:
-	@flatpak-builder .build ht.sr.git.shrimple.Ouch.json --force-clean
+	@flatpak-builder \
+		--force-clean \
+		--install \
+		--user \
+		--repo=.build/repo \
+		.build \
+		ht.sr.git.shrimple.Ouch.json
+	@flatpak build-bundle \
+		.build/repo \
+		ht.sr.git.shrimple.Ouch.flatpak \
+		ht.sr.git.shrimple.Ouch \
+		--runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 
+# MAINTAINERS: Run this command when you have finished releasing a new version of Ouch (e.g. pushed version bump commit, pushed tag, updated tar.gz file checksums).
+pack:
+	@rm -rf ouch-*.*.*
+	@mkdir -p .tmp
+	@just build-release
+	@just build-flatpak
+	@cp ht.sr.git.shrimple.Ouch.flatpak .tmp
+	@cp target/release/ouch .tmp
+	@cp licenses/GPL-3.0-or-later.txt .tmp
+	@tar \
+		-czvf \
+		ouch-{{VERSION}}.tar.gz \
+		--directory=.tmp \
+		.
+	@rm -rf .tmp ht.sr.git.shrimple.Ouch.flatpak .build .flatpak-builder
 run:
 	@blueprint-compiler batch-compile \
 		src/ui \
