@@ -280,7 +280,11 @@ Adw.Dialog url_dialog {
 menu main_menu {
 	item (_("Settings"), "win.show-preferences")
 	item (_("Keyboard Shortcuts"), "win.show-help-overlay")
-	item (_("About Ouch"), "win.about")
+
+	section {
+		item (_("About Shrimple Technologies"), "win.about-shrimple")
+		item (_("About Ouch Browser"), "win.about")
+	}
 }
 
 menu new_menu {

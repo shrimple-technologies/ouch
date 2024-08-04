@@ -52,9 +52,14 @@ pub fn init(app: &adw::Application) {
 	);
 	about.add_acknowledgement_section(Some("Banner designs"), &["Max Walters"]);
 
-	let about = gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
+	let about_shrimple = gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
 		.object::<adw::AboutWindow>("about_shrimple")
 		.expect("Couldn't get about window");
+	about_shrimple.set_transient_for(Some(&window));
+	about_shrimple.add_acknowledgement_section(
+		Some("Members"),
+		&["Max Walters", "Ally Walters"],
+	);
 
 	#[cfg(feature = "devel")]
 	window.add_css_class("devel");
@@ -102,6 +107,11 @@ pub fn init(app: &adw::Application) {
 			about.present();
 		})
 		.build();
+	let action_about_shrimple = ActionEntry::builder("about-shrimple")
+		.activate(move |_, _, _| {
+			about_shrimple.present();
+		})
+		.build();
 	let action_help = ActionEntry::builder("show-help-overlay")
 		.activate(move |_, _, _| {
 			help_overlay.present();
@@ -120,6 +130,7 @@ pub fn init(app: &adw::Application) {
 		action_quit,
 		action_cmd,
 		action_about,
+		action_about_shrimple,
 		action_help,
 		action_preferences,
 	]);
