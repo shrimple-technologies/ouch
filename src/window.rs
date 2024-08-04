@@ -52,6 +52,10 @@ pub fn init(app: &adw::Application) {
 	);
 	about.add_acknowledgement_section(Some("Banner designs"), &["Max Walters"]);
 
+	let about = gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
+		.object::<adw::AboutWindow>("about_shrimple")
+		.expect("Couldn't get about window");
+
 	#[cfg(feature = "devel")]
 	window.add_css_class("devel");
 

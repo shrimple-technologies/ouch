@@ -1,4 +1,4 @@
-VERSION := "0.3.2"
+VERSION := "0.4.0"
 
 build:
 	@blueprint-compiler batch-compile \
@@ -6,6 +6,7 @@ build:
 		src/ui \
 		src/ui/window.blp \
 		src/ui/about.blp \
+		src/ui/about-shrimple.blp \
 		src/ui/help-overlay.blp \
 		src/ui/preferences.blp
 	@cargo build --features devel
@@ -16,6 +17,7 @@ build-release:
 		src/ui \
 		src/ui/window.blp \
 		src/ui/about.blp \
+		src/ui/about-shrimple.blp \
 		src/ui/help-overlay.blp \
 		src/ui/preferences.blp
 	@cargo build --release
@@ -27,7 +29,7 @@ build-flatpak:
 		--user \
 		--repo=.build/repo \
 		.build \
-		build-aux/flatpak/ht.sr.git.shrimple.Ouch.json
+		ht.sr.git.shrimple.Ouch.json
 	@flatpak build-bundle \
 		.build/repo \
 		ht.sr.git.shrimple.Ouch.flatpak \
@@ -56,5 +58,6 @@ run:
 		src/ui/window.blp \
 		src/ui/about.blp \
 		src/ui/help-overlay.blp \
+		src/ui/about-shrimple.blp \
 		src/ui/preferences.blp
 	@cargo run --features devel
