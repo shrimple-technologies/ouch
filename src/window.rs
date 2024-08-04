@@ -122,7 +122,7 @@ pub fn init(app: &adw::Application) {
 		#[strong]
 		url_dialog,
 		move |_| {
-			url_dialog.force_close();
+			url_dialog.close();
 		}
 	));
 
@@ -149,7 +149,7 @@ pub fn init(app: &adw::Application) {
 					.expect("Couldn't get url's host"),
 			);
 
-			url_dialog.force_close();
+			url_dialog.close();
 		}
 	));
 
@@ -181,7 +181,7 @@ pub fn init(app: &adw::Application) {
 		move |_| {
 			let url = url_bar.buffer().text().as_str().to_string();
 			web_view.load_uri(&format!("https://{url}"));
-			url_dialog.force_close();
+			url_dialog.close();
 		}
 	));
 }
