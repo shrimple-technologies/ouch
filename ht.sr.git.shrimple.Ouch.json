@@ -24,31 +24,36 @@
 			"RUST_LOG": "ouch=debug"
 		}
 	},
-	"cleanup": [
-		"/include",
-		"/lib/pkgconfig",
-		"/man",
-		"/share/doc",
-		"/share/gtk-doc",
-		"/share/man",
-		"/share/pkgconfig",
-		"*.la",
-		"*.a"
-	],
+	"cleanup": ["*"],
 	"modules": [
+		{
+			"name": "blueprint-compiler",
+			"buildsystem": "meson",
+			"cleanup": [
+				"*"
+			],
+			"sources": [
+				{
+					"type": "git",
+					"url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
+					"tag": "v0.12.0"
+				}
+			]
+		},
 		{
 			"name": "ouch",
 			"builddir": true,
 			"buildsystem": "simple",
 			"build-commands": [
+				"blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/help-overlay.blp src/ui/preferences.blp",
 				"cargo build --release",
 				"install -Dm 755 target/release/ouch --target-directory ${FLATPAK_DEST}/bin"
 			],
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://git.sr.ht/~shrimple/ouch/archive/0.2.0.tar.gz",
-					"sha256": "116acc49bb5e53d579cfb3c17b8bbab01ba9361c5a72223f1de2c05b0db3d353"
+					"url": "https://git.sr.ht/~shrimple/ouch/archive/0.3.0.tar.gz",
+					"sha256": "5717ef706dc6ff095e31bc4cb9b1814f0bef0fb5551ec926471cb35c60209a8c"
 				}
 			]
 		}

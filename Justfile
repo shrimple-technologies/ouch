@@ -16,9 +16,9 @@ build-release:
 		src/ui/about.blp \
 		src/ui/help-overlay.blp \
 		src/ui/preferences.blp
-
 	@cargo build --release
 
+build-flatpak:
 	@flatpak-builder .build ht.sr.git.shrimple.Ouch.json --force-clean
 
 run:
