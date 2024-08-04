@@ -1,5 +1,10 @@
 # compiled files
 target/
+ouch
 
 # gtk builder files
 *.ui
+
+# flatpak-builder outputs
+.build
+.flatpak-builder

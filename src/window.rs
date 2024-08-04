@@ -35,6 +35,7 @@ pub fn init(app: &adw::Application) {
 	let help_overlay = gtk::Builder::from_string(include_str!("ui/help-overlay.ui"))
 		.object::<gtk::ShortcutsWindow>("help_overlay")
 		.expect("Couldn't get help overlay");
+	help_overlay.set_transient_for(Some(&window));
 
 	let preferences = gtk::Builder::from_string(include_str!("ui/preferences.ui"))
 		.object::<adw::PreferencesDialog>("preferences")

@@ -16,8 +16,10 @@ build-release:
 		src/ui/about.blp \
 		src/ui/help-overlay.blp \
 		src/ui/preferences.blp
+
 	@cargo build --release
-	@cp target/release/ouch .
+
+	@flatpak-builder .build ht.sr.git.shrimple.Ouch.json --force-clean
 
 run:
 	@blueprint-compiler batch-compile \
