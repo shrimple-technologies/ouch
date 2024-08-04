@@ -43,6 +43,7 @@ pub fn init(app: &adw::Application) {
 	let about = gtk::Builder::from_string(include_str!("ui/about.ui"))
 		.object::<adw::AboutWindow>("about")
 		.expect("Couldn't get about window");
+	about.set_transient_for(Some(&window));
 	about.set_developers(&["Max Walters", "Ally Walters"]);
 	about.add_acknowledgement_section(
 		Some("Acknowledgements"),
