@@ -4,5 +4,5 @@ Exec=ouch
 Icon=ht.sr.git.shrimple.Ouch
 Terminal=false
 Type=Application
-Categories=GTK;
+Categories=Network;WebBrowser
 StartupNotify=true

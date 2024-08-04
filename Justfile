@@ -1,4 +1,4 @@
-VERSION := "0.4.0"
+VERSION := "0.3.2"
 
 build:
 	@blueprint-compiler batch-compile \

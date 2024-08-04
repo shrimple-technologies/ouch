@@ -61,13 +61,12 @@
 				"install -Dm 755 target/release/ouch --target-directory ${FLATPAK_DEST}/bin",
 				"install -Dm 644 res/${FLATPAK_ID}.desktop --target-directory ${FLATPAK_DEST}/share/applications",
 				"install -Dm 644 res/${FLATPAK_ID}.metainfo.xml --target-directory ${FLATPAK_DEST}/share/metainfo",
-				"install -Dm 644 res/${FLATPAK_ID}.svg --target-directory ${FLATPAK_DEST}/share/icons/hicolor/apps"
+				"install -Dm 644 res/${FLATPAK_ID}.svg --target-directory ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/"
 			],
 			"sources": [
 				{
-					"type": "archive",
-					"url": "https://git.sr.ht/~shrimple/ouch/archive/0.3.1.tar.gz",
-					"sha256": "5717ef706dc6ff095e31bc4cb9b1814f0bef0fb5551ec926471cb35c60209a8c"
+					"type": "dir",
+					"path": "."
 				}
 			]
 		}
