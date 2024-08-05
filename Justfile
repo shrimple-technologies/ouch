@@ -51,6 +51,7 @@ pack:
 		--directory=.tmp \
 		.
 	@rm -rf .tmp ht.sr.git.shrimple.Ouch.flatpak .build .flatpak-builder
+	
 run:
 	@blueprint-compiler batch-compile \
 		src/ui \
