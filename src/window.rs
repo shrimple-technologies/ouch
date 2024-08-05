@@ -42,9 +42,8 @@ pub fn init(app: &adw::Application) {
 		.expect("Couldn't get preferences dialog");
 
 	let about = gtk::Builder::from_string(include_str!("ui/about.ui"))
-		.object::<adw::AboutWindow>("about")
-		.expect("Couldn't get about window");
-	about.set_transient_for(Some(&window));
+		.object::<adw::AboutDialog>("about")
+		.expect("Couldn't get about dialog");
 	about.set_developers(&["Max Walters", "Ally Walters"]);
 	about.add_acknowledgement_section(
 		Some("Acknowledgements"),
@@ -53,13 +52,9 @@ pub fn init(app: &adw::Application) {
 	about.add_acknowledgement_section(Some("Banner designs"), &["Max Walters"]);
 
 	let about_shrimple = gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
-		.object::<adw::AboutWindow>("about_shrimple")
-		.expect("Couldn't get about window");
-	about_shrimple.set_transient_for(Some(&window));
-	about_shrimple.add_acknowledgement_section(
-		Some("Members"),
-		&["Max Walters", "Ally Walters"],
-	);
+		.object::<adw::AboutDialog>("about_shrimple")
+		.expect("Couldn't get about dialog");
+	about_shrimple.add_acknowledgement_section(Some("Members"), &["Max Walters", "Ally Walters"]);
 
 	#[cfg(feature = "devel")]
 	window.add_css_class("devel");
@@ -103,14 +98,21 @@ pub fn init(app: &adw::Application) {
 		))
 		.build();
 	let action_about = ActionEntry::builder("about")
-		.activate(move |_, _, _| {
-			about.present();
-		})
+		.activate(clone!(
+			#[strong]
+			window,
+			move |_, _, _| {
+				about.present(Some(&window));
+			}
+		))
 		.build();
 	let action_about_shrimple = ActionEntry::builder("about-shrimple")
-		.activate(move |_, _, _| {
-			about_shrimple.present();
-		})
+		.activate(clone!(
+			#[strong]
+			window,
+			move |_, _, _| {
+			about_shrimple.present(Some(&window));
+		}))
 		.build();
 	let action_help = ActionEntry::builder("show-help-overlay")
 		.activate(move |_, _, _| {
