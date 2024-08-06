@@ -3,5 +3,5 @@ frame {
 }
 
 navigation-view-page {
-	background: #242424;
+	background: @window_bg_color;
 }
