@@ -29,7 +29,7 @@ build-flatpak:
 		--user \
 		--repo=.build/repo \
 		.build \
-		ht.sr.git.shrimple.Ouch.json
+		build-aux/flatpak/ht.sr.git.shrimple.Ouch.json
 	@flatpak build-bundle \
 		.build/repo \
 		ht.sr.git.shrimple.Ouch.flatpak \
