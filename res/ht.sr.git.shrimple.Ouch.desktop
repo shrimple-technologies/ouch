@@ -5,4 +5,5 @@ Icon=ht.sr.git.shrimple.Ouch
 Terminal=false
 Type=Application
 Categories=Network;WebBrowser
+X-Purism-FormFactor=Workstation;Mobile;
 StartupNotify=true
