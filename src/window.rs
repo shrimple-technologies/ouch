@@ -164,7 +164,10 @@ pub fn init(app: &adw::Application) {
 		url_button,
 		move |url_bar| {
 			#[cfg(feature = "debug")]
-			println!("[ouch/window/browser] loading \"https://{}\"...", url_bar.buffer().text().as_str().to_string());
+			println!(
+				"[ouch/window/browser] loading \"https://{}\"...",
+				url_bar.buffer().text().as_str().to_string()
+			);
 
 			let url = url_bar.buffer().text().as_str().to_string();
 			web_view.load_uri(&format!("https://{url}"));
@@ -212,7 +215,10 @@ pub fn init(app: &adw::Application) {
 		url_dialog,
 		move |_| {
 			#[cfg(feature = "debug")]
-			println!("[ouch/window/browser] loading \"https://{}\"...", url_bar.buffer().text().as_str().to_string());
+			println!(
+				"[ouch/window/browser] loading \"https://{}\"...",
+				url_bar.buffer().text().as_str().to_string()
+			);
 
 			let url = url_bar.buffer().text().as_str().to_string();
 			web_view.load_uri(&format!("https://{url}"));
