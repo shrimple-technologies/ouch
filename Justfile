@@ -1,4 +1,4 @@
-VERSION := "0.4.0"
+VERSION := "0.3.3"
 
 build:
 	@blueprint-compiler batch-compile \
@@ -38,13 +38,17 @@ build-flatpak:
 
 # MAINTAINERS: Run this command when you have finished releasing a new version of Ouch (e.g. pushed version bump commit, pushed tag, updated tar.gz file checksums).
 pack:
-	@rm -rf ouch-*.*.*
+	@rm -rf ouch-*.*.* .tmp site.srht.shrimple.Ouch.flatpak .build .flatpak-builder
 	@mkdir -p .tmp
 	@just build-release
 	@just build-flatpak
 	@cp site.srht.shrimple.Ouch.flatpak .tmp
 	@cp target/release/ouch .tmp
+	@cp res/site.srht.shrimple.Ouch.desktop .tmp
+	@cp res/site.srht.shrimple.Ouch.svg .tmp
+	@cp res/site.srht.shrimple.svg .tmp
 	@cp licenses/GPL-3.0-or-later.txt .tmp
+	@mv .tmp/GPL-3.0-or-later.txt .tmp/license.txt
 	@tar \
 		-czvf \
 		ouch-{{VERSION}}.tar.gz \
