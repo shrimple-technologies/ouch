@@ -9,7 +9,7 @@ build:
 		src/ui/about-shrimple.blp \
 		src/ui/help-overlay.blp \
 		src/ui/preferences.blp
-	@cargo build --features devel,debug
+	@cargo build --features devel
 
 build-release:
 	@blueprint-compiler batch-compile \
@@ -61,4 +61,4 @@ run:
 		src/ui/help-overlay.blp \
 		src/ui/about-shrimple.blp \
 		src/ui/preferences.blp
-	@cargo run --features devel,debug
+	@cargo run --features devel
