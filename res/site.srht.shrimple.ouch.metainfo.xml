@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>site.srht.shrimple.Ouch</id>
-	<icon type="stock">site.srht.shrimple.Ouch</icon>
-	<launchable type="desktop-id">site.srht.shrimple.Ouch.desktop</launchable>
+	<id>site.srht.shrimple.ouch</id>
+	<icon type="stock">site.srht.shrimple.ouch</icon>
+	<launchable type="desktop-id">site.srht.shrimple.ouch.desktop</launchable>
 	<name>Ouch Browser</name>
 	<developer_name>Shrimple Technologies</developer_name>
 	<project_license>GPL-3.0-or-later</project_license>

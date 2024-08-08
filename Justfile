@@ -29,24 +29,24 @@ build-flatpak:
 		--user \
 		--repo=.build/repo \
 		.build \
-		build-aux/flatpak/site.srht.shrimple.Ouch.json
+		build-aux/flatpak/site.srht.shrimple.ouch.json
 	@flatpak build-bundle \
 		.build/repo \
-		site.srht.shrimple.Ouch.flatpak \
-		site.srht.shrimple.Ouch \
+		site.srht.shrimple.ouch.flatpak \
+		site.srht.shrimple.ouch \
 		--runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 
-# MAINTAINERS: Run this command when you have finished releasing a new version of Ouch (e.g. pushed version bump commit, pushed tag, updated tar.gz file checksums).
+# MAINTAINERS: Run this command when you have finished releasing a new version of ouch (e.g. pushed version bump commit, pushed tag, updated tar.gz file checksums).
 pack:
-	@rm -rf ouch-*.*.* .tmp site.srht.shrimple.Ouch.flatpak .build .flatpak-builder
+	@rm -rf ouch-*.*.* .tmp site.srht.shrimple.ouch.flatpak .build .flatpak-builder
 	@mkdir -p .tmp
 	@just build-release
 	@just build-flatpak
-	@cp site.srht.shrimple.Ouch.flatpak .tmp
+	@cp site.srht.shrimple.ouch.flatpak .tmp
 	@cp target/release/ouch .tmp
-	@cp res/site.srht.shrimple.Ouch.desktop .tmp
-	@cp res/site.srht.shrimple.Ouch.metainfo.xml .tmp
-	@cp res/site.srht.shrimple.Ouch.svg .tmp
+	@cp res/site.srht.shrimple.ouch.desktop .tmp
+	@cp res/site.srht.shrimple.ouch.metainfo.xml .tmp
+	@cp res/site.srht.shrimple.ouch.svg .tmp
 	@cp res/site.srht.shrimple.svg .tmp
 	@cp licenses/GPL-3.0-or-later.txt .tmp
 	@mv .tmp/GPL-3.0-or-later.txt .tmp/license.txt
@@ -55,7 +55,7 @@ pack:
 		ouch-{{VERSION}}.tar.gz \
 		--directory=.tmp \
 		.
-	@rm -rf .tmp site.srht.shrimple.Ouch.flatpak .build .flatpak-builder
+	@rm -rf .tmp site.srht.shrimple.ouch.flatpak .build .flatpak-builder
 	
 run:
 	@blueprint-compiler batch-compile \

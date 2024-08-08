@@ -8,7 +8,7 @@ fn main() -> glib::ExitCode {
 	println!("[ouch/main] running as developer build");
 
 	let app = adw::Application::builder()
-		.application_id("site.srht.shrimple.Ouch")
+		.application_id("site.srht.shrimple.ouch")
 		.build();
 
 	app.connect_startup(css::init);

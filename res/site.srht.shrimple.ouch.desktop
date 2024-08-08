@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Ouch Browser
 Exec=ouch
-Icon=site.srht.shrimple.Ouch
+Icon=site.srht.shrimple.ouch
 Terminal=false
 Type=Application
 Categories=Network;WebBrowser
