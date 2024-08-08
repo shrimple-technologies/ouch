@@ -45,6 +45,7 @@ pack:
 	@cp site.srht.shrimple.Ouch.flatpak .tmp
 	@cp target/release/ouch .tmp
 	@cp res/site.srht.shrimple.Ouch.desktop .tmp
+	@cp res/site.srht.shrimple.Ouch.metainfo.xml .tmp
 	@cp res/site.srht.shrimple.Ouch.svg .tmp
 	@cp res/site.srht.shrimple.svg .tmp
 	@cp licenses/GPL-3.0-or-later.txt .tmp

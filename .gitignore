@@ -15,4 +15,4 @@ ouch-*.*.*/
 # flatpak-builder outputs
 .build
 .flatpak-builder
-ht.sr.git.shrimple.Ouch.flatpak
+*.flatpak
