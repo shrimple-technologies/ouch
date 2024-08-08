@@ -2,6 +2,24 @@
 
 Focus on your browsing.
 
+## Installing
+
+As Ouch Browser is beta software, it's installation options are limited.
+
+### Flatpak
+
+1. Ensure you have Shrimple Technologies' Flatpak repository installed
+
+```sh
+flatpak remote-add --if-not-exists shrimple https://shrimple.srht.site/repo/flatpak/shrimple.flatpakrepo
+```
+
+2. Install Ouch Browser
+
+```sh
+flatpak install shrimple site.srht.shrimple.ouch
+```
+
 ## Building
 
 ### Binary
