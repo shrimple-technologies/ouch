@@ -1,5 +1,5 @@
 {
-	"id": "site.srht.shrimple.Ouch",
+	"id": "site.srht.shrimple.ouch",
 	"runtime": "org.gnome.Platform",
 	"runtime-version": "46",
 	"sdk": "org.gnome.Sdk",
