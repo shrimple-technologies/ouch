@@ -29,11 +29,11 @@ build-flatpak:
 		--user \
 		--repo=.build/repo \
 		.build \
-		build-aux/flatpak/ht.sr.git.shrimple.Ouch.json
+		build-aux/flatpak/site.srht.shrimple.Ouch.json
 	@flatpak build-bundle \
 		.build/repo \
-		ht.sr.git.shrimple.Ouch.flatpak \
-		ht.sr.git.shrimple.Ouch \
+		site.srht.shrimple.Ouch.flatpak \
+		site.srht.shrimple.Ouch \
 		--runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 
 # MAINTAINERS: Run this command when you have finished releasing a new version of Ouch (e.g. pushed version bump commit, pushed tag, updated tar.gz file checksums).
@@ -42,7 +42,7 @@ pack:
 	@mkdir -p .tmp
 	@just build-release
 	@just build-flatpak
-	@cp ht.sr.git.shrimple.Ouch.flatpak .tmp
+	@cp site.srht.shrimple.Ouch.flatpak .tmp
 	@cp target/release/ouch .tmp
 	@cp licenses/GPL-3.0-or-later.txt .tmp
 	@tar \
@@ -50,7 +50,7 @@ pack:
 		ouch-{{VERSION}}.tar.gz \
 		--directory=.tmp \
 		.
-	@rm -rf .tmp ht.sr.git.shrimple.Ouch.flatpak .build .flatpak-builder
+	@rm -rf .tmp site.srht.shrimple.Ouch.flatpak .build .flatpak-builder
 	
 run:
 	@blueprint-compiler batch-compile \

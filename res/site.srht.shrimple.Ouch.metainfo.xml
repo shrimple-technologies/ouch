@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>ht.sr.git.shrimple.Ouch</id>
-	<icon type="stock">ht.sr.git.shrimple.Ouch</icon>
-	<launchable type="desktop-id">ht.sr.git.shrimple.Ouch.desktop</launchable>
+	<id>site.srht.shrimple.Ouch</id>
+	<icon type="stock">site.srht.shrimple.Ouch</icon>
+	<launchable type="desktop-id">site.srht.shrimple.Ouch.desktop</launchable>
 	<name>Ouch Browser</name>
 	<developer_name>Shrimple Technologies</developer_name>
 	<project_license>GPL-3.0-or-later</project_license>
@@ -27,7 +27,7 @@
 	<description>
 		<p>Ouch Browser isn't just another web browser, it's a whole new look on the web.</p>
 	</description>
-	<url type="homepage">https://sr.ht/~shrimple/ouch</url>
+	<url type="homepage">https://shrimple.srht.site/ouch-browser</url>
 	<url type="bugtracker">https://todo.sr.ht/~shrimple/ouch</url>
 	<url type="vcs-browser">https://git.sr.ht/~shrimple/ouch</url>
 	<screenshots>
