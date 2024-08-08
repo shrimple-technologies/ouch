@@ -501,7 +501,7 @@ dependencies = [
 
 [[package]]
 name = "ouch"
-version = "0.4.0"
+version = "0.3.3"
 dependencies = [
  "gio",
  "gtk4",

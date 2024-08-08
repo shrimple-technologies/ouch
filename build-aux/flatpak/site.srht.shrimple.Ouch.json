@@ -57,7 +57,7 @@
 			"buildsystem": "simple",
 			"build-commands": [
 				"blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp",
-				"cargo build --release --features flatpak --verbose",
+				"cargo build --release --features flatpak",
 				"install -Dm 755 target/release/ouch --target-directory ${FLATPAK_DEST}/bin",
 				"install -Dm 644 res/${FLATPAK_ID}.desktop --target-directory ${FLATPAK_DEST}/share/applications",
 				"install -Dm 644 res/${FLATPAK_ID}.metainfo.xml --target-directory ${FLATPAK_DEST}/share/metainfo",
@@ -65,7 +65,10 @@
 				"install -Dm 644 res/site.srht.shrimple.svg --target-directory ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/"
 			],
 			"sources": [
-				"devel.json"
+				{
+					"type": "dir",
+					"path": "../.."
+				}
 			]
 		}
 	]
