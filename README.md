@@ -32,6 +32,7 @@ just
 
 ### Flatpak
 
+<!--
 Before doing any of these instructions, you must edit Ouch Browser's sources list in `build-aux/flatpak/site.srht.shrimple.Ouch.json`:
 
 ```diff
@@ -44,6 +45,7 @@ Before doing any of these instructions, you must edit Ouch Browser's sources lis
 +    "devel.json"
 ]
 ```
+-->
 
 #### GNOME Builder
 
