@@ -3,10 +3,6 @@ mod css;
 mod window;
 
 fn main() -> glib::ExitCode {
-	#[cfg(feature = "debug")]
-	#[cfg(feature = "devel")]
-	println!("[ouch/main] running as developer build");
-
 	let app = adw::Application::builder()
 		.application_id("site.srht.shrimple.ouch")
 		.build();

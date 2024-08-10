@@ -6,9 +6,6 @@ use url::Url;
 use webkit6::{prelude::*, NetworkError, WebView};
 
 pub fn init(app: &adw::Application) {
-	#[cfg(feature = "debug")]
-	println!("[ouch/window] initializing window...");
-
 	let builder = gtk::Builder::from_string(include_str!("ui/window.ui"));
 	let window = builder
 		.object::<adw::ApplicationWindow>("window")
@@ -66,9 +63,6 @@ pub fn init(app: &adw::Application) {
 
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
-			#[cfg(feature = "debug")]
-			println!("[ouch/window/browser] failed to load \"{}\"...", fail_url);
-
 			let content = error_page(error.message());
 			web_view.load_alternate_html(&content, fail_url, None);
 		}
@@ -80,9 +74,6 @@ pub fn init(app: &adw::Application) {
 
 	window.set_application(Some(app));
 	window.present();
-
-	#[cfg(feature = "debug")]
-	println!("[ouch/window] window initialized");
 
 	let action_quit = ActionEntry::builder("quit")
 		.activate(|window: &adw::ApplicationWindow, _, _| {
@@ -163,12 +154,6 @@ pub fn init(app: &adw::Application) {
 		#[strong]
 		url_button,
 		move |url_bar| {
-			#[cfg(feature = "debug")]
-			println!(
-				"[ouch/window/browser] loading \"https://{}\"...",
-				url_bar.buffer().text().as_str().to_string()
-			);
-
 			let url = url_bar.buffer().text().as_str().to_string();
 			web_view.load_uri(&format!("https://{url}"));
 
@@ -214,12 +199,6 @@ pub fn init(app: &adw::Application) {
 		#[strong]
 		url_dialog,
 		move |_| {
-			#[cfg(feature = "debug")]
-			println!(
-				"[ouch/window/browser] loading \"https://{}\"...",
-				url_bar.buffer().text().as_str().to_string()
-			);
-
 			let url = url_bar.buffer().text().as_str().to_string();
 			web_view.load_uri(&format!("https://{url}"));
 			url_dialog.close();

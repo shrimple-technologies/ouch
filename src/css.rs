@@ -1,7 +1,4 @@
 pub fn init(_: &adw::Application) {
-	#[cfg(feature = "debug")]
-	println!("[ouch/css] initializing stylesheets...");
-
 	let provider = gtk::CssProvider::new();
 	provider.load_from_string(include_str!("css/base.css"));
 
@@ -10,7 +7,4 @@ pub fn init(_: &adw::Application) {
 		&provider,
 		gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
 	);
-
-	#[cfg(feature = "debug")]
-	println!("[ouch/css] stylesheets initialized");
 }

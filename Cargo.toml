@@ -4,9 +4,8 @@ version = "0.3.3"
 edition = "2021"
 
 [features]
-devel = [ "debug" ]
-flatpak = [ "debug" ]
-debug = []
+devel = []
+flatpak = []
 
 [dependencies]
 adw = { version = "0.7.0", package = "libadwaita", features = ["v1_5"] }
