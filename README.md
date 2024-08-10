@@ -6,6 +6,23 @@ Focus on your browsing.
 
 As Ouch Browser is beta software, it's installation options are limited.
 
+### Binary
+
+1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.3.3/ouch-0.3.3.tar.gz)
+
+2. Extract the file. This will result in a new `ouch-x.y.z` folder in where you downloaded the file.
+
+3. Open the directory, then run this command in the directory:
+
+```sh
+sudo install -Dm 755 ouch --target-directory /usr/local/bin
+sudo install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory /usr/share/applications
+sudo install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps/
+sudo install -Dm 644 res/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps/
+```
+
+Wait a few seconds, and Ouch Browser should appear in your launcher.
+
 ### Flatpak
 
 1. Ensure you have Shrimple Technologies' Flatpak repository installed
@@ -66,3 +83,11 @@ just build-flatpak
 ```
 
 The exported Flatpak file will be in the Ouch Browser source folder.
+
+## Development
+
+The maintainers of Ouch Browser use [Visual Studio Code](https://code.visualstudio.com/) to develop Ouch Browser, but however, [GNOME Builder](https://apps.gnome.org/Builder/) is recommended, due to being easy to use, and it's simplicity. Despite whichever one you choose, we provide configurations for both of the editors (`.vscode/settings.json` and `.editorconfig`). If you plan on contributing, we do not recommend changing any of these settings.
+
+
+
+For Visual Studio Code users, we also provide a file (`.vscode/extensions.json`) containing the needed extensions to develop Ouch Browser.

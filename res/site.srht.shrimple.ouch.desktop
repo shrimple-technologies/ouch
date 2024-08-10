@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Ouch Browser
+Comment=Focus on your browsing
 Exec=ouch
 Icon=site.srht.shrimple.ouch
 Terminal=false
