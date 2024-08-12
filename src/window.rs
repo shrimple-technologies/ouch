@@ -19,7 +19,7 @@
  */
 
 use adw::prelude::*;
-use gio::ActionEntry;
+use gtk::gio::ActionEntry;
 use glib::clone;
 use gtk::glib;
 use url::Url;
