@@ -58,6 +58,9 @@ pack:
 		.
 	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
 	
+clean:
+	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
+
 run:
 	@blueprint-compiler batch-compile \
 		src/ui \
