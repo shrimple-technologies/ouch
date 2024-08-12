@@ -19,8 +19,8 @@
  */
 
 use adw::prelude::*;
-use gtk::gio::ActionEntry;
 use glib::clone;
+use gtk::gio::ActionEntry;
 use gtk::glib;
 use url::Url;
 use webkit6::{prelude::*, NetworkError, WebView};
