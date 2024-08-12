@@ -194,7 +194,12 @@ pub fn init(app: &adw::Application) {
 	));
 
 	toggle_sidebar.clone().connect_clicked(move |_| {
-		osv.set_show_sidebar(toggle_sidebar.is_active());
+		if osv.is_collapsed() {
+			toggle_sidebar.set_active(false);
+			osv.set_show_sidebar(true);
+		} else {
+			osv.set_show_sidebar(toggle_sidebar.is_active());
+		}
 	});
 
 	url_button.connect_clicked(clone!(
