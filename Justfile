@@ -59,7 +59,7 @@ pack:
 	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
 	
 run:
-	@blueprint-compiler batch-compile \
+	blueprint-compiler batch-compile \
 		src/ui \
 		src/ui \
 		src/ui/window.blp \
@@ -67,4 +67,4 @@ run:
 		src/ui/help-overlay.blp \
 		src/ui/about-shrimple.blp \
 		src/ui/preferences.blp
-	@cargo run --features devel
+	cargo run --features devel
