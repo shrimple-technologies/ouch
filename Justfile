@@ -1,26 +1,22 @@
 VERSION := "0.4.0"
 ID := "site.srht.shrimple.ouch"
+BLUEPRINT_FILES := "src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp"
+
+default:
+	@just --list
 
 build:
 	@blueprint-compiler batch-compile \
 		src/ui \
 		src/ui \
-		src/ui/window.blp \
-		src/ui/about.blp \
-		src/ui/about-shrimple.blp \
-		src/ui/help-overlay.blp \
-		src/ui/preferences.blp
+		{{ BLUEPRINT_FILES }}
 	@cargo build --features devel
 
 build-release:
 	@blueprint-compiler batch-compile \
 		src/ui \
 		src/ui \
-		src/ui/window.blp \
-		src/ui/about.blp \
-		src/ui/about-shrimple.blp \
-		src/ui/help-overlay.blp \
-		src/ui/preferences.blp
+		{{ BLUEPRINT_FILES }}
 	@cargo build --release
 
 build-flatpak:
@@ -60,6 +56,13 @@ pack:
 	
 clean:
 	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
+
+check:
+	@blueprint-compiler batch-compile \
+		src/ui \
+		src/ui \
+		{{ BLUEPRINT_FILES }}
+	@cargo check
 
 run:
 	@blueprint-compiler batch-compile \

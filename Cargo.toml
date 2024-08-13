@@ -8,8 +8,8 @@ devel = []
 flatpak = []
 
 [dependencies]
-adw = { version = "0.7.0", package = "libadwaita", features = ["v1_5"] }
-gio = { version = "0.20.0", features = ["v2_80"] }
-gtk = { version = "0.9.0", package = "gtk4", features = ["gnome_46", "v4_14"] }
-url = "2.5.2"
-webkit6 = { version = "0.4.0", features = ["v2_44"] }
+adw = { version = "0.7", package = "libadwaita", features = ["v1_5"] }
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+gtk = { version = "0.9", package = "gtk4", features = ["gnome_46", "v4_14"] }
+url = "2.5"
+webkit6 = { version = "0.4", features = ["v2_44"] }

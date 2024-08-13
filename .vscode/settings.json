@@ -3,7 +3,7 @@
 	"editor.detectIndentation": false,
     "editor.insertSpaces": false,
 	"files.associations": {
-		"Justfile": "makefile",
+		"Justfile": "just",
 		"*.desktop": "toml"
 	},
 }
