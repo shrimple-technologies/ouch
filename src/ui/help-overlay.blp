@@ -3,40 +3,40 @@ using Gtk 4.0;
 ShortcutsWindow help_overlay {
 	modal: true;
 
-  	ShortcutsSection {
+	ShortcutsSection {
 		section-name: "shortcuts";
 		max-height: 10;
 
 		ShortcutsGroup {
-	  		title: _("General");
+			title: _("General");
 
 			ShortcutsShortcut {
 				title: _("Open command palette");
 				action-name: "app.cmd";
 				accelerator: "<Ctrl>L";
-	  		}
+			}
 
 			ShortcutsShortcut {
 				title: _("Open settings");
 				action-name: "app.show-preferences";
 				accelerator: "<Ctrl>comma";
-	  		}
+			}
 
-	  		ShortcutsShortcut {
+			ShortcutsShortcut {
 				title: _("Quit");
 				action-name: "app.quit";
 				accelerator: "<Ctrl>Q";
-	  		}
+			}
 		}
 
 		ShortcutsGroup {
-	  		title: _("Browser");
+			title: _("Browser");
 
-	  		ShortcutsShortcut {
+			ShortcutsShortcut {
 				title: _("Refresh page");
 				action-name: "app.refresh";
 				accelerator: "<Ctrl>R";
-	  		}
+			}
 		}
-  	}
+	}
 }
