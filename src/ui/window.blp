@@ -10,261 +10,267 @@ Adw.ApplicationWindow window {
 	width-request: 350;
 
 	Adw.Breakpoint {
-        condition ("max-width: 600sp")
-        setters {
-            osv.collapsed: true;
+		condition ("max-width: 600sp")
+
+		setters {
+			osv.collapsed: true;
 			bottom_hb.visible: true;
 			frame.margin-bottom: 0;
 			toggle_sidebar.active: false;
 			url_bar_button.visible: true;
-
 			button_forward.visible: false;
 			button_back.visible: false;
 			button_reload.visible: false;
 			button_stop.visible: false;
-        }
-    }
+		}
+	}
 
+	Adw.ToastOverlay {
+		Adw.OverlaySplitView osv {
+			show-sidebar: true;
+			collapsed: false;
 
-	Adw.OverlaySplitView osv {
-		show-sidebar: true;
-		collapsed: false;
+			sidebar: Adw.NavigationPage {
+				title: _("Ouch Browser");
 
-		sidebar: Adw.NavigationPage {
-			title: _("Ouch Browser");
-
-			Adw.ToolbarView {
-				[top]
-				Adw.HeaderBar {
-					[start]
-					MenuButton menu {
-						icon-name: "open-menu-symbolic";
-						menu-model: main_menu;
-						tooltip-text: _("Menu");
-					}
-
-					[start]
-					Button {
-						icon-name: "folder-download-symbolic";
-						tooltip-text: _("Downloads");
-					}
-
-					show-title: false;
-				}
-
-				[bottom]
-				Adw.HeaderBar {
-					[start]
-					Button {
-						icon-name: "user-trash-symbolic";
-						tooltip-text: _("Archive");
-					}
-
-					[end]
-					MenuButton button_new {
-						icon-name: "list-add-symbolic";
-						tooltip-text: _("New...");
-						menu-model: new_menu;
-					}
-
-					show-title: false;
-				}
-
-				Box {
-					orientation: vertical;
-					margin-start: 10;
-					spacing: 10;
-
-					Label {
-						label: _("Main");
-						halign: start;
-
-						styles [
-							"dim-label",
-							"caption-heading"
-						]
-					}
-
-					Separator sp {}
-
-					ListBox {
-						Adw.ActionRow tab {
-							visible: false;
+				Adw.ToolbarView {
+					[top]
+					Adw.HeaderBar {
+						[start]
+						MenuButton menu {
+							icon-name: "open-menu-symbolic";
+							menu-model: main_menu;
+							tooltip-text: _("Menu");
 						}
 
-						styles [
-							"navigation-sidebar",
-						]
-					}
-				}
-			}
-		};
-
-		content: Adw.NavigationPage {
-			title: _("Ouch Browser");
-
-			Adw.ToolbarView {
-				[top]
-				Adw.HeaderBar top_hb {
-					title-widget: Box {
-						orientation: horizontal;
-						spacing: 7;
-						
+						[start]
 						Button {
-							icon-name: "edit-copy-symbolic";
-							tooltip-text: _("Copy link");
+							icon-name: "folder-download-symbolic";
+							tooltip-text: _("Downloads");
 						}
 
-						Button url_button {
-							label: "example.com";
-						}
+						show-title: false;
+					}
 
+					[bottom]
+					Adw.HeaderBar {
+						[start]
 						Button {
-							icon-name: "applications-system-symbolic";
-							tooltip-text: _("Website settings");
+							icon-name: "user-trash-symbolic";
+							tooltip-text: _("Archive");
 						}
-					};
 
-					[start]
-					ToggleButton toggle_sidebar {
-						icon-name: "sidebar-show-symbolic";
-						tooltip-text: _("Toggle sidebar");
-						active: true;
+						[end]
+						MenuButton button_new {
+							icon-name: "list-add-symbolic";
+							tooltip-text: _("New...");
+							menu-model: new_menu;
+						}
+
+						show-title: false;
 					}
 
-					[start]
-					Button button_forward {
-						icon-name: "go-previous-symbolic";
-						tooltip-text: _("Back");
-					}
+					Box {
+						orientation: vertical;
+						margin-start: 10;
+						spacing: 10;
 
-					[start]
-					Button button_back {
-						icon-name: "go-next-symbolic";
-						tooltip-text: _("Forward");
-					}
+						Label {
+							label: _("Main");
+							halign: start;
 
-					[start]
-					Button button_reload {
-						icon-name: "view-refresh-symbolic";
-						tooltip-text: _("Reload");
-					}
+							styles [
+								"dim-label",
+								"caption-heading"
+							]
+						}
 
-					[start]
-					Button button_stop {
-						icon-name: "process-stop-symbolic";
-						tooltip-text: _("Stop");
-						visible: false;
-					}
+						Separator sp {}
 
-					[end]
-					ToggleButton {
-						icon-name: "view-dual-symbolic";
-						tooltip-text: _("Toggle split view");
+						ListBox {
+							Adw.ActionRow tab {
+								visible: false;
+							}
+
+							styles [
+								"navigation-sidebar",
+							]
+						}
 					}
 				}
+			};
 
-				[bottom]
-				Adw.HeaderBar bottom_hb {
-					visible: false;
-					show-end-title-buttons: false;
-					title-widget: Box {
-						orientation: horizontal;
-						spacing: 7;
+			content: Adw.NavigationPage {
+				title: _("Ouch Browser");
 
-						Button {
+				Adw.ToolbarView {
+					[top]
+					Adw.HeaderBar top_hb {
+						title-widget: Box {
+							orientation: horizontal;
+							spacing: 7;
+
+							Button {
+								icon-name: "edit-copy-symbolic";
+								tooltip-text: _("Copy link");
+							}
+
+							Button url_button {
+								label: "example.com";
+							}
+
+							Button {
+								icon-name: "applications-system-symbolic";
+								tooltip-text: _("Website settings");
+							}
+						};
+
+						[start]
+						ToggleButton toggle_sidebar {
+							icon-name: "sidebar-show-symbolic";
+							tooltip-text: _("Toggle sidebar");
+							active: true;
+						}
+
+						[start]
+						Button button_forward {
 							icon-name: "go-previous-symbolic";
 							tooltip-text: _("Back");
 						}
 
-						Button {
+						[start]
+						Button button_back {
 							icon-name: "go-next-symbolic";
 							tooltip-text: _("Forward");
 						}
 
-						Button {
+						[start]
+						Button button_reload {
 							icon-name: "view-refresh-symbolic";
 							tooltip-text: _("Reload");
 						}
 
-						Button {
+						[start]
+						Button button_stop {
 							icon-name: "process-stop-symbolic";
 							tooltip-text: _("Stop");
 							visible: false;
 						}
-					};
-				}
 
-				[top]
-				ProgressBar progress {
-					styles ["osd"]
-				}
+						[end]
+						ToggleButton {
+							icon-name: "view-dual-symbolic";
+							tooltip-text: _("Toggle split view");
+						}
+					}
 
-				Box {
-					orientation: horizontal;
+					[bottom]
+					Adw.HeaderBar bottom_hb {
+						visible: false;
+						show-end-title-buttons: false;
+
+						title-widget: Box {
+							orientation: horizontal;
+							spacing: 7;
+
+							Button {
+								icon-name: "go-previous-symbolic";
+								tooltip-text: _("Back");
+							}
+
+							Button {
+								icon-name: "go-next-symbolic";
+								tooltip-text: _("Forward");
+							}
+
+							Button {
+								icon-name: "view-refresh-symbolic";
+								tooltip-text: _("Reload");
+							}
+
+							Button {
+								icon-name: "process-stop-symbolic";
+								tooltip-text: _("Stop");
+								visible: false;
+							}
+						};
+					}
+
+					[top]
+					ProgressBar progress {
+						styles [
+							"osd"
+						]
+					}
 
 					Box {
 						orientation: horizontal;
 
-						Frame frame {
-							margin-start: 10;
-							margin-end: 10;
-							margin-bottom: 10;
-							hexpand: true;
+						Box {
+							orientation: horizontal;
 
-							styles [
-								"view",
-							]
-						}
+							Frame frame {
+								margin-start: 10;
+								margin-end: 10;
+								margin-bottom: 10;
+								hexpand: true;
 
-						Frame {
-							margin-start: 10;
-							margin-end: 10;
-							margin-bottom: 10;
-							hexpand: true;
-							visible: false;
+								styles [
+									"view",
+								]
+							}
 
-							styles [
-								"view",
-							]
+							Frame {
+								margin-start: 10;
+								margin-end: 10;
+								margin-bottom: 10;
+								hexpand: true;
+								visible: false;
+
+								styles [
+									"view",
+								]
+							}
 						}
 					}
 				}
-			}
-		};
+			};
+		}
 	}
-}
 
-Adw.Dialog url_dialog {
-  	presentation-mode: auto;
-	follows-content-size: true;
+	Adw.Dialog url_dialog {
+		presentation-mode: auto;
+		follows-content-size: true;
 
-  	Adw.Clamp {
-		Box {
-			orientation: vertical;
-			margin-top: 10;
-			margin-bottom: 10;
-			margin-start: 10;
-			margin-end: 10;
-			spacing: 10;
-
+		Adw.Clamp {
 			Box {
-				orientation: horizontal;
+				orientation: vertical;
+				margin-top: 10;
+				margin-bottom: 10;
+				margin-start: 10;
+				margin-end: 10;
 				spacing: 10;
-			
-				Entry url_bar {
-					input-purpose: url;
-					hexpand: true;
+
+				Box {
+					orientation: horizontal;
+					spacing: 10;
+
+					Entry url_bar {
+						input-purpose: url;
+						hexpand: true;
+					}
+
+					Button url_bar_button {
+						icon-name: "go-next-symbolic";
+						visible: false;
+
+						styles [
+							"suggested-action"
+						]
+					}
 				}
 
-				Button url_bar_button {
-					icon-name: "go-next-symbolic";
-					visible: false;
-					styles [ "suggested-action" ]
-				}
-			}
-
-			/* Adw.ActionRow {
+				/* Adw.ActionRow {
 				title: "what is y2k";
 				subtitle: "Search on Google";
 			}
@@ -273,8 +279,9 @@ Adw.Dialog url_dialog {
 				title: "what is yapping";
 				subtitle: "Search on Google";
 			} */
+			}
 		}
-  	}
+	}
 }
 
 menu main_menu {
