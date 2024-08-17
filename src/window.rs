@@ -102,11 +102,6 @@ pub fn init(app: &adw::Application) {
 	window.set_application(Some(app));
 	window.present();
 
-	let action_quit = ActionEntry::builder("quit")
-		.activate(|window: &adw::ApplicationWindow, _, _| {
-			window.close();
-		})
-		.build();
 	let action_cmd = ActionEntry::builder("cmd")
 		.activate(clone!(
 			#[strong]
@@ -178,7 +173,6 @@ pub fn init(app: &adw::Application) {
 		))
 		.build();
 	window.add_action_entries([
-		action_quit,
 		action_cmd,
 		action_about,
 		action_about_shrimple,
