@@ -57,6 +57,10 @@ pack:
 clean:
 	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
 
+fmt:
+	@blueprint-compiler format -f -t -s 4 {{ BLUEPRINT_FILES }}
+	@cargo fmt
+	
 check:
 	@blueprint-compiler batch-compile \
 		src/ui \

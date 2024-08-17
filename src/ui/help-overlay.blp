@@ -11,6 +11,12 @@ ShortcutsWindow help_overlay {
 			title: _("General");
 
 			ShortcutsShortcut {
+				title: _("Copy link");
+				action-name: "app.copy-link";
+				accelerator: "<Ctrl><Shift>C";
+			}
+
+			ShortcutsShortcut {
 				title: _("Open command palette");
 				action-name: "app.cmd";
 				accelerator: "<Ctrl>L";
@@ -26,6 +32,12 @@ ShortcutsWindow help_overlay {
 				title: _("Quit");
 				action-name: "app.quit";
 				accelerator: "<Ctrl>Q";
+			}
+
+			ShortcutsShortcut {
+				title: _("Toggle sidebar");
+				action-name: "app.toggle-sidebar";
+				accelerator: "<Ctrl>S";
 			}
 		}
 

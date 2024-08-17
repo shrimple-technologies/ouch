@@ -16,22 +16,6 @@
 				"isDefault": true
 			},
 			"command": "just build"
-		},
-
-
-		{
-			"label": "Check dependencies",
-			"type": "shell",
-			"hide": true,
-			"presentation": {
-				"reveal": "silent",
-				"close": true
-			},
-			"problemMatcher": "$rustc",
-			"runOptions": {
-				"runOn": "folderOpen"
-			},
-			"command": "just check"
-		},
+		}
 	]
 }

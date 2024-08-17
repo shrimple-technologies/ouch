@@ -20,6 +20,7 @@
 
 use adw::prelude::*;
 use glib::clone;
+use gtk::gdk;
 use gtk::gio::ActionEntry;
 use gtk::glib;
 use url::Url;
@@ -51,6 +52,12 @@ pub fn init(app: &adw::Application) {
 	let url_bar_button = builder
 		.object::<gtk::Button>("url_bar_button")
 		.expect("Couldn't get url bar button");
+	let toast_overlay = builder
+		.object::<adw::ToastOverlay>("toast_overlay")
+		.expect("Couldn't get toast overlay");
+	let copy_link_button = builder
+		.object::<gtk::Button>("copy_link_button")
+		.expect("Couldn't get copy link button");
 
 	let help_overlay = gtk::Builder::from_string(include_str!("ui/help-overlay.ui"))
 		.object::<gtk::ShortcutsWindow>("help_overlay")
@@ -149,6 +156,15 @@ pub fn init(app: &adw::Application) {
 			}
 		))
 		.build();
+	let action_copy_link = ActionEntry::builder("copy-link")
+		.activate(clone!(
+			#[strong]
+			toast_overlay,
+			move |_, _, _| {
+				toast_overlay.add_toast(adw::Toast::new("Link copied"));
+			}
+		))
+		.build();
 	window.add_action_entries([
 		action_quit,
 		action_cmd,
@@ -156,6 +172,7 @@ pub fn init(app: &adw::Application) {
 		action_about_shrimple,
 		action_help,
 		action_preferences,
+		action_copy_link,
 	]);
 
 	url_dialog.connect_close_attempt(clone!(
@@ -173,6 +190,8 @@ pub fn init(app: &adw::Application) {
 		url_dialog,
 		#[strong]
 		url_button,
+		#[strong]
+		copy_link_button,
 		move |url_bar| {
 			let url = url_bar.buffer().text().as_str().to_string();
 			web_view.load_uri(&format!("https://{url}"));
@@ -190,6 +209,7 @@ pub fn init(app: &adw::Application) {
 			);
 
 			url_dialog.close();
+			copy_link_button.set_sensitive(true);
 		}
 	));
 
@@ -227,6 +247,22 @@ pub fn init(app: &adw::Application) {
 			let url = url_bar.buffer().text().as_str().to_string();
 			web_view.load_uri(&format!("https://{url}"));
 			url_dialog.close();
+		}
+	));
+
+	copy_link_button.connect_clicked(clone!(
+		#[strong]
+		toast_overlay,
+		#[strong]
+		web_view,
+		move |_| {
+			let url = Some(web_view.uri().expect("Couldn't get URL"));
+
+			gdk::Display::default()
+				.unwrap()
+				.clipboard()
+				.set_text(url.expect("Couldn't get URL").as_str());
+			toast_overlay.add_toast(adw::Toast::new("Link copied"));
 		}
 	));
 }

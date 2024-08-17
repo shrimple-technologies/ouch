@@ -110,9 +110,10 @@ Adw.ApplicationWindow window {
 							orientation: horizontal;
 							spacing: 7;
 
-							Button {
+							Button copy_link_button {
 								icon-name: "edit-copy-symbolic";
 								tooltip-text: _("Copy link");
+								sensitive: false;
 							}
 
 							Button url_button {
@@ -228,7 +229,7 @@ Adw.ApplicationWindow window {
 								visible: false;
 
 								styles [
-									"view",
+									"view"
 								]
 							}
 						}
@@ -237,40 +238,41 @@ Adw.ApplicationWindow window {
 			};
 		}
 	}
+}
 
-	Adw.Dialog url_dialog {
-		presentation-mode: auto;
-		follows-content-size: true;
+Adw.Dialog url_dialog {
+	presentation-mode: auto;
+	follows-content-size: true;
 
-		Adw.Clamp {
+	Adw.Clamp {
+		Box {
+			orientation: vertical;
+			margin-top: 10;
+			margin-bottom: 10;
+			margin-start: 10;
+			margin-end: 10;
+			spacing: 10;
+
 			Box {
-				orientation: vertical;
-				margin-top: 10;
-				margin-bottom: 10;
-				margin-start: 10;
-				margin-end: 10;
+				orientation: horizontal;
 				spacing: 10;
 
-				Box {
-					orientation: horizontal;
-					spacing: 10;
-
-					Entry url_bar {
-						input-purpose: url;
-						hexpand: true;
-					}
-
-					Button url_bar_button {
-						icon-name: "go-next-symbolic";
-						visible: false;
-
-						styles [
-							"suggested-action"
-						]
-					}
+				Entry url_bar {
+					input-purpose: url;
+					hexpand: true;
 				}
 
-				/* Adw.ActionRow {
+				Button url_bar_button {
+					icon-name: "go-next-symbolic";
+					visible: false;
+
+					styles [
+						"suggested-action"
+					]
+				}
+			}
+
+			/* Adw.ActionRow {
 				title: "what is y2k";
 				subtitle: "Search on Google";
 			}
@@ -279,7 +281,6 @@ Adw.ApplicationWindow window {
 				title: "what is yapping";
 				subtitle: "Search on Google";
 			} */
-			}
 		}
 	}
 }
