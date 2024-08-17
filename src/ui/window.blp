@@ -87,6 +87,24 @@ Adw.ApplicationWindow window {
 
 						Separator sp {}
 
+						Button {
+							Box {
+								orientation: horizontal;
+								spacing: 15;
+								halign: start;
+
+								Image {
+									icon-name: "list-add-symbolic";
+								}
+
+								Label {
+									label: "New tab";
+									styles [ "heading" ]
+								}
+							}
+							styles [ "flat" ]
+						}
+
 						ListBox {
 							Adw.ActionRow tab {
 								visible: false;
@@ -299,5 +317,4 @@ menu main_menu {
 
 menu new_menu {
 	item (_("New room"))
-	item (_("New tab"))
 }
