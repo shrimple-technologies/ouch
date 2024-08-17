@@ -34,7 +34,6 @@ fn main() -> glib::ExitCode {
 	app.set_accels_for_action("win.cmd", &["<Ctrl>L", "<Alt>D"]);
 	app.set_accels_for_action("win.show-preferences", &["<Ctrl>comma"]);
 	app.set_accels_for_action("win.copy-link", &["<Ctrl><Shift>C"]);
-	app.set_accels_for_action("win.toggle-sidebar", &["<Ctrl>S"]);
 
 	app.run()
 }
