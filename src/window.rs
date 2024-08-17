@@ -160,8 +160,20 @@ pub fn init(app: &adw::Application) {
 		.activate(clone!(
 			#[strong]
 			toast_overlay,
+			#[strong]
+			web_view,
+			#[strong]
+			copy_link_button,
 			move |_, _, _| {
-				toast_overlay.add_toast(adw::Toast::new("Link copied"));
+				if copy_link_button.get_sensitive() == true {
+					let url = Some(web_view.uri().expect("Couldn't get URL"));
+
+					gdk::Display::default()
+						.unwrap()
+						.clipboard()
+						.set_text(url.expect("Couldn't get URL").as_str());
+					toast_overlay.add_toast(adw::Toast::new("Link copied"));
+				}
 			}
 		))
 		.build();
