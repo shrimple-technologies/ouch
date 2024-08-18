@@ -173,6 +173,26 @@ pub fn init(app: &adw::Application) {
 			}
 		))
 		.build();
+	let action_zoom_in = ActionEntry::builder("zoom-in")
+		.activate(clone!(
+			#[strong]
+			web_view,
+			#[strong]
+			toast_overlay,
+			move |_, _, _| {
+				println!("zoom request recieved");
+				if web_view.zoom_level() == 0.9 {
+					web_view.set_zoom_level(1.3);
+				} else {
+					web_view.set_zoom_level(web_view.zoom_level() + 0.3);
+				}
+
+				toast_overlay.add_toast(adw::Toast::new(
+					format!("Zoomed in to {}%", web_view.zoom_level() * 100.0).as_str(),
+				));
+			}
+		))
+		.build();
 	window.add_action_entries([
 		action_cmd,
 		action_about,
@@ -180,6 +200,7 @@ pub fn init(app: &adw::Application) {
 		action_help,
 		action_preferences,
 		action_copy_link,
+		action_zoom_in,
 	]);
 
 	url_dialog.connect_close_attempt(clone!(

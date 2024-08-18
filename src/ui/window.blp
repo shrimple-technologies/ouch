@@ -22,6 +22,7 @@ Adw.ApplicationWindow window {
 			button_back.visible: false;
 			button_reload.visible: false;
 			button_stop.visible: false;
+			change_this_name.margin-end: 10;
 		}
 	}
 
@@ -70,7 +71,7 @@ Adw.ApplicationWindow window {
 						show-title: false;
 					}
 
-					Box {
+					Box change_this_name {
 						orientation: vertical;
 						margin-start: 10;
 						spacing: 10;
@@ -306,6 +307,7 @@ Adw.Dialog url_dialog {
 }
 
 menu main_menu {
+	item (_("Zoom in"), "win.zoom-in")
 	item (_("Settings"), "win.show-preferences")
 	item (_("Keyboard Shortcuts"), "win.show-help-overlay")
 
