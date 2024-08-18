@@ -87,6 +87,7 @@ pub fn init(app: &adw::Application) {
 	window.add_css_class("devel");
 
 	let web_view = WebView::new();
+	web_view.set_zoom_level(0.9);
 
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
