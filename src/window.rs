@@ -87,7 +87,6 @@ pub fn init(app: &adw::Application) {
 	window.add_css_class("devel");
 
 	let web_view = WebView::new();
-	web_view.set_zoom_level(0.9);
 
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
@@ -180,12 +179,7 @@ pub fn init(app: &adw::Application) {
 			#[strong]
 			toast_overlay,
 			move |_, _, _| {
-				println!("zoom request recieved");
-				if web_view.zoom_level() == 0.9 {
-					web_view.set_zoom_level(1.3);
-				} else {
-					web_view.set_zoom_level(web_view.zoom_level() + 0.3);
-				}
+				web_view.set_zoom_level(web_view.zoom_level() + 0.5);
 
 				toast_overlay.add_toast(adw::Toast::new(
 					format!("Zoomed in to {}%", web_view.zoom_level() * 100.0).as_str(),
