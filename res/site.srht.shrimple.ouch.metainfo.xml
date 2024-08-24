@@ -18,6 +18,11 @@
 		<content_attribute id="social-audio">intense</content_attribute>
 		<content_attribute id="social-contacts">intense</content_attribute>
 	</content_rating>
+	<requires>
+		<internet>always</internet>
+		<display_length compare="lt">3840</display_length>
+		<display_length compare="gt">360</display_length>
+	</requires>
 	<recommends>
 		<control>pointing</control>
 		<control>keyboard</control>
