@@ -18,15 +18,20 @@
 		<content_attribute id="social-audio">intense</content_attribute>
 		<content_attribute id="social-contacts">intense</content_attribute>
 	</content_rating>
-	<supports>
+	<recommends>
 		<control>pointing</control>
 		<control>keyboard</control>
+	</recommends>
+	<supports>
 		<control>touch</control>
 	</supports>
 	<update_contact>mdwalters.pm@proton.me</update_contact>
 	<description>
 		<p>Ouch Browser isn't just another web browser, it's a whole new look on the web.</p>
 	</description>
+	<provides>
+		<mediatype>text/html</mediatype>
+	</provides>
 	<url type="homepage">https://shrimple.srht.site/projects/ouch</url>
 	<url type="bugtracker">https://todo.sr.ht/~shrimple/ouch</url>
 	<url type="vcs-browser">https://git.sr.ht/~shrimple/ouch</url>
@@ -57,14 +62,14 @@
 		</screenshot>
 	</screenshots>
 	<releases>
-		<release version="0.4.0" date="2024-08-08">
+		<release type="development" version="0.4.0" date="2024-08-08">
 			<description>
 				<ul>
 					<li></li>
 				</ul>
 			</description>
 		</release>
-		<release version="0.3.3" date="2024-08-08">
+		<release type="development" version="0.3.3" date="2024-08-08">
 			<description>
 				<ul>
 					<li>Adds full support for mobile devices</li>
@@ -73,21 +78,21 @@
 				</ul>
 			</description>
 		</release>
-		<release version="0.3.2" date="2024-08-04">
+		<release type="development" version="0.3.2" date="2024-08-04">
 			<description>
 				<ul>
 					<li>Fixes multiple bugs</li>
 				</ul>
 			</description>
 		</release>
-		<release version="0.3.1" date="2024-08-04">
+		<release type="development" version="0.3.1" date="2024-08-04">
 			<description>
 				<ul>
 					<li>Fixes multiple bugs</li>
 				</ul>
 			</description>
 		</release>
-		<release version="0.3.0" date="2024-08-04">
+		<release type="development" version="0.3.0" date="2024-08-04">
 			<description>
 				<ul>
 					<li>Implement settings (INCOMPLETE)</li>
@@ -95,7 +100,7 @@
 				</ul>
 			</description>
 		</release>
-		<release version="0.2.0" date="2024-08-02">
+		<release type="development" version="0.2.0" date="2024-08-02">
 			<description>
 				<ul>
 					<li>Implement command palette</li>
@@ -107,7 +112,7 @@
 				</ul>
 			</description>
 		</release>
-		<release version="0.1.0" date="2024-07-10">
+		<release type="development" version="0.1.0" date="2024-07-10">
 			<description>
 				<ul>
 					<li>Initial release!</li>
