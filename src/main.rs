@@ -18,13 +18,14 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-use gtk::{glib, prelude::*};
+use gtk::{gio, glib, prelude::*};
 mod css;
 mod window;
 
 fn main() -> glib::ExitCode {
 	let app = adw::Application::builder()
 		.application_id("site.srht.shrimple.ouch")
+		// .flags(gio::ApplicationFlags::HANDLES_COMMAND_LINE)
 		.build();
 
 	app.connect_startup(css::init);

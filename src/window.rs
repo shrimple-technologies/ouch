@@ -87,7 +87,7 @@ pub fn init(app: &adw::Application) {
 	window.add_css_class("devel");
 
 	let web_view = WebView::new();
-
+	
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
 			let content = error_page(error.message());
@@ -232,6 +232,10 @@ pub fn init(app: &adw::Application) {
 
 			url_dialog.close();
 			copy_link_button.set_sensitive(true);
+
+			web_view.inspector()
+				.expect("Couldn't get inspector")
+				.show();
 		}
 	));
 
