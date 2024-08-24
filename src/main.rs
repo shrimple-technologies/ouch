@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-use gtk::{gio, glib, prelude::*};
+use gtk::{/* gio, */ glib, prelude::*};
 mod css;
 mod window;
 
