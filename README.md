@@ -18,6 +18,7 @@ As Ouch Browser is beta software, it's installation options are limited.
 sudo install -Dm 755 ouch --target-directory /usr/local/bin
 sudo install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory /usr/share/applications
 sudo install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps/
+sudo install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps/
 sudo install -Dm 644 res/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps/
 ```
 
