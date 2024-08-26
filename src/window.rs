@@ -88,6 +88,13 @@ pub fn init(app: &adw::Application) {
 
 	let web_view = WebView::new();
 
+	let settings = WebViewExt::settings(&web_view).unwrap();
+	settings.set_enable_developer_extras(true);
+
+	/* web_view.connect_estimated_load_progress_notify(|| {
+
+	}) */
+
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
 			let content = error_page(error.message());
@@ -306,7 +313,6 @@ fn error_page(msg: &str) -> String {
 							font-family: system-ui;
 		   					margin-left: 20vh;
 							margin-right: 20vh;
-							position: absolute;
 							top: 40%;
 							transform: translateY(-40%);
 						}}
