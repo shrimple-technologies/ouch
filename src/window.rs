@@ -24,7 +24,7 @@ use gtk::gdk;
 use gtk::gio::ActionEntry;
 use gtk::glib;
 use url::Url;
-use webkit6::{prelude::*, NetworkError, WebView};
+use webkit::{prelude::*, NetworkError, WebView};
 
 pub fn init(app: &adw::Application) {
 	let builder = gtk::Builder::from_string(include_str!("ui/window.ui"));
@@ -88,12 +88,13 @@ pub fn init(app: &adw::Application) {
 
 	let web_view = WebView::new();
 
-	let settings = WebViewExt::settings(&web_view).unwrap();
-	settings.set_enable_developer_extras(true);
-
-	/* web_view.connect_estimated_load_progress_notify(|| {
-
-	}) */
+	web_view.connect_load_changed(|_, load_event| {
+		match load_event {
+			webkit::LoadEvent::Started => println!("Page loading started"),
+			webkit::LoadEvent::Finished => println!("Page loading has finished"),
+			_ => (),
+		};
+	});
 
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
