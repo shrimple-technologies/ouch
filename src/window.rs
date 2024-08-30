@@ -104,6 +104,52 @@ pub fn init(app: &adw::Application) {
 		false
 	});
 
+	web_view.connect_script_dialog(clone!(
+		#[strong]
+		toast_overlay,
+		#[strong]
+		window,
+		move |web_view, web_dialog| {
+			match web_dialog.dialog_type() {
+				webkit::ScriptDialogType::Alert => {
+					let url = Url::parse(
+						&web_view
+							.uri()
+							.expect("Couldn't get web view's url")
+							.as_str(),
+					);
+
+					let dialog = adw::AlertDialog::new(
+						Some(
+							Some(format!(
+								"{} says",
+								url.expect("Couldn't get url")
+									.host_str()
+									.expect("Couldn't get url's host"),
+							))
+							.expect("")
+							.as_str(),
+						),
+						Some(
+							&web_dialog
+								.message()
+								.expect("Could not get script dialog message"),
+						),
+					);
+					dialog.add_response("default", "OK");
+					dialog.set_response_appearance("default", adw::ResponseAppearance::Suggested);
+					dialog.present(Some(&window));
+
+					true
+				}
+				_ => {
+					toast_overlay.add_toast(adw::Toast::new("This script dialog type is invalid"));
+					true
+				}
+			}
+		}
+	));
+
 	url_dialog.present(Some(&window));
 	web_view_frame.set_child(Some(&web_view));
 
