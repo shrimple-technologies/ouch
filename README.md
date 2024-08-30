@@ -22,7 +22,7 @@ sudo install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory
 sudo install -Dm 644 res/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps/
 ```
 
-Wait a few seconds, and Ouch Browser should appear in your launcher.
+Wait a few seconds, and Ouch Browser should appear in your launcher. If it doesn't by a minute, you may need to log out, and log back in.
 
 ### Flatpak
 
@@ -77,7 +77,7 @@ Building Ouch Browser as a Flatpak with GNOME Builder is recommended due to it's
 
 #### Flatpak Builder
 
-Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than using GNOME Builder, due to being run as a single command, but may use more of your RAM.
+Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than using GNOME Builder, due to being run as a single command, and is editor-agonistic.
 
 ```sh
 just build-flatpak
@@ -91,4 +91,10 @@ The maintainers of Ouch Browser use [Visual Studio Code](https://code.visualstud
 
 
 
-For Visual Studio Code users, we also provide a file (`.vscode/extensions.json`) containing the needed extensions to develop Ouch Browser. We also include task, for example, you can press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> to build Ouch Browser.
+For Visual Studio Code users, we also provide a file (`.vscode/extensions.json`) containing the needed extensions to develop Ouch Browser. We also include tasks, for example, you can press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> to build Ouch Browser.
+
+## Frequently Asked Questions
+
+<!-- I probably need to reword this for accessiability. -->
+
+Please see [this file](FAQ.md).
