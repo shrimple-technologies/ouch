@@ -127,7 +127,7 @@ pub fn init(app: &adw::Application) {
 									.host_str()
 									.expect("Couldn't get url's host"),
 							))
-							.expect("")
+							.expect("Couldn't get dialog header")
 							.as_str(),
 						),
 						Some(
