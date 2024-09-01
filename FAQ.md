@@ -17,3 +17,7 @@ These are questions that the Shrimple Technologies team has been asked multiple 
 ## Where are the AI features?
 
 It is a web browser, **there aren't any.**
+
+## Does Ouch Browser support ARM64 or 32-bit architectures?
+
+**No.** At first, this was a personal decision from Shrimple Technologies, but however, when actually preparing to do this, there were multiple errors, including the fact that a core dependency could not be cross-compiled.
