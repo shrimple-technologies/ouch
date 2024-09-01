@@ -58,6 +58,9 @@ pub fn init(app: &adw::Application) {
 	let copy_link_button = builder
 		.object::<gtk::Button>("copy_link_button")
 		.expect("Couldn't get copy link button");
+	let overview = builder
+		.object::<adw::TabOverview>("overview")
+		.expect("Couldn't get tab overview");
 
 	let help_overlay = gtk::Builder::from_string(include_str!("ui/help-overlay.ui"))
 		.object::<gtk::ShortcutsWindow>("help_overlay")
@@ -261,20 +264,25 @@ pub fn init(app: &adw::Application) {
 
 	url_bar.connect_activate(clone!(
 		#[strong]
-		web_view,
-		#[strong]
 		url_dialog,
 		#[strong]
 		url_button,
 		#[strong]
 		copy_link_button,
+		#[strong]
+		view,
 		move |url_bar| {
 			let url = url_bar.buffer().text().as_str().to_string();
+			let tab_page = view.selected_page()
+				.expect("Couldn't get tab page")
+				.child();
+			let web_view = tab_page.downcast_ref::<WebView>();
 
-			web_view.load_uri(&format!("https://{url}"));
+			web_view.unwrap().load_uri(&format!("https://{url}"));
 
 			let url = Url::parse(
 				&web_view
+					.unwrap()
 					.uri()
 					.expect("Couldn't get web view's url")
 					.as_str(),
@@ -287,8 +295,6 @@ pub fn init(app: &adw::Application) {
 
 			url_dialog.close();
 			copy_link_button.set_sensitive(true);
-
-			web_view.inspector().expect("Couldn't get inspector").show();
 		}
 	));
 
@@ -308,6 +314,8 @@ pub fn init(app: &adw::Application) {
 		web_view,
 		#[strong]
 		url_bar,
+		#[strong]
+		window,
 		move |_| {
 			let buffer = gtk::EntryBuffer::new(web_view.uri());
 			url_bar.set_buffer(&buffer);
@@ -342,6 +350,20 @@ pub fn init(app: &adw::Application) {
 				.clipboard()
 				.set_text(url.expect("Couldn't get URL").as_str());
 			toast_overlay.add_toast(adw::Toast::new("Link copied"));
+		}
+	));
+
+	overview.connect_create_tab(clone!(
+		#[strong]
+		view,
+		#[strong]
+		window,
+		move |_| {
+			let new_web_view = webkit::WebView::new();
+
+			url_dialog.present(Some(&window));
+
+			view.append(&new_web_view)
 		}
 	));
 }
