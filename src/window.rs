@@ -34,9 +34,9 @@ pub fn init(app: &adw::Application) {
 	let osv = builder
 		.object::<adw::OverlaySplitView>("osv")
 		.expect("Couldn't get osv");
-	let web_view_frame = builder
-		.object::<gtk::Frame>("frame")
-		.expect("Couldn't get web view frame");
+	let view = builder
+		.object::<adw::TabView>("view")
+		.expect("Couldn't get tab view");
 	let url_dialog = builder
 		.object::<adw::Dialog>("url_dialog")
 		.expect("Couldn't get url dialog");
@@ -151,7 +151,7 @@ pub fn init(app: &adw::Application) {
 	));
 
 	url_dialog.present(Some(&window));
-	web_view_frame.set_child(Some(&web_view));
+	view.append(&web_view);
 
 	window.set_application(Some(app));
 	window.present();

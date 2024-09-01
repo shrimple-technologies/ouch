@@ -20,4 +20,8 @@ It is a web browser, **there aren't any.**
 
 ## Does Ouch Browser support ARM64 or 32-bit architectures?
 
-**No.** At first, this was a personal decision from Shrimple Technologies, but however, when actually preparing to do this, there were multiple errors, including the fact that a core dependency could not be cross-compiled.
+For ARM64 architectures, **maybe.** At first, this was a personal decision from Shrimple Technologies, but however, when actually preparing to do this, there were multiple errors, including the fact that a core dependency could not be cross-compiled. We are planning on trying this again soon.
+
+
+
+As for 32-bit architectures, **no.**

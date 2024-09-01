@@ -26,243 +26,257 @@ Adw.ApplicationWindow window {
 		}
 	}
 
-	Adw.ToastOverlay toast_overlay {
-		Adw.OverlaySplitView osv {
-			show-sidebar: true;
-			collapsed: false;
+	Adw.TabOverview overview {
+		enable-new-tab: true;
+		enable-search: false;
+		view: view;
 
-			sidebar: Adw.NavigationPage {
-				title: _("Ouch Browser");
+		Adw.ToastOverlay toast_overlay {
+			Adw.OverlaySplitView osv {
+				show-sidebar: true;
+				collapsed: false;
 
-				Adw.ToolbarView {
-					[top]
-					Adw.HeaderBar {
-						[start]
-						MenuButton menu {
-							icon-name: "open-menu-symbolic";
-							menu-model: main_menu;
-							tooltip-text: _("Menu");
+				sidebar: Adw.NavigationPage {
+					title: _("Ouch Browser");
+
+					Adw.ToolbarView {
+						[top]
+						Adw.HeaderBar {
+							[start]
+							MenuButton menu {
+								icon-name: "open-menu-symbolic";
+								menu-model: main_menu;
+								tooltip-text: _("Menu");
+							}
+
+							[start]
+							Button {
+								icon-name: "folder-download-symbolic";
+								tooltip-text: _("Downloads");
+							}
+
+							show-title: false;
 						}
 
-						[start]
-						Button {
-							icon-name: "folder-download-symbolic";
-							tooltip-text: _("Downloads");
+						[bottom]
+						Adw.HeaderBar {
+							[start]
+							Button {
+								icon-name: "user-trash-symbolic";
+								tooltip-text: _("Archive");
+							}
+
+							[end]
+							MenuButton button_new {
+								icon-name: "list-add-symbolic";
+								tooltip-text: _("New...");
+								menu-model: new_menu;
+							}
+
+							show-title: false;
 						}
 
-						show-title: false;
+						Box tabs_list {
+							orientation: vertical;
+							margin-start: 10;
+							spacing: 10;
+
+							Label {
+								label: _("Main");
+								halign: start;
+
+								styles [
+									"dim-label",
+									"caption-heading"
+								]
+							}
+
+							Separator sp {}
+
+							// TODO: Migrate this to an Adw.ButtonRow when libadwaita 1.6 releases
+							Button {
+								Box {
+									orientation: horizontal;
+									spacing: 15;
+
+									Image {
+										icon-name: "list-add-symbolic";
+									}
+
+									Label {
+										label: "New tab";
+
+										styles [
+											"heading"
+										]
+									}
+								}
+
+								styles [
+									"flat"
+								]
+							}
+
+							ListBox tabs {
+								Adw.ActionRow tab {
+									visible: false;
+								}
+
+								styles [
+									"navigation-sidebar",
+								]
+							}
+						}
 					}
+				};
 
-					[bottom]
-					Adw.HeaderBar {
-						[start]
-						Button {
-							icon-name: "user-trash-symbolic";
-							tooltip-text: _("Archive");
-						}
+				content: Adw.NavigationPage {
+					title: _("Ouch Browser");
 
-						[end]
-						MenuButton button_new {
-							icon-name: "list-add-symbolic";
-							tooltip-text: _("New...");
-							menu-model: new_menu;
-						}
-
-						show-title: false;
-					}
-
-					Box tabs_list {
-						orientation: vertical;
-						margin-start: 10;
-						spacing: 10;
-
-						Label {
-							label: _("Main");
-							halign: start;
-
-							styles [
-								"dim-label",
-								"caption-heading"
-							]
-						}
-
-						Separator sp {}
-
-						// TODO: Migrate this to an Adw.ButtonRow when libadwaita 1.6 releases
-						Button {
-							Box {
+					Adw.ToolbarView {
+						[top]
+						Adw.HeaderBar top_hb {
+							title-widget: Box {
 								orientation: horizontal;
-								spacing: 15;
+								spacing: 7;
 
-								Image {
-									icon-name: "list-add-symbolic";
+								Button copy_link_button {
+									icon-name: "edit-copy-symbolic";
+									tooltip-text: _("Copy link");
+									sensitive: false;
 								}
 
-								Label {
-									label: "New tab";
-
-									styles [
-										"heading"
-									]
+								Button url_button {
+									label: "example.com";
 								}
+
+								Button {
+									icon-name: "applications-system-symbolic";
+									tooltip-text: _("Website settings");
+									sensitive: false;
+								}
+							};
+
+							[start]
+							ToggleButton toggle_sidebar {
+								icon-name: "sidebar-show-symbolic";
+								tooltip-text: _("Toggle sidebar");
+								active: true;
 							}
 
-							styles [
-								"flat"
-							]
-						}
-
-						ListBox tabs {
-							Adw.ActionRow tab {
-								visible: false;
-							}
-
-							styles [
-								"navigation-sidebar",
-							]
-						}
-					}
-				}
-			};
-
-			content: Adw.NavigationPage {
-				title: _("Ouch Browser");
-
-				Adw.ToolbarView {
-					[top]
-					Adw.HeaderBar top_hb {
-						title-widget: Box {
-							orientation: horizontal;
-							spacing: 7;
-
-							Button copy_link_button {
-								icon-name: "edit-copy-symbolic";
-								tooltip-text: _("Copy link");
-								sensitive: false;
-							}
-
-							Button url_button {
-								label: "example.com";
-							}
-
-							Button {
-								icon-name: "applications-system-symbolic";
-								tooltip-text: _("Website settings");
-								sensitive: false;
-							}
-						};
-
-						[start]
-						ToggleButton toggle_sidebar {
-							icon-name: "sidebar-show-symbolic";
-							tooltip-text: _("Toggle sidebar");
-							active: true;
-						}
-
-						[start]
-						Button button_forward {
-							icon-name: "go-previous-symbolic";
-							tooltip-text: _("Back");
-						}
-
-						[start]
-						Button button_back {
-							icon-name: "go-next-symbolic";
-							tooltip-text: _("Forward");
-						}
-
-						[start]
-						Button button_reload {
-							icon-name: "view-refresh-symbolic";
-							tooltip-text: _("Reload");
-						}
-
-						[start]
-						Button button_stop {
-							icon-name: "process-stop-symbolic";
-							tooltip-text: _("Stop");
-							visible: false;
-						}
-
-						[end]
-						ToggleButton {
-							icon-name: "view-dual-symbolic";
-							tooltip-text: _("Toggle split view");
-							sensitive: false;
-						}
-					}
-
-					[bottom]
-					Adw.HeaderBar bottom_hb {
-						visible: false;
-						show-end-title-buttons: false;
-
-						title-widget: Box {
-							orientation: horizontal;
-							spacing: 7;
-
-							Button {
+							[start]
+							Button button_forward {
 								icon-name: "go-previous-symbolic";
 								tooltip-text: _("Back");
 							}
 
-							Button {
+							[start]
+							Button button_back {
 								icon-name: "go-next-symbolic";
 								tooltip-text: _("Forward");
 							}
 
-							Button {
+							[start]
+							Button button_reload {
 								icon-name: "view-refresh-symbolic";
 								tooltip-text: _("Reload");
 							}
 
-							Button {
+							[start]
+							Button button_stop {
 								icon-name: "process-stop-symbolic";
 								tooltip-text: _("Stop");
 								visible: false;
 							}
-						};
-					}
 
-					[top]
-					ProgressBar progress {
-						styles [
-							"osd"
-						]
-					}
+							[end]
+							ToggleButton {
+								icon-name: "view-dual-symbolic";
+								tooltip-text: _("Toggle split view");
+								sensitive: false;
+							}
 
-					Box {
-						orientation: horizontal;
+							[end]
+							Adw.TabButton {
+								view: view;
+								action-name: "overview.open";
+							}
+						}
+
+						[bottom]
+						Adw.HeaderBar bottom_hb {
+							visible: false;
+							show-end-title-buttons: false;
+
+							title-widget: Box {
+								orientation: horizontal;
+								spacing: 7;
+
+								Button {
+									icon-name: "go-previous-symbolic";
+									tooltip-text: _("Back");
+								}
+
+								Button {
+									icon-name: "go-next-symbolic";
+									tooltip-text: _("Forward");
+								}
+
+								Button {
+									icon-name: "view-refresh-symbolic";
+									tooltip-text: _("Reload");
+								}
+
+								Button {
+									icon-name: "process-stop-symbolic";
+									tooltip-text: _("Stop");
+									visible: false;
+								}
+							};
+						}
+
+						[top]
+						ProgressBar progress {
+							styles [
+								"osd"
+							]
+						}
 
 						Box {
 							orientation: horizontal;
 
-							Frame frame {
-								margin-start: 10;
-								margin-end: 10;
-								margin-bottom: 10;
-								hexpand: true;
+							Box {
+								orientation: horizontal;
 
-								styles [
-									"view",
-								]
-							}
+								Frame frame {
+									margin-start: 10;
+									margin-end: 10;
+									margin-bottom: 10;
+									hexpand: true;
 
-							Frame {
-								margin-start: 10;
-								margin-end: 10;
-								margin-bottom: 10;
-								hexpand: true;
-								visible: false;
+									Adw.TabView view {}
 
-								styles [
-									"view"
-								]
+									styles [
+										"view",
+									]
+								}
+
+								Frame {
+									margin-start: 10;
+									margin-end: 10;
+									margin-bottom: 10;
+									hexpand: true;
+									visible: false;
+
+									styles [
+										"view"
+									]
+								}
 							}
 						}
 					}
-				}
-			};
+				};
+			}
 		}
 	}
 }
