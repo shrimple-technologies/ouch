@@ -115,6 +115,25 @@ pub fn init(app: &adw::Application) {
 							.host_str()
 							.expect("Couldn't get url's host"),
 					);
+
+					view.selected_page()
+						.expect("Couldn't get tab page")
+						.set_title(
+							&web_view.unwrap()
+								.title()
+								.expect("Couldn't get title")
+								.as_str()
+						);
+
+					view.selected_page()	
+						.expect("Couldn't get tab page")
+						.set_keyword(
+							&web_view
+								.unwrap()
+								.uri()
+								.expect("Couldn't get web view's url")
+								.as_str()
+						);
 				}
 				_ => (),
 			}
