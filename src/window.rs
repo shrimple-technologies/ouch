@@ -98,7 +98,6 @@ pub fn init(app: &adw::Application) {
 		url_button,
 		move |_, load_event| {
 			match load_event {
-				webkit::LoadEvent::Started => println!("Page loading started"),
 				webkit::LoadEvent::Finished => {
 					let tab_page = view.selected_page().expect("Couldn't get tab page").child();
 					let web_view = tab_page.downcast_ref::<WebView>();
@@ -119,20 +118,21 @@ pub fn init(app: &adw::Application) {
 					view.selected_page()
 						.expect("Couldn't get tab page")
 						.set_title(
-							&web_view.unwrap()
+							&web_view
+								.unwrap()
 								.title()
 								.expect("Couldn't get title")
-								.as_str()
+								.as_str(),
 						);
 
-					view.selected_page()	
+					view.selected_page()
 						.expect("Couldn't get tab page")
 						.set_keyword(
 							&web_view
 								.unwrap()
 								.uri()
 								.expect("Couldn't get web view's url")
-								.as_str()
+								.as_str(),
 						);
 				}
 				_ => (),
@@ -398,11 +398,119 @@ pub fn init(app: &adw::Application) {
 		#[strong]
 		window,
 		move |_| {
-			let new_web_view = webkit::WebView::new();
+			let web_view = webkit::WebView::new();
+
+			web_view.connect_load_changed(clone!(
+				#[strong]
+				view,
+				#[strong]
+				url_button,
+				move |_, load_event| {
+					match load_event {
+						webkit::LoadEvent::Finished => {
+							let tab_page =
+								view.selected_page().expect("Couldn't get tab page").child();
+							let web_view = tab_page.downcast_ref::<WebView>();
+
+							let url = Url::parse(
+								&web_view
+									.unwrap()
+									.uri()
+									.expect("Couldn't get web view's url")
+									.as_str(),
+							);
+							url_button.set_label(
+								url.expect("Couldn't get url")
+									.host_str()
+									.expect("Couldn't get url's host"),
+							);
+
+							view.selected_page()
+								.expect("Couldn't get tab page")
+								.set_title(
+									&web_view
+										.unwrap()
+										.title()
+										.expect("Couldn't get title")
+										.as_str(),
+								);
+
+							view.selected_page()
+								.expect("Couldn't get tab page")
+								.set_keyword(
+									&web_view
+										.unwrap()
+										.uri()
+										.expect("Couldn't get web view's url")
+										.as_str(),
+								);
+						}
+						_ => (),
+					}
+				}
+			));
+
+			web_view.connect_load_failed(|web_view, _, fail_url, error| {
+				if !error.matches(NetworkError::Cancelled) {
+					let content = error_page(error.message());
+					web_view.load_alternate_html(&content, fail_url, None);
+				}
+				false
+			});
+
+			web_view.connect_script_dialog(clone!(
+				#[strong]
+				toast_overlay,
+				#[strong]
+				window,
+				move |web_view, web_dialog| {
+					match web_dialog.dialog_type() {
+						webkit::ScriptDialogType::Alert => {
+							let url = Url::parse(
+								&web_view
+									.uri()
+									.expect("Couldn't get web view's url")
+									.as_str(),
+							);
+
+							let dialog = adw::AlertDialog::new(
+								Some(
+									Some(format!(
+										"{} says",
+										url.expect("Couldn't get url")
+											.host_str()
+											.expect("Couldn't get url's host"),
+									))
+									.expect("Couldn't get dialog header")
+									.as_str(),
+								),
+								Some(
+									&web_dialog
+										.message()
+										.expect("Could not get script dialog message"),
+								),
+							);
+							dialog.add_response("default", "OK");
+							dialog.set_response_appearance(
+								"default",
+								adw::ResponseAppearance::Suggested,
+							);
+							dialog.present(Some(&window));
+
+							true
+						}
+						_ => {
+							toast_overlay
+								.add_toast(adw::Toast::new("This script dialog type is invalid"));
+							true
+						}
+					}
+				}
+			));
 
 			url_dialog.present(Some(&window));
 
-			view.append(&new_web_view)
+			view.append(&web_view)
 		}
 	));
 }
