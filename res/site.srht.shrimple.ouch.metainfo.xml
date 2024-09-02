@@ -43,7 +43,7 @@
 	</keywords>
 	<update_contact>mdwalters.pm@proton.me</update_contact>
 	<description>
-		<p>Ouch Browser isn't just another web browser, it's a whole new look on the web.</p>
+		<p>Ouch Browser isn't just another web browser, it's a whole new look on the web, with a modern look and feel, and a emphasis on productivity.</p>
 	</description>
 	<provides>
 		<mediatype>text/html</mediatype>
@@ -78,7 +78,8 @@
 		</screenshot>
 	</screenshots>
 	<releases>
-		<release version="0.4.0a" type="development">
+		<!--
+		<release version="0.4.0" type="development">
 			<description>
 				<ul>
 					<li>Add link copying</li>
@@ -87,6 +88,7 @@
 				</ul>
 			</description>
 		</release>
+		-->
 		<release version="0.3.3" date="2024-08-08" type="development">
 			<description>
 				<ul>
