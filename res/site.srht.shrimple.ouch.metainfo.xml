@@ -67,14 +67,16 @@
 		</screenshot>
 	</screenshots>
 	<releases>
-		<release type="development" version="0.4.0" date="2024-08-08">
+		<release version="0.4.0" type="development">
 			<description>
 				<ul>
-					<li></li>
+					<li>Add link copying</li>
+					<li>Add tabs</li>
+					<li>Add new tab button</li>
 				</ul>
 			</description>
 		</release>
-		<release type="development" version="0.3.3" date="2024-08-08">
+		<release version="0.3.3" date="2024-08-08" type="development">
 			<description>
 				<ul>
 					<li>Adds full support for mobile devices</li>
@@ -83,21 +85,21 @@
 				</ul>
 			</description>
 		</release>
-		<release type="development" version="0.3.2" date="2024-08-04">
+		<release version="0.3.2" date="2024-08-04" type="development">
 			<description>
 				<ul>
 					<li>Fixes multiple bugs</li>
 				</ul>
 			</description>
 		</release>
-		<release type="development" version="0.3.1" date="2024-08-04">
+		<release version="0.3.1" date="2024-08-04" type="development">
 			<description>
 				<ul>
 					<li>Fixes multiple bugs</li>
 				</ul>
 			</description>
 		</release>
-		<release type="development" version="0.3.0" date="2024-08-04">
+		<release version="0.3.0" date="2024-08-04" type="development">
 			<description>
 				<ul>
 					<li>Implement settings (INCOMPLETE)</li>
@@ -105,7 +107,7 @@
 				</ul>
 			</description>
 		</release>
-		<release type="development" version="0.2.0" date="2024-08-02">
+		<release version="0.2.0" date="2024-08-02" type="development">
 			<description>
 				<ul>
 					<li>Implement command palette</li>
@@ -117,7 +119,7 @@
 				</ul>
 			</description>
 		</release>
-		<release type="development" version="0.1.0" date="2024-07-10">
+		<release version="0.1.0" date="2024-07-10" type="development">
 			<description>
 				<ul>
 					<li>Initial release!</li>
