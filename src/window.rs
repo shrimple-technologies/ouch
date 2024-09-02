@@ -91,13 +91,35 @@ pub fn init(app: &adw::Application) {
 
 	let web_view = WebView::new();
 
-	web_view.connect_load_changed(|_, load_event| {
-		match load_event {
-			webkit::LoadEvent::Started => println!("Page loading started"),
-			webkit::LoadEvent::Finished => println!("Page loading has finished"),
-			_ => (),
-		};
-	});
+	web_view.connect_load_changed(clone!(
+		#[strong]
+		view,
+		#[strong]
+		url_button,
+		move |_, load_event| {
+			match load_event {
+				webkit::LoadEvent::Started => println!("Page loading started"),
+				webkit::LoadEvent::Finished => {
+					let tab_page = view.selected_page().expect("Couldn't get tab page").child();
+					let web_view = tab_page.downcast_ref::<WebView>();
+
+					let url = Url::parse(
+						&web_view
+							.unwrap()
+							.uri()
+							.expect("Couldn't get web view's url")
+							.as_str(),
+					);
+					url_button.set_label(
+						url.expect("Couldn't get url")
+							.host_str()
+							.expect("Couldn't get url's host"),
+					);
+				}
+				_ => (),
+			}
+		}
+	));
 
 	web_view.connect_load_failed(|web_view, _, fail_url, error| {
 		if !error.matches(NetworkError::Cancelled) {
@@ -273,9 +295,7 @@ pub fn init(app: &adw::Application) {
 		view,
 		move |url_bar| {
 			let url = url_bar.buffer().text().as_str().to_string();
-			let tab_page = view.selected_page()
-				.expect("Couldn't get tab page")
-				.child();
+			let tab_page = view.selected_page().expect("Couldn't get tab page").child();
 			let web_view = tab_page.downcast_ref::<WebView>();
 
 			web_view.unwrap().load_uri(&format!("https://{url}"));
