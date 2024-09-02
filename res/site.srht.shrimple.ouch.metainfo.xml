@@ -30,6 +30,11 @@
 	<supports>
 		<control>touch</control>
 	</supports>
+	<categories>
+        <category>Network</category>
+        <category>WebBrowser</category>
+    </categories>
+
 	<update_contact>mdwalters.pm@proton.me</update_contact>
 	<description>
 		<p>Ouch Browser isn't just another web browser, it's a whole new look on the web.</p>
@@ -67,7 +72,7 @@
 		</screenshot>
 	</screenshots>
 	<releases>
-		<release version="0.4.0" type="development">
+		<release version="0.4.0a" type="development">
 			<description>
 				<ul>
 					<li>Add link copying</li>
