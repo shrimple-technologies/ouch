@@ -4,7 +4,10 @@
 	<icon type="stock">site.srht.shrimple.ouch</icon>
 	<launchable type="desktop-id">site.srht.shrimple.ouch.desktop</launchable>
 	<name>Ouch Browser</name>
-	<developer_name>Shrimple Technologies</developer_name>
+	<developer id="site.srht.shrimple">
+		<name>Shrimple Technologies</name>
+		<url type="homepage">https://shrimple.srht.site/</url>
+	</developer>
 	<project_license>GPL-3.0-or-later</project_license>
 	<metadata_license>CC-BY-SA-4.0</metadata_license>
 	<summary>Focus on your browsing</summary>
@@ -45,7 +48,7 @@
 	<provides>
 		<mediatype>text/html</mediatype>
 	</provides>
-	<url type="homepage">https://shrimple.srht.site/projects/ouch</url>
+	<url type="homepage">https://shrimple.srht.site/blog/ouch/</url>
 	<url type="bugtracker">https://todo.sr.ht/~shrimple/ouch</url>
 	<url type="vcs-browser">https://git.sr.ht/~shrimple/ouch</url>
 	<screenshots>
