@@ -22,6 +22,7 @@ Adw.ApplicationWindow window {
 			button_back.visible: false;
 			button_reload.visible: false;
 			button_stop.visible: false;
+			tab_button.visible: false;
 			tabs_list.margin-end: 10;
 		}
 	}
@@ -196,7 +197,7 @@ Adw.ApplicationWindow window {
 							}
 
 							[end]
-							Adw.TabButton {
+							Adw.TabButton tab_button {
 								view: view;
 								action-name: "overview.open";
 							}
@@ -214,22 +215,33 @@ Adw.ApplicationWindow window {
 								Button {
 									icon-name: "go-previous-symbolic";
 									tooltip-text: _("Back");
+									hexpand: true;
 								}
 
 								Button {
 									icon-name: "go-next-symbolic";
 									tooltip-text: _("Forward");
+									hexpand: true;
 								}
 
 								Button {
 									icon-name: "view-refresh-symbolic";
 									tooltip-text: _("Reload");
+									hexpand: true;
 								}
 
 								Button {
 									icon-name: "process-stop-symbolic";
 									tooltip-text: _("Stop");
 									visible: false;
+									hexpand: true;
+								}
+
+								[end]
+								Adw.TabButton {
+									view: view;
+									action-name: "overview.open";
+									hexpand: true;
 								}
 							};
 						}
