@@ -1,6 +1,6 @@
 [Desktop Entry]
+Type=Application
 Name=Ouch Browser
-GenericName=Ouch
 Comment=Focus on your browsing
 Exec=ouch
 Icon=site.srht.shrimple.ouch
