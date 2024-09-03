@@ -16,3 +16,6 @@ ouch-*.*.*/
 .build
 .flatpak-builder
 *.flatpak
+
+# compiled translation files
+*.mo
