@@ -207,6 +207,14 @@ msgstr ""
 msgid "Link copied"
 msgstr ""
 
+#: src/window.rs:80
+msgid "Acknowledgements"
+msgstr ""
+
+#: src/window.rs:83
+msgid "Banner designs"
+msgstr ""
+
 #: src/window.rs:513
 msgid "There was a problem loading this website"
 msgstr ""

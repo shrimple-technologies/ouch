@@ -77,10 +77,10 @@ pub fn init(app: &adw::Application) {
 		.expect("Couldn't get about dialog");
 	about.set_developers(&["Max Walters", "Ally Walters"]);
 	about.add_acknowledgement_section(
-		Some("Acknowledgements"),
+		Some(gettext("Acknowledgements").as_str()),
 		&["The Browser Company", "The GNOME Developers"],
 	);
-	about.add_acknowledgement_section(Some("Banner designs"), &["Max Walters"]);
+	about.add_acknowledgement_section(Some(gettext("Banner designs").as_str()), &["Max Walters"]);
 
 	let about_shrimple = gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
 		.object::<adw::AboutDialog>("about_shrimple")
