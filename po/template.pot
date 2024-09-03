@@ -127,6 +127,7 @@ msgid "Appearance"
 msgstr ""
 
 #: src/ui/preferences.blp:43
+#: src/ui/help-overlay.blp:39
 msgid "Browser"
 msgstr ""
 
@@ -196,10 +197,6 @@ msgstr ""
 
 #: src/ui/help-overlay.blp:32
 msgid "Quit"
-msgstr ""
-
-#: src/ui/help-overlay.blp:39
-msgid "Browser"
 msgstr ""
 
 #: src/ui/help-overlay.blp:42
