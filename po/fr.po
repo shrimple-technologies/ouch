@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
-"PO-Revision-Date: 2024-09-03 20:28+0000\n"
+"PO-Revision-Date: 2024-09-03 21:06+0000\n"
 "Last-Translator: Aster <aster9857@proton.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/shrimple/ouch/fr/>"
 "\n"
@@ -117,6 +117,9 @@ msgid ""
 "this setting if you are on a mobile device, or if you use a touchscreen "
 "device."
 msgstr ""
+"Les gestes vous permettent de faire facilement des actions en glissant. Vous "
+"voudrez probablement activer ce paramètre si vous utilisez un appareil "
+"mobile, ou une appareil avec une écran tactile."
 
 #: src/ui/preferences.blp:22
 msgid "Appearance"
@@ -139,24 +142,29 @@ msgid ""
 "JavaScript is required to make some websites work. If you disable this, then "
 "most websites will not load or work correctly anymore."
 msgstr ""
+"JavaScript est nécessaire pour faire fonctionner certains sites. Si vous le "
+"désactives, la plupart des sites ne se chargent ou ne fonctionne plus "
+"correctement."
 
 #: src/ui/preferences.blp:56
 msgid "Enable clipboard access for websites"
-msgstr ""
+msgstr "Donnez accès à votre presse-papiers pour sites"
 
 #: src/ui/preferences.blp:57
 msgid ""
 "You may want to enable this setting if you mostly use websites that directly "
 "grab text from your clipboard (e.g. graphic design creation websites)"
 msgstr ""
+"Vous voudrez probablement activer ce paramètre si vous utilizes des sites "
+"qui prennent du texte dans le presse-papiers (ex. sites de design graphique)"
 
 #: src/ui/preferences.blp:63
 msgid "Privacy"
-msgstr ""
+msgstr "Confidentialité"
 
 #: src/ui/preferences.blp:66
 msgid "User Agent"
-msgstr ""
+msgstr "User Agent"
 
 #: src/ui/preferences.blp:72
 msgid "Fonts"
@@ -199,6 +207,18 @@ msgstr "Quitter"
 #: src/ui/help-overlay.blp:42
 msgid "Refresh page"
 msgstr "Rafraîchir la page"
+
+#: src/window.rs:266
+msgid "Link copied"
+msgstr "Lien copié"
+
+#: src/window.rs:80
+msgid "Acknowledgements"
+msgstr "Remerciements"
+
+#: src/window.rs:83
+msgid "Banner designs"
+msgstr "Conception des bannières"
 
 #: src/window.rs:513
 msgid "There was a problem loading this website"
