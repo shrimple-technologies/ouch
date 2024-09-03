@@ -13,11 +13,17 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: res/site.srht.shrimple.ouch.metainfo.xml:6
+#: res/site.srht.shrimple.ouch.desktop:3
 #: src/ui/window.blp:5
 #: src/ui/window.blp:39
 #: src/ui/window.blp:133
 #: src/ui/about.blp:6
 msgid "Ouch Browser"
+msgstr ""
+
+#: res/site.srht.shrimple.ouch.metainfo.xml:13
+#: res/site.srht.shrimple.ouch.desktop:4
+msgid "Focus on your browsing"
 msgstr ""
 
 #: res/site.srht.shrimple.ouch.metainfo.xml:8
