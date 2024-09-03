@@ -39,7 +39,7 @@ msgid "Archive"
 msgstr ""
 
 #: src/ui/window.blp:71
-msgid "New..."
+msgid "New…"
 msgstr ""
 
 #: src/ui/window.blp:106
