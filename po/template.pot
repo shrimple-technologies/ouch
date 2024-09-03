@@ -203,6 +203,10 @@ msgstr ""
 msgid "Refresh page"
 msgstr ""
 
+#: src/window.rs:266
+msgid "Link copied"
+msgstr ""
+
 #: src/window.rs:513
 msgid "There was a problem loading this website"
 msgstr ""

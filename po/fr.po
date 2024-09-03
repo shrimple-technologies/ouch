@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
-"PO-Revision-Date: 2024-09-03 19:37+0000\n"
+"PO-Revision-Date: 2024-09-03 19:55+0000\n"
 "Last-Translator: Aster <aster9857@proton.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/shrimple/ouch/fr/>"
 "\n"
@@ -69,7 +69,7 @@ msgstr "Reculer"
 
 #: src/ui/window.blp:175 src/ui/window.blp:222
 msgid "Forward"
-msgstr ""
+msgstr "Avancer"
 
 #: src/ui/window.blp:181 src/ui/window.blp:228
 msgid "Refresh"
@@ -109,7 +109,7 @@ msgstr "Accessibilité"
 
 #: src/ui/preferences.blp:15
 msgid "Enable gestures"
-msgstr ""
+msgstr "Activer les gestes"
 
 #: src/ui/preferences.blp:16
 msgid ""
@@ -164,38 +164,42 @@ msgstr "Polices"
 
 #: src/ui/preferences.blp:75
 msgid "Sans-serif"
-msgstr ""
+msgstr "Sans Empattements"
 
 #: src/ui/preferences.blp:78 src/ui/preferences.blp:92
 #: src/ui/preferences.blp:106
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: src/ui/preferences.blp:83 src/ui/preferences.blp:97
 #: src/ui/preferences.blp:111
 msgid "Size"
-msgstr ""
+msgstr "Taille"
 
 #: src/ui/preferences.blp:89
 msgid "Serif"
-msgstr ""
+msgstr "Empattement"
 
 #: src/ui/preferences.blp:103
 msgid "Monospace"
-msgstr ""
+msgstr "À chasse fixe"
 
 #: src/ui/help-overlay.blp:20
 msgid "Open command palette"
-msgstr ""
+msgstr "Ouvrez la palette de commandes"
 
 #: src/ui/help-overlay.blp:26
 msgid "Open settings"
-msgstr ""
+msgstr "Ouvrir les paramètres"
 
 #: src/ui/help-overlay.blp:32
 msgid "Quit"
-msgstr ""
+msgstr "Quitter"
 
 #: src/ui/help-overlay.blp:42
 msgid "Refresh page"
-msgstr ""
+msgstr "Rafraîchir la page"
+
+#: src/window.rs:513
+msgid "There was a problem loading this website"
+msgstr "Il y avait un problème de chargement de ce site"

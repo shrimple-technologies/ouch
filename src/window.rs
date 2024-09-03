@@ -263,7 +263,7 @@ pub fn init(app: &adw::Application) {
 						.unwrap()
 						.clipboard()
 						.set_text(url.expect("Couldn't get URL").as_str());
-					toast_overlay.add_toast(adw::Toast::new("Link copied"));
+					toast_overlay.add_toast(adw::Toast::new(gettext("Link copied").as_str()));
 				}
 			}
 		))
