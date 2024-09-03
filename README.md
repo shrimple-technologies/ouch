@@ -93,6 +93,10 @@ The maintainers of Ouch Browser use [Visual Studio Code](https://code.visualstud
 
 For Visual Studio Code users, we also provide a file (`.vscode/extensions.json`) containing the needed extensions to develop Ouch Browser. We also include tasks, for example, you can press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> to build Ouch Browser.
 
+## Contributing Translations
+
+Translations are more than welcome, please go to our [Weblate component](https://hosted.weblate.org/projects/shrimple/ouch/) to get started.
+
 ## Frequently Asked Questions
 
 <!-- I probably need to reword this for accessiability. -->

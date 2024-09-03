@@ -70,7 +70,7 @@ check:
 	@cargo check
 
 build-translations:
-	@sudo msgfmt -o /usr/share/locale/en/LC_MESSAGES/ouch.mo po/en.po
+	@sudo msgfmt -o /usr/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
 
 run:
 	@blueprint-compiler batch-compile \
