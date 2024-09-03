@@ -1,6 +1,3 @@
-#
-# Max Walters <mdwalters.pm@proton.me>, 2024.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.0\n"
@@ -9,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: LL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,12 +16,13 @@ msgstr ""
 #: src/ui/window.blp:5
 #: src/ui/window.blp:39
 #: src/ui/window.blp:133
-#: src/ui/about.blp
+#: src/ui/about.blp:6
 msgid "Ouch Browser"
 msgstr ""
 
 #: res/site.srht.shrimple.ouch.metainfo.xml:8
 #: src/ui/about-shrimple.blp:6
+#: src/ui/about.blp:7
 msgid "Shrimple Technologies"
 msgstr ""
 
@@ -54,10 +52,6 @@ msgstr ""
 
 #: src/ui/window.blp:154
 msgid "Website settings"
-msgstr ""
-
-#: src/ui/window.blp:106
-msgid "New tab"
 msgstr ""
 
 #: src/ui/window.blp:162
@@ -102,4 +96,84 @@ msgstr ""
 
 #: src/ui/window.blp:345
 msgid "About Ouch Browser"
+msgstr ""
+
+#: src/ui/preferences.blp:8
+msgid "General"
+msgstr ""
+
+#: src/ui/preferences.blp:12
+msgid "Accessibility"
+msgstr ""
+
+#: src/ui/preferences.blp:15
+msgid "Enable gestures"
+msgstr ""
+
+#: src/ui/preferences.blp:16
+msgid "Gestures allow you to easily do actions by swiping. You may want to enable this setting if you are on a mobile device, or if you use a touchscreen device."
+msgstr ""
+
+#: src/ui/preferences.blp:22
+msgid "Appearance"
+msgstr ""
+
+#: src/ui/preferences.blp:43
+msgid "Browser"
+msgstr ""
+
+#: src/ui/preferences.blp:47
+msgid "Security"
+msgstr ""
+
+#: src/ui/preferences.blp:50
+msgid "JavaScript"
+msgstr ""
+
+#: src/ui/preferences.blp:51
+msgid "JavaScript is required to make some websites work. If you disable this, then most websites will not load or work correctly anymore."
+msgstr ""
+
+#: src/ui/preferences.blp:56
+msgid "Enable clipboard access for websites"
+msgstr ""
+
+#: src/ui/preferences.blp:57
+msgid "You may want to enable this setting if you mostly use websites that directly grab text from your clipboard (e.g. graphic design creation websites)"
+msgstr ""
+
+#: src/ui/preferences.blp:63
+msgid "Privacy"
+msgstr ""
+
+#: src/ui/preferences.blp:66
+msgid "User Agent"
+msgstr ""
+
+#: src/ui/preferences.blp:72
+msgid "Fonts"
+msgstr ""
+
+#: src/ui/preferences.blp:75
+msgid "Sans-serif"
+msgstr ""
+
+#: src/ui/preferences.blp:78
+#: src/ui/preferences.blp:92
+#: src/ui/preferences.blp:106
+msgid "Name"
+msgstr ""
+
+#: src/ui/preferences.blp:83
+#: src/ui/preferences.blp:97
+#: src/ui/preferences.blp:111
+msgid "Size"
+msgstr ""
+
+#: src/ui/preferences.blp:89
+msgid "Serif"
+msgstr ""
+
+#: src/ui/preferences.blp:103
+msgid "Monospace"
 msgstr ""

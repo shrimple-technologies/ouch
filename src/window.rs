@@ -19,6 +19,7 @@
  */
 
 use adw::prelude::*;
+use gettextrs::*;
 use glib::clone;
 use gtk::gdk;
 use gtk::gio::ActionEntry;
@@ -97,45 +98,42 @@ pub fn init(app: &adw::Application) {
 		#[strong]
 		url_button,
 		move |_, load_event| {
-			match load_event {
-				webkit::LoadEvent::Finished => {
-					let tab_page = view.selected_page().expect("Couldn't get tab page").child();
-					let web_view = tab_page.downcast_ref::<WebView>();
+			if load_event == webkit::LoadEvent::Finished {
+				let tab_page = view.selected_page().expect("Couldn't get tab page").child();
+				let web_view = tab_page.downcast_ref::<WebView>();
 
-					let url = Url::parse(
-						&web_view
+				let url = Url::parse(
+					web_view
+						.unwrap()
+						.uri()
+						.expect("Couldn't get web view's url")
+						.as_str(),
+				);
+				url_button.set_label(
+					url.expect("Couldn't get url")
+						.host_str()
+						.expect("Couldn't get url's host"),
+				);
+
+				view.selected_page()
+					.expect("Couldn't get tab page")
+					.set_title(
+						web_view
+							.unwrap()
+							.title()
+							.expect("Couldn't get title")
+							.as_str(),
+					);
+
+				view.selected_page()
+					.expect("Couldn't get tab page")
+					.set_keyword(
+						web_view
 							.unwrap()
 							.uri()
 							.expect("Couldn't get web view's url")
 							.as_str(),
 					);
-					url_button.set_label(
-						url.expect("Couldn't get url")
-							.host_str()
-							.expect("Couldn't get url's host"),
-					);
-
-					view.selected_page()
-						.expect("Couldn't get tab page")
-						.set_title(
-							&web_view
-								.unwrap()
-								.title()
-								.expect("Couldn't get title")
-								.as_str(),
-						);
-
-					view.selected_page()
-						.expect("Couldn't get tab page")
-						.set_keyword(
-							&web_view
-								.unwrap()
-								.uri()
-								.expect("Couldn't get web view's url")
-								.as_str(),
-						);
-				}
-				_ => (),
 			}
 		}
 	));
@@ -157,7 +155,7 @@ pub fn init(app: &adw::Application) {
 			match web_dialog.dialog_type() {
 				webkit::ScriptDialogType::Alert => {
 					let url = Url::parse(
-						&web_view
+						web_view
 							.uri()
 							.expect("Couldn't get web view's url")
 							.as_str(),
@@ -258,7 +256,7 @@ pub fn init(app: &adw::Application) {
 			#[strong]
 			copy_link_button,
 			move |_, _, _| {
-				if copy_link_button.get_sensitive() == true {
+				if copy_link_button.get_sensitive() {
 					let url = Some(web_view.uri().expect("Couldn't get URL"));
 
 					gdk::Display::default()
@@ -320,7 +318,7 @@ pub fn init(app: &adw::Application) {
 			web_view.unwrap().load_uri(&format!("https://{url}"));
 
 			let url = Url::parse(
-				&web_view
+				web_view
 					.unwrap()
 					.uri()
 					.expect("Couldn't get web view's url")
@@ -406,46 +404,42 @@ pub fn init(app: &adw::Application) {
 				#[strong]
 				url_button,
 				move |_, load_event| {
-					match load_event {
-						webkit::LoadEvent::Finished => {
-							let tab_page =
-								view.selected_page().expect("Couldn't get tab page").child();
-							let web_view = tab_page.downcast_ref::<WebView>();
+					if load_event == webkit::LoadEvent::Finished {
+						let tab_page = view.selected_page().expect("Couldn't get tab page").child();
+						let web_view = tab_page.downcast_ref::<WebView>();
 
-							let url = Url::parse(
-								&web_view
+						let url = Url::parse(
+							web_view
+								.unwrap()
+								.uri()
+								.expect("Couldn't get web view's url")
+								.as_str(),
+						);
+						url_button.set_label(
+							url.expect("Couldn't get url")
+								.host_str()
+								.expect("Couldn't get url's host"),
+						);
+
+						view.selected_page()
+							.expect("Couldn't get tab page")
+							.set_title(
+								web_view
+									.unwrap()
+									.title()
+									.expect("Couldn't get title")
+									.as_str(),
+							);
+
+						view.selected_page()
+							.expect("Couldn't get tab page")
+							.set_keyword(
+								web_view
 									.unwrap()
 									.uri()
 									.expect("Couldn't get web view's url")
 									.as_str(),
 							);
-							url_button.set_label(
-								url.expect("Couldn't get url")
-									.host_str()
-									.expect("Couldn't get url's host"),
-							);
-
-							view.selected_page()
-								.expect("Couldn't get tab page")
-								.set_title(
-									&web_view
-										.unwrap()
-										.title()
-										.expect("Couldn't get title")
-										.as_str(),
-								);
-
-							view.selected_page()
-								.expect("Couldn't get tab page")
-								.set_keyword(
-									&web_view
-										.unwrap()
-										.uri()
-										.expect("Couldn't get web view's url")
-										.as_str(),
-								);
-						}
-						_ => (),
 					}
 				}
 			));
@@ -467,7 +461,7 @@ pub fn init(app: &adw::Application) {
 					match web_dialog.dialog_type() {
 						webkit::ScriptDialogType::Alert => {
 							let url = Url::parse(
-								&web_view
+								web_view
 									.uri()
 									.expect("Couldn't get web view's url")
 									.as_str(),
