@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
-"PO-Revision-Date: 2024-09-03 20:09+0000\n"
+"PO-Revision-Date: 2024-09-03 20:13+0000\n"
 "Last-Translator: bee <micenest@pm.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "shrimple/ouch/pt_BR/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: src/ui/window.blp:133
 #: src/ui/about.blp:6
 msgid "Ouch Browser"
-msgstr ""
+msgstr "Ouch Browser"
 
 #: res/site.srht.shrimple.ouch.metainfo.xml:13
 #: res/site.srht.shrimple.ouch.desktop:4
@@ -33,7 +33,7 @@ msgstr "Foque em sua navegação"
 #: src/ui/about-shrimple.blp:6
 #: src/ui/about.blp:7
 msgid "Shrimple Technologies"
-msgstr ""
+msgstr "Shrimple Technologies"
 
 #: src/ui/window.blp:48
 msgid "Menu"
@@ -81,7 +81,7 @@ msgstr "Avançar"
 #: src/ui/window.blp:181
 #: src/ui/window.blp:228
 msgid "Refresh"
-msgstr "Atualizar"
+msgstr "Recarregar"
 
 #: src/ui/window.blp:187
 #: src/ui/window.blp:234
@@ -156,6 +156,9 @@ msgstr ""
 #: src/ui/preferences.blp:57
 msgid "You may want to enable this setting if you mostly use websites that directly grab text from your clipboard (e.g. graphic design creation websites)"
 msgstr ""
+"Você provavelmente gostaria dessa configuração ativa se você usa websites "
+"que diretamente pegam texto da sua área de transferência (ex. websites de "
+"edição de design gráfico)"
 
 #: src/ui/preferences.blp:63
 msgid "Privacy"
@@ -177,13 +180,13 @@ msgstr ""
 #: src/ui/preferences.blp:92
 #: src/ui/preferences.blp:106
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: src/ui/preferences.blp:83
 #: src/ui/preferences.blp:97
 #: src/ui/preferences.blp:111
 msgid "Size"
-msgstr ""
+msgstr "Tamanho"
 
 #: src/ui/preferences.blp:89
 msgid "Serif"
@@ -211,4 +214,4 @@ msgstr "Atualizar página"
 
 #: src/window.rs:513
 msgid "There was a problem loading this website"
-msgstr ""
+msgstr "Houve um problema ao carregar esse website"
