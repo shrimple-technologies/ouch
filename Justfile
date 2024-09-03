@@ -71,6 +71,7 @@ check:
 
 build-translations:
 	@sudo msgfmt -o /usr/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
+	@sudo msgfmt -o /usr/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
 
 run:
 	@blueprint-compiler batch-compile \

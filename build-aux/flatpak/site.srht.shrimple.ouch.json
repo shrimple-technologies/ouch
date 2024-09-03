@@ -60,6 +60,7 @@
 				"cargo build --release --features flatpak",
 
 				"msgfmt -o ${FLATPAK_DEST}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po",
+				"msgfmt -o ${FLATPAK_DEST}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po",
 
 				"install -Dm 755 target/release/ouch --target-directory ${FLATPAK_DEST}/bin",
 				"install -Dm 644 res/${FLATPAK_ID}.desktop --target-directory ${FLATPAK_DEST}/share/applications",
