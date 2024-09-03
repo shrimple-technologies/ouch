@@ -103,7 +103,7 @@ Adw.ApplicationWindow window {
 									}
 
 									Label {
-										label: "New tab";
+										label: _("New tab");
 
 										styles [
 											"heading"
@@ -178,13 +178,13 @@ Adw.ApplicationWindow window {
 							[start]
 							Button button_reload {
 								icon-name: "view-refresh-symbolic";
-								tooltip-text: _("Reload");
+								tooltip-text: _("Refresh");
 							}
 
 							[start]
 							Button button_stop {
 								icon-name: "process-stop-symbolic";
-								tooltip-text: _("Stop");
+								tooltip-text: _("Stop loading");
 								visible: false;
 							}
 
@@ -225,13 +225,13 @@ Adw.ApplicationWindow window {
 
 								Button {
 									icon-name: "view-refresh-symbolic";
-									tooltip-text: _("Reload");
+									tooltip-text: _("Refresh");
 									hexpand: true;
 								}
 
 								Button {
 									icon-name: "process-stop-symbolic";
-									tooltip-text: _("Stop");
+									tooltip-text: _("Stop loading");
 									visible: false;
 									hexpand: true;
 								}
@@ -337,7 +337,6 @@ Adw.Dialog url_dialog {
 }
 
 menu main_menu {
-	item (_("Zoom in"), "win.zoom-in")
 	item (_("Settings"), "win.show-preferences")
 	item (_("Keyboard Shortcuts"), "win.show-help-overlay")
 

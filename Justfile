@@ -69,6 +69,9 @@ check:
 		{{ BLUEPRINT_FILES }}
 	@cargo check
 
+build-translations:
+	@sudo msgfmt -o /usr/share/locale/en/LC_MESSAGES/ouch.mo po/en.po
+
 run:
 	@blueprint-compiler batch-compile \
 		src/ui \

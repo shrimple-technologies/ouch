@@ -1,0 +1,105 @@
+#
+# Max Walters <mdwalters.pm@proton.me>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.4.0\n"
+"Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
+"POT-Creation-Date: 2024-09-02 21:-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: res/site.srht.shrimple.ouch.metainfo.xml:6
+#: src/ui/window.blp:5
+#: src/ui/window.blp:39
+#: src/ui/window.blp:133
+#: src/ui/about.blp
+msgid "Ouch Browser"
+msgstr ""
+
+#: res/site.srht.shrimple.ouch.metainfo.xml:8
+#: src/ui/about-shrimple.blp:6
+msgid "Shrimple Technologies"
+msgstr ""
+
+#: src/ui/window.blp:48
+msgid "Menu"
+msgstr ""
+
+#: src/ui/window.blp:54
+msgid "Downloads"
+msgstr ""
+
+#: src/ui/window.blp:65
+msgid "Archive"
+msgstr ""
+
+#: src/ui/window.blp:71
+msgid "New..."
+msgstr ""
+
+#: src/ui/window.blp:106
+msgid "New tab"
+msgstr ""
+
+#: src/ui/window.blp:144
+msgid "Copy link"
+msgstr ""
+
+#: src/ui/window.blp:154
+msgid "Website settings"
+msgstr ""
+
+#: src/ui/window.blp:106
+msgid "New tab"
+msgstr ""
+
+#: src/ui/window.blp:162
+msgid "Toggle sidebar"
+msgstr ""
+
+#: src/ui/window.blp:169
+#: src/ui/window.blp:216
+msgid "Back"
+msgstr ""
+
+#: src/ui/window.blp:175
+#: src/ui/window.blp:222
+msgid "Forward"
+msgstr ""
+
+#: src/ui/window.blp:181
+#: src/ui/window.blp:228
+msgid "Refresh"
+msgstr ""
+
+#: src/ui/window.blp:187
+#: src/ui/window.blp:234
+msgid "Stop loading"
+msgstr ""
+
+#: src/ui/window.blp:194
+msgid "Toggle split view"
+msgstr ""
+
+#: src/ui/window.blp:340
+msgid "Settings"
+msgstr ""
+
+#: src/ui/window.blp:341
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/ui/window.blp:344
+msgid "About Shrimple Technologies"
+msgstr ""
+
+#: src/ui/window.blp:345
+msgid "About Ouch Browser"
+msgstr ""
