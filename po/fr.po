@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
-"PO-Revision-Date: 2024-09-03 19:28+0000\n"
+"PO-Revision-Date: 2024-09-03 19:37+0000\n"
 "Last-Translator: Aster <aster9857@proton.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/shrimple/ouch/fr/>"
 "\n"
@@ -51,7 +51,7 @@ msgstr "Nouveau…"
 msgid "New tab"
 msgstr "Nouvel onglet"
 
-#: src/ui/window.blp:144
+#: src/ui/window.blp:144 src/ui/help-overlay.blp:14
 msgid "Copy link"
 msgstr "Copier le lien"
 
@@ -93,13 +93,13 @@ msgstr "Raccourcis clavier"
 
 #: src/ui/window.blp:344
 msgid "About Shrimple Technologies"
-msgstr ""
+msgstr "À propos de Shrimple Technologies"
 
 #: src/ui/window.blp:345
 msgid "About Ouch Browser"
-msgstr ""
+msgstr "À propos de Ouch Browser"
 
-#: src/ui/preferences.blp:8
+#: src/ui/preferences.blp:8 src/ui/help-overlay.blp:11
 msgid "General"
 msgstr "Général"
 
@@ -120,15 +120,15 @@ msgstr ""
 
 #: src/ui/preferences.blp:22
 msgid "Appearance"
-msgstr ""
+msgstr "Apparence"
 
-#: src/ui/preferences.blp:43
+#: src/ui/preferences.blp:43 src/ui/help-overlay.blp:39
 msgid "Browser"
 msgstr "Navigateur"
 
 #: src/ui/preferences.blp:47
 msgid "Security"
-msgstr ""
+msgstr "Sécurité"
 
 #: src/ui/preferences.blp:50
 msgid "JavaScript"
@@ -182,4 +182,20 @@ msgstr ""
 
 #: src/ui/preferences.blp:103
 msgid "Monospace"
+msgstr ""
+
+#: src/ui/help-overlay.blp:20
+msgid "Open command palette"
+msgstr ""
+
+#: src/ui/help-overlay.blp:26
+msgid "Open settings"
+msgstr ""
+
+#: src/ui/help-overlay.blp:32
+msgid "Quit"
+msgstr ""
+
+#: src/ui/help-overlay.blp:42
+msgid "Refresh page"
 msgstr ""
