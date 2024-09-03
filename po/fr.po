@@ -220,6 +220,10 @@ msgstr "Remerciements"
 msgid "Banner designs"
 msgstr "Conception des bannières"
 
+#: src/window.rs:89
+msgid "Members"
+msgstr ""
+
 #: src/window.rs:513
 msgid "There was a problem loading this website"
 msgstr "Il y avait un problème de chargement de ce site"
