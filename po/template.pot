@@ -215,6 +215,10 @@ msgstr ""
 msgid "Banner designs"
 msgstr ""
 
+#: src/window.rs:89
+msgid "Members"
+msgstr ""
+
 #: src/window.rs:513
 msgid "There was a problem loading this website"
 msgstr ""
