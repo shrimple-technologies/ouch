@@ -204,6 +204,7 @@ msgid "Refresh page"
 msgstr ""
 
 #: src/window.rs:266
+#: src/window.rs:398
 msgid "Link copied"
 msgstr ""
 
