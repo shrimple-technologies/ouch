@@ -220,6 +220,7 @@ msgstr ""
 msgid "Members"
 msgstr ""
 
+# TRANSLATORS: The {} part of this string is meant to be a percentage (e.g. 50%).
 #: src/window.rs:284
 msgid "Zoomed in to {}%"
 msgstr ""
