@@ -207,7 +207,7 @@ msgstr "Sair"
 msgid "Refresh page"
 msgstr "Atualizar página"
 
-#: src/window.rs:266
+#: src/window.rs:266 src/window.rs:398
 msgid "Link copied"
 msgstr ""
 
