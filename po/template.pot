@@ -220,6 +220,10 @@ msgstr ""
 msgid "Members"
 msgstr ""
 
+#: src/window.rs:284
+msgid "Zoomed in to {}%"
+msgstr ""
+
 #: src/window.rs:513
 msgid "There was a problem loading this website"
 msgstr ""

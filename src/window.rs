@@ -281,7 +281,7 @@ pub fn init(app: &adw::Application) {
 				web_view.set_zoom_level(web_view.zoom_level() + 0.5);
 
 				toast_overlay.add_toast(adw::Toast::new(
-					format!("Zoomed in to {}%", web_view.zoom_level() * 100.0).as_str(),
+					gettext("Zoomed in to {}%").replace("{}", &(web_view.zoom_level() * 100.0).to_string()).as_str(),
 				));
 			}
 		))
