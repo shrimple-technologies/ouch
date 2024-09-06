@@ -64,7 +64,7 @@ pack:
 	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
 	
 clean:
-	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
+	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder ouch-*.*.*
 
 fmt:
 	@blueprint-compiler format -f -t -s 4 {{ BLUEPRINT_FILES }}
