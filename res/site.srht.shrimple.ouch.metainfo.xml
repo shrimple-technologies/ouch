@@ -86,6 +86,8 @@
 					<li>Add tabs</li>
 					<li>Add new tab button</li>
 					<li>Added new icon!</li>
+					<li>Adds support for directly using Google via the command palette</li>
+					<li>Adds better mobile support</li>
 				</ul>
 			</description>
 		</release>

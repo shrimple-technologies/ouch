@@ -50,7 +50,7 @@ pack:
 	@mv .tmp/GPL-3.0-or-later.txt .tmp/license.txt
 	@tar \
 		-czvf \
-		ouch-{{ VERSION }}.x86_64.tar.gz \
+		ouch-{{ VERSION }}.tar.gz \
 		--directory=.tmp \
 		.
 	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder

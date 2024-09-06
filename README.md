@@ -8,6 +8,10 @@ As Ouch Browser is beta software, it's installation options are limited.
 
 ### Binary
 
+> Warning
+>
+> Ouch Browser is only available on x84_64 architectures.
+
 1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.3.3/ouch-0.3.3.tar.gz)
 
 2. Extract the file. This will result in a new `ouch-x.y.z` folder in where you downloaded the file.
@@ -39,6 +43,10 @@ flatpak install shrimple site.srht.shrimple.ouch
 ```
 
 ## Building
+
+> Warning
+>
+> Ouch Browser is only available on x84_64 architectures.
 
 ### Binary
 
