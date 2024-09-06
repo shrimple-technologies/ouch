@@ -2,6 +2,13 @@
 
 Focus on your browsing.
 
+## Features
+
+- Arc Browser-like workflow (UX, keyboard shortcuts, etc.)
+- Intergration with the GNOME platform
+- Privacy respecting (we do not collect **any** data)
+- Mobile support
+
 ## Installing
 
 As Ouch Browser is beta software, it's installation options are limited.
@@ -58,21 +65,6 @@ just build
 
 ### Flatpak
 
-<!--
-Before doing any of these instructions, you must edit Ouch Browser's sources list in `build-aux/flatpak/site.srht.shrimple.Ouch.json`:
-
-```diff
-"sources": [
--    {
--        "type": "archive",
--        "sha256": "86e66dd7ea8b06f414bac29311b31860da2af164b4b1884ee83150fa5383525e",
--        "url": "https://git.sr.ht/~shrimple/ouch/archive/x.x.x.tar.gz"
--    }
-+    "devel.json"
-]
-```
--->
-
 #### GNOME Builder
 
 Building Ouch Browser as a Flatpak with GNOME Builder is recommended due to it's simplicity
@@ -114,5 +106,5 @@ Please see [this file](FAQ.md).
 ## Credits
 
 - [Jakub Steiner](http://jimmac.eu/) for designing the app icon.
-- [Lo](https://github.com/lo2dev) for [the tabs code](https://github.com/lo2dev/zenith/blob/master/src/window.blp#L126-L149) and [the URL matching code](https://github.com/lo2dev/zenith/blob/530dc0fc69620d46fe78fba80919644bd99c722e/src/window.py#L75-L94) from Zenith
+- [Lo](https://github.com/lo2dev) for [the tabs code](https://github.com/lo2dev/zenith/blob/master/src/window.blp#L126-L149) and [the URL matching code](https://github.com/lo2dev/zenith/blob/530dc0fc69620d46fe78fba80919644bd99c722e/src/window.py#L75-L94) from Zenith.
 - All of the translation contributors.
