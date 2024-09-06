@@ -79,6 +79,7 @@ pub fn init(app: &adw::Application) {
 		.object::<adw::AboutDialog>("about")
 		.expect("Couldn't get about dialog");
 	about.set_developers(&["Max Walters", "Ally Walters"]);
+	about.set_translator_credits(gettext("translator-credits").as_str());
 	about.add_acknowledgement_section(
 		Some(gettext("Acknowledgements").as_str()),
 		&["The Browser Company", "The GNOME Developers"],

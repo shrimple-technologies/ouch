@@ -15,6 +15,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.8-dev\n"
 
+# TRANSLATORS: This is not a string that is a part of the source code. This is your name (or username). This will be shown in Ouch Browser's credits.
+#: src/window.rs:87
+msgid "translator-credits"
+msgstr "Betty https://koko.micenest.xyz/users/betty"
+
 #: res/site.srht.shrimple.ouch.metainfo.xml:6
 #: res/site.srht.shrimple.ouch.desktop:3 src/ui/window.blp:5
 #: src/ui/window.blp:39 src/ui/window.blp:133 src/ui/about.blp:6
