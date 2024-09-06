@@ -45,9 +45,17 @@ pack:
 	@cp res/{{ ID }}.desktop .tmp
 	@cp res/{{ ID }}.metainfo.xml .tmp
 	@cp res/{{ ID }}.svg .tmp
+	@cp res/{{ ID }}-symbolic.svg .tmp
 	@cp res/site.srht.shrimple.svg .tmp
 	@cp licenses/GPL-3.0-or-later.txt .tmp
 	@mv .tmp/GPL-3.0-or-later.txt .tmp/license.txt
+	@echo "\#!/usr/bin/bash" >> .tmp/install.sh
+	@echo "sudo install -Dm 755 ouch --target-directory /usr/local/bin" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 site.srht.shrimple.ouch.desktop --target-directory /usr/share/applications" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps/" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps/" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps/" >> .tmp/install.sh
+	@chmod +x .tmp/install.sh
 	@tar \
 		-czvf \
 		ouch-{{ VERSION }}.tar.gz \

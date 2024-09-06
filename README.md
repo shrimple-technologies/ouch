@@ -23,15 +23,7 @@ As Ouch Browser is beta software, it's installation options are limited.
 
 2. Extract the file. This will result in a new `ouch-x.y.z` folder in where you downloaded the file.
 
-3. Open the directory, then run this command in the directory:
-
-```sh
-sudo install -Dm 755 ouch --target-directory /usr/local/bin
-sudo install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory /usr/share/applications
-sudo install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps/
-sudo install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps/
-sudo install -Dm 644 res/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps/
-```
+3. Open the directory, then execute the `install.sh` file.
 
 Wait a few seconds, and Ouch Browser should appear in your launcher. If it doesn't by a minute, you may need to log out, and log back in.
 
