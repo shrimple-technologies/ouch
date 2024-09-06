@@ -116,14 +116,34 @@ Adw.ApplicationWindow window {
 								]
 							}
 
-							ListBox tabs {
-								Adw.ActionRow tab {
-									visible: false;
-								}
+							ScrolledWindow {
+								vexpand: true;
 
-								styles [
-									"navigation-sidebar",
-								]
+								ListView tabs {
+									factory: BuilderListItemFactory {
+										template ListItem {
+											child: Box {
+												spacing: 10;
+
+												Image tab_icon {
+													icon-name: "image-missing-symbolic";
+												}
+
+												Label {
+													label: bind template.item as <Adw.TabPage>.title;
+													ellipsize: end;
+													halign: start;
+													hexpand: true;
+													tooltip-text: bind template.item as <Adw.TabPage>.keyword;
+												}
+											};
+										}
+									};
+
+									styles [
+										"navigation-sidebar",
+									]
+								}
 							}
 						}
 					}

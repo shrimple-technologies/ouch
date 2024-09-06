@@ -62,6 +62,9 @@ pub fn init(app: &adw::Application) {
 	let overview = builder
 		.object::<adw::TabOverview>("overview")
 		.expect("Couldn't get tab overview");
+	let tabs = builder
+		.object::<gtk::ListView>("tabs")
+		.expect("Couldn't get list view");
 
 	let help_overlay = gtk::Builder::from_string(include_str!("ui/help-overlay.ui"))
 		.object::<gtk::ShortcutsWindow>("help_overlay")
@@ -102,6 +105,8 @@ pub fn init(app: &adw::Application) {
 		url_button,
 		move |_, load_event| {
 			if load_event == webkit::LoadEvent::Finished {
+				tabs.set_model(Some(&view.pages()));
+
 				let tab_page = view.selected_page().expect("Couldn't get tab page").child();
 				let web_view = tab_page.downcast_ref::<WebView>();
 
@@ -320,7 +325,23 @@ pub fn init(app: &adw::Application) {
 			let tab_page = view.selected_page().expect("Couldn't get tab page").child();
 			let web_view = tab_page.downcast_ref::<WebView>();
 
-			web_view.unwrap().load_uri(&format!("https://{url}"));
+			if let Some(scheme) = glib::Uri::peek_scheme(&url) {
+				if scheme.as_str() == "https" || scheme.as_str() == "http" {
+					web_view.unwrap().load_uri(url.as_str());
+				} else {
+					web_view.unwrap().load_uri(&format!(
+						"https://google.com/search?q={}",
+						glib::Uri::escape_string(url.as_str(), None, true).as_str()
+					));
+				}
+			} else if url.as_str().contains(".") {
+				web_view.unwrap().load_uri(&format!("https://{url}"));
+			} else {
+				web_view.unwrap().load_uri(&format!(
+					"https://google.com/search?q={}",
+					glib::Uri::escape_string(url.as_str(), None, true).as_str()
+				));
+			}
 
 			let url = Url::parse(
 				web_view
