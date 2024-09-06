@@ -102,3 +102,8 @@ Translations are more than welcome, please go to our [Weblate component](https:/
 <!-- I probably need to reword this for accessiability. -->
 
 Please see [this file](FAQ.md).
+
+## Credits
+
+- [Jakub Steiner](http://jimmac.eu/) for designing the app icon.
+- All of the translation contributors.
