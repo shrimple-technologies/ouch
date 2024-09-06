@@ -325,8 +325,10 @@ pub fn init(app: &adw::Application) {
 			let tab_page = view.selected_page().expect("Couldn't get tab page").child();
 			let web_view = tab_page.downcast_ref::<WebView>();
 
-			if let Some(scheme) = glib::Uri::peek_scheme(&url) {
-				if scheme.as_str() == "https" || scheme.as_str() == "http" {
+			if url == "" {
+				web_view.unwrap().load_uri("https://start.ubuntu.com/");
+			} else if let Some(scheme) = glib::Uri::peek_scheme(&url) {
+				if scheme.as_str() == "https" || scheme.as_str() == "http" || scheme.as_str() == "about" {
 					web_view.unwrap().load_uri(url.as_str());
 				} else {
 					web_view.unwrap().load_uri(&format!(
