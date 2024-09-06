@@ -59,6 +59,10 @@
 				"blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp",
 				"cargo build --release --features flatpak",
 
+				"mkdir -p ${FLATPAK_DEST}/share/locale/fr/LC_MESSAGES",
+				"mkdir -p ${FLATPAK_DEST}/share/locale/pt_BR/LC_MESSAGES",
+				"mkdir -p ${FLATPAK_DEST}/share/locale/nb_NO/LC_MESSAGES",
+
 				"msgfmt -o ${FLATPAK_DEST}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po",
 				"msgfmt -o ${FLATPAK_DEST}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po",
 				"msgfmt -o ${FLATPAK_DEST}/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po",
