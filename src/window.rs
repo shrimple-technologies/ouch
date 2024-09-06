@@ -392,12 +392,9 @@ pub fn init(app: &adw::Application) {
 		#[strong]
 		url_bar,
 		#[strong]
-		web_view,
-		#[strong]
 		url_dialog,
 		move |_| {
-			let url = url_bar.buffer().text().as_str().to_string();
-			web_view.load_uri(&format!("https://{url}"));
+			url_bar.activate();
 			url_dialog.close();
 		}
 	));

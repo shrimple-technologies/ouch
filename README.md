@@ -114,5 +114,5 @@ Please see [this file](FAQ.md).
 ## Credits
 
 - [Jakub Steiner](http://jimmac.eu/) for designing the app icon.
-- [Lo](https://github.com/lo2dev) for [the tabs code](https://github.com/lo2dev/zenith/blob/master/src/window.blp#L126-L149) from Zenith
+- [Lo](https://github.com/lo2dev) for [the tabs code](https://github.com/lo2dev/zenith/blob/master/src/window.blp#L126-L149) and  from Zenith
 - All of the translation contributors.
