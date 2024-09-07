@@ -329,7 +329,7 @@ pub fn init(app: &adw::Application) {
 			if url == "" {
 				web_view.unwrap().load_uri("https://start.ubuntu.com/");
 			} else if let Some(scheme) = glib::Uri::peek_scheme(&url) {
-				if scheme.as_str() == "https" || scheme.as_str() == "http" {
+				if scheme.as_str() == "https" || scheme.as_str() == "http" || scheme.as_str() == "file" {
 					web_view.unwrap().load_uri(url.as_str());
 				} else {
 					web_view.unwrap().load_uri(&format!(
