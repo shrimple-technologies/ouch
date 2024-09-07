@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.0\n"
-"Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
+"Report-Msgid-Bugs-To: ~shrimple/shrimple@lists.sr.ht\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
-"PO-Revision-Date: 2024-09-03 20:23+0000\n"
+"PO-Revision-Date: 2024-09-07 11:08+0000\n"
 "Last-Translator: bee <micenest@pm.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "shrimple/ouch/pt_BR/>\n"
@@ -115,7 +115,7 @@ msgstr "Acessibilidade"
 
 #: src/ui/preferences.blp:15
 msgid "Enable gestures"
-msgstr ""
+msgstr "Habilitar gestos"
 
 #: src/ui/preferences.blp:16
 msgid ""
@@ -123,6 +123,9 @@ msgid ""
 "this setting if you are on a mobile device, or if you use a touchscreen "
 "device."
 msgstr ""
+"Gestos permitem você fazer ações facilmente com movimentos. Você "
+"provavelmente gostaria dessa opção ativa se estiver em um celular, ou se "
+"você faz uso de um dispositivo touchscreen."
 
 #: src/ui/preferences.blp:22
 msgid "Appearance"
@@ -198,7 +201,7 @@ msgstr ""
 
 #: src/ui/help-overlay.blp:20
 msgid "Open command palette"
-msgstr ""
+msgstr "Abrir paleta de comandos"
 
 #: src/ui/help-overlay.blp:26
 msgid "Open settings"
@@ -214,7 +217,7 @@ msgstr "Atualizar página"
 
 #: src/window.rs:266 src/window.rs:398
 msgid "Link copied"
-msgstr ""
+msgstr "Link copiado"
 
 #: src/window.rs:80
 msgid "Acknowledgements"
@@ -222,11 +225,11 @@ msgstr ""
 
 #: src/window.rs:83
 msgid "Banner designs"
-msgstr ""
+msgstr "Designs de banner"
 
 #: src/window.rs:89
 msgid "Members"
-msgstr ""
+msgstr "Membros"
 
 #: src/window.rs:284
 msgid "Zoomed in to {}%"
