@@ -4,7 +4,6 @@
 		"rust-lang.rust-analyzer",
 		"tamasfe.even-better-toml",
 		"nefrob.vscode-just-syntax",
-		"mrorz.language-gettext",
-		"ovcharik.gettext-duplicate-error"
+		"mrorz.language-gettext"
 	]
 }
