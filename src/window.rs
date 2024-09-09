@@ -109,40 +109,35 @@ pub fn init(app: &adw::Application) {
 				tabs.set_model(Some(&view.pages()));
 
 				let tab_page = view.selected_page().expect("Couldn't get tab page").child();
-				let web_view = tab_page.downcast_ref::<WebView>();
+				let web_view = tab_page.downcast_ref::<WebView>().unwrap();
 
-				let url = Url::parse(
-					web_view
-						.unwrap()
-						.uri()
-						.expect("Couldn't get web view's url")
-						.as_str(),
-				);
-				url_button.set_label(
-					url.expect("Couldn't get url")
-						.host_str()
-						.expect("Couldn't get url's host"),
-				);
-
-				view.selected_page()
-					.expect("Couldn't get tab page")
-					.set_title(
+				// see https://todo.sr.ht/~shrimple/ouch/1
+				if web_view.title() != None {
+					let url = Url::parse(
 						web_view
-							.unwrap()
-							.title()
-							.expect("Couldn't get title")
-							.as_str(),
-					);
-
-				view.selected_page()
-					.expect("Couldn't get tab page")
-					.set_keyword(
-						web_view
-							.unwrap()
 							.uri()
 							.expect("Couldn't get web view's url")
 							.as_str(),
 					);
+					url_button.set_label(
+						url.expect("Couldn't get url")
+							.host_str()
+							.expect("Couldn't get url's host"),
+					);
+
+					view.selected_page()
+						.expect("Couldn't get tab page")
+						.set_title(web_view.title().expect("Couldn't get title").as_str());
+
+					view.selected_page()
+						.expect("Couldn't get tab page")
+						.set_keyword(
+							web_view
+								.uri()
+								.expect("Couldn't get web view's url")
+								.as_str(),
+						);
+				}
 			}
 		}
 	));
@@ -329,7 +324,10 @@ pub fn init(app: &adw::Application) {
 			if url == "" {
 				web_view.unwrap().load_uri("https://start.ubuntu.com/");
 			} else if let Some(scheme) = glib::Uri::peek_scheme(&url) {
-				if scheme.as_str() == "https" || scheme.as_str() == "http" || scheme.as_str() == "file" {
+				if scheme.as_str() == "https"
+					|| scheme.as_str() == "http"
+					|| scheme.as_str() == "file"
+				{
 					web_view.unwrap().load_uri(url.as_str());
 				} else {
 					web_view.unwrap().load_uri(&format!(

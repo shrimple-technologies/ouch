@@ -21,7 +21,6 @@ Adw.ApplicationWindow window {
 			button_back.visible: false;
 			button_reload.visible: false;
 			button_stop.visible: false;
-			tab_button.visible: false;
 			tabs_list.margin-end: 10;
 		}
 	}
@@ -217,12 +216,6 @@ Adw.ApplicationWindow window {
 								tooltip-text: _("Toggle split view");
 								sensitive: false;
 							}
-
-							[end]
-							Adw.TabButton tab_button {
-								view: view;
-								action-name: "overview.open";
-							}
 						}
 
 						[bottom]
@@ -259,7 +252,6 @@ Adw.ApplicationWindow window {
 									hexpand: true;
 								}
 
-								[end]
 								Adw.TabButton {
 									view: view;
 									action-name: "overview.open";
