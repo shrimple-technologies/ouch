@@ -121,11 +121,17 @@ pub fn init(app: &adw::Application) {
 							.expect("Couldn't get web view's url")
 							.as_str(),
 					);
-					url_button.set_label(
-						url.expect("Couldn't get url")
-							.host_str()
-							.expect("Couldn't get url's host"),
-					);
+
+					let _url = url.clone();
+					if url.expect("Couldn't get URL").scheme() == "file" {
+						url_button.set_label(_url.expect("Couldn't get url").path());
+					} else {
+						url_button.set_label(
+							_url.expect("Couldn't get url")
+								.host_str()
+								.expect("Couldn't get url's host"),
+						);
+					}
 
 					view.selected_page()
 						.expect("Couldn't get tab page")
@@ -353,11 +359,17 @@ pub fn init(app: &adw::Application) {
 					.expect("Couldn't get web view's url")
 					.as_str(),
 			);
-			url_button.set_label(
-				url.expect("Couldn't get url")
-					.host_str()
-					.expect("Couldn't get url's host"),
-			);
+
+			let _url = url.clone();
+			if url.expect("Couldn't get url").scheme() == "file" {
+				url_button.set_label(_url.expect("Couldn't get url").path());
+			} else {
+				url_button.set_label(
+					_url.expect("Couldn't get url")
+						.host_str()
+						.expect("Couldn't get url's host"),
+				);
+			}
 
 			url_dialog.close();
 			copy_link_button.set_sensitive(true);
@@ -434,10 +446,10 @@ pub fn init(app: &adw::Application) {
 				move |_, load_event| {
 					if load_event == webkit::LoadEvent::Finished {
 						tabs.set_model(Some(&view.pages()));
-		
+
 						let tab_page = view.selected_page().expect("Couldn't get tab page").child();
 						let web_view = tab_page.downcast_ref::<WebView>().unwrap();
-		
+
 						// see https://todo.sr.ht/~shrimple/ouch/1
 						if web_view.title() != None {
 							let url = Url::parse(
@@ -446,16 +458,22 @@ pub fn init(app: &adw::Application) {
 									.expect("Couldn't get web view's url")
 									.as_str(),
 							);
-							url_button.set_label(
-								url.expect("Couldn't get url")
-									.host_str()
-									.expect("Couldn't get url's host"),
-							);
-		
+
+							let _url = url.clone();
+							if url.expect("Couldn't get URL").scheme() == "file" {
+								url_button.set_label(_url.expect("Couldn't get url").path());
+							} else {
+								url_button.set_label(
+									_url.expect("Couldn't get url")
+										.host_str()
+										.expect("Couldn't get url's host"),
+								);
+							}
+
 							view.selected_page()
 								.expect("Couldn't get tab page")
 								.set_title(web_view.title().expect("Couldn't get title").as_str());
-		
+
 							view.selected_page()
 								.expect("Couldn't get tab page")
 								.set_keyword(
