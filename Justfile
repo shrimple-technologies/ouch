@@ -1,4 +1,4 @@
-VERSION := "0.4.0-rc.2"
+VERSION := "0.4.0"
 ID := "site.srht.shrimple.ouch"
 BLUEPRINT_FILES := "src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp"
 
