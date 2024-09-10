@@ -12,7 +12,7 @@ These are questions that the Shrimple Technologies team has been asked multiple 
 
 ## Can you add this feature?
 
-**Maybe.** We are a small development team, and we cannot implement all features quickly. If you would still like to send your feature request, you may do it on our [mailing list](https://lists.sr.ht/~shrimple/ouch).
+**Maybe.** We are a small development team, and we cannot implement all features quickly. If you would still like to send your feature request, you may do it on our [mailing list](https://lists.sr.ht/~shrimple/shrimple).
 
 ## Where are the AI features?
 
