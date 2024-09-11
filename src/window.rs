@@ -560,6 +560,7 @@ fn error_page(msg: &str) -> String {
 		<!doctype html>
 			<html>
 				<head>
+					<title>{error_header}</title>
 					<style>
 						* {{ margin: 0; }}
 
