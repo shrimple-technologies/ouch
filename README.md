@@ -8,6 +8,7 @@ Focus on your browsing.
 - Intergration with the GNOME platform
 - Privacy respecting (we do not collect **any** data)
 - Mobile support
+- Extremely lightweight (the binary is just a little under a megabyte large!)
 
 ## Installing
 
