@@ -18,7 +18,7 @@ As Ouch Browser is beta software, it's installation options are limited.
 
 > **Warning**
 >
-> Ouch Browser is only available on x84_64 architectures.
+> Ouch Browser is only available on x84_64 architectures. You may need to [build Ouch Browser](#building) for your architecture before continuing.
 
 1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.4.1/ouch-0.4.1.tar.gz)
 
