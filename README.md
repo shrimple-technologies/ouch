@@ -20,9 +20,9 @@ As Ouch Browser is beta software, it's installation options are limited.
 >
 > Ouch Browser is only available on x84_64 architectures.
 
-1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.3.3/ouch-0.3.3.tar.gz)
+1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.4.1/ouch-0.4.1.tar.gz)
 
-2. Extract the file. This will result in a new `ouch-0.3.3` folder in where you downloaded the file, depending on your method of extraction.
+2. Extract the file. This will result in a new `ouch-0.4.1` folder in where you downloaded the file, depending on your method of extraction.
 
 3. Open the directory, then execute the `install.sh` file.
 
