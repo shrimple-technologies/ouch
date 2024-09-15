@@ -36,23 +36,23 @@ build-flatpak:
 # MAINTAINERS: Run this command when you have finished releasing a new version of ouch (e.g. pushed version bump commit, pushed tag, updated tar.gz file checksums).
 pack:
 	@rm -rf ouch-*.*.* .tmp {{ ID }}.flatpak .build .flatpak-builder
-	@mkdir -p .tmp
+	@mkdir -p .tmp .tmp/assets
 	@just build-release
 	@just build-flatpak
 	@cp {{ ID }}.flatpak .tmp
 	@cp target/release/ouch .tmp
-	@cp res/{{ ID }}.desktop .tmp
-	@cp res/{{ ID }}.svg .tmp
-	@cp res/{{ ID }}-symbolic.svg .tmp
-	@cp res/site.srht.shrimple.svg .tmp
+	@cp res/{{ ID }}.desktop .tmp/assets
+	@cp res/{{ ID }}.svg .tmp/assets
+	@cp res/{{ ID }}-symbolic.svg .tmp/assets
+	@cp res/site.srht.shrimple.svg .tmp/assets
 	@cp licenses/GPL-3.0-or-later.txt .tmp
 	@mv .tmp/GPL-3.0-or-later.txt .tmp/license.txt
 	@echo "\#!/usr/bin/bash" >> .tmp/install.sh
 	@echo "sudo install -Dm 755 ouch --target-directory /usr/local/bin" >> .tmp/install.sh
-	@echo "sudo install -Dm 644 site.srht.shrimple.ouch.desktop --target-directory /usr/share/applications" >> .tmp/install.sh
-	@echo "sudo install -Dm 644 site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps/" >> .tmp/install.sh
-	@echo "sudo install -Dm 644 site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps/" >> .tmp/install.sh
-	@echo "sudo install -Dm 644 site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps/" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch.desktop --target-directory /usr/share/applications" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps/" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps/" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 assets/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps/" >> .tmp/install.sh
 	@chmod +x .tmp/install.sh
 	@tar \
 		-czvf \
