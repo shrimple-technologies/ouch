@@ -70,18 +70,18 @@ Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than
 
 ```diff
 build-flatpak:
-	@flatpak-builder \
-		--force-clean \
-		--user \
+    @flatpak-builder \
+        --force-clean \
+        --user \
 -		--gpg-sign=22C359EDF1E87959D2DAD548E4BE7E015E072434 \
-		--repo=.build/repo \
-		.build \
-		build-aux/flatpak/{{ ID }}.json
-	@flatpak build-bundle \
-		.build/repo \
-		{{ ID }}.flatpak \
-		{{ ID }} \
-		--runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
+        --repo=.build/repo \
+        .build \
+        build-aux/flatpak/{{ ID }}.json
+    @flatpak build-bundle \
+        .build/repo \
+        {{ ID }}.flatpak \
+        {{ ID }} \
+        --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 Then, you can build the Flatpak:
