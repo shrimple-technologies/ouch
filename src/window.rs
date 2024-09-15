@@ -65,6 +65,9 @@ pub fn init(app: &adw::Application) {
 	let tabs = builder
 		.object::<gtk::ListView>("tabs")
 		.expect("Couldn't get list view");
+	let frame = builder
+		.object::<gtk::Frame>("frame")
+		.expect("Couldn't get web view's frame");
 
 	let help_overlay = gtk::Builder::from_string(include_str!("ui/help-overlay.ui"))
 		.object::<gtk::ShortcutsWindow>("help_overlay")
@@ -124,13 +127,23 @@ pub fn init(app: &adw::Application) {
 
 					let _url = url.clone();
 					if url.expect("Couldn't get URL").scheme() == "file" {
-						url_button.set_label(_url.expect("Couldn't get url").path());
+						url_button
+							.child()
+							.expect("Couldn't get command palette toggle's label")
+							.downcast_ref::<gtk::Label>()
+							.unwrap()
+							.set_label(_url.expect("Couldn't get url").path());
 					} else {
-						url_button.set_label(
-							_url.expect("Couldn't get url")
-								.host_str()
-								.expect("Couldn't get url's host"),
-						);
+						url_button
+							.child()
+							.expect("Couldn't get command palette toggle's label")
+							.downcast_ref::<gtk::Label>()
+							.unwrap()
+							.set_label(
+								_url.expect("Couldn't get url")
+									.host_str()
+									.expect("Couldn't get url's host"),
+							);
 					}
 
 					view.selected_page()
@@ -364,11 +377,16 @@ pub fn init(app: &adw::Application) {
 			if url.expect("Couldn't get url").scheme() == "file" {
 				url_button.set_label(_url.expect("Couldn't get url").path());
 			} else {
-				url_button.set_label(
-					_url.expect("Couldn't get url")
-						.host_str()
-						.expect("Couldn't get url's host"),
-				);
+				url_button
+					.child()
+					.expect("Couldn't get command palette toggle's label")
+					.downcast_ref::<gtk::Label>()
+					.unwrap()
+					.set_label(
+						_url.expect("Couldn't get url")
+							.host_str()
+							.expect("Couldn't get url's host"),
+					);
 			}
 
 			url_dialog.close();
@@ -381,6 +399,12 @@ pub fn init(app: &adw::Application) {
 			toggle_sidebar.set_active(false);
 			osv.set_show_sidebar(true);
 		} else {
+			if toggle_sidebar.is_active() {
+				frame.set_margin_start(0);
+			} else {
+				frame.set_margin_start(10);
+			}
+			
 			osv.set_show_sidebar(toggle_sidebar.is_active());
 		}
 	});
@@ -461,13 +485,23 @@ pub fn init(app: &adw::Application) {
 
 							let _url = url.clone();
 							if url.expect("Couldn't get URL").scheme() == "file" {
-								url_button.set_label(_url.expect("Couldn't get url").path());
+								url_button
+									.child()
+									.expect("Couldn't get command palette toggle's label")
+									.downcast_ref::<gtk::Label>()
+									.unwrap()
+									.set_label(_url.expect("Couldn't get url").path());
 							} else {
-								url_button.set_label(
-									_url.expect("Couldn't get url")
-										.host_str()
-										.expect("Couldn't get url's host"),
-								);
+								url_button
+									.child()
+									.expect("Couldn't get command palette toggle's label")
+									.downcast_ref::<gtk::Label>()
+									.unwrap()
+									.set_label(
+										_url.expect("Couldn't get url")
+											.host_str()
+											.expect("Couldn't get url's host"),
+									);
 							}
 
 							view.selected_page()

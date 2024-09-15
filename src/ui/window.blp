@@ -15,13 +15,13 @@ Adw.ApplicationWindow window {
 			osv.collapsed: true;
 			bottom_hb.visible: true;
 			frame.margin-bottom: 0;
+			frame.margin-start: 10;
 			toggle_sidebar.active: false;
 			url_bar_button.visible: true;
 			button_forward.visible: false;
 			button_back.visible: false;
 			button_reload.visible: false;
 			button_stop.visible: false;
-			tabs_list.margin-end: 10;
 		}
 	}
 
@@ -74,14 +74,15 @@ Adw.ApplicationWindow window {
 							show-title: false;
 						}
 
-						Box tabs_list {
+						Box {
 							orientation: vertical;
-							margin-start: 10;
 							spacing: 10;
 
 							Label {
 								label: _("Main");
 								halign: start;
+								margin-start: 10;
+								margin-end: 5;
 
 								styles [
 									"dim-label",
@@ -89,62 +90,70 @@ Adw.ApplicationWindow window {
 								]
 							}
 
-							Separator sp {}
-
-							// TODO: Migrate this to an Adw.ButtonRow when libadwaita 1.6 releases
-							Button {
-								margin-start: 5;
-								margin-end: 5;
-
-								Box {
-									orientation: horizontal;
-									spacing: 15;
-
-									Image {
-										icon-name: "list-add-symbolic";
-									}
-
-									Label {
-										label: _("New tab");
-
-										styles [
-											"heading"
-										]
-									}
-								}
-
-								styles [
-									"flat"
-								]
+							Separator sp {
+								margin-start: 10;
+								margin-end: 10;
 							}
 
-							ScrolledWindow {
-								vexpand: true;
+							// TODO: Migrate this to an Adw.ButtonRow when libadwaita 1.6 releases
+							Box tabs_list {
+								orientation: vertical;
+								spacing: 2;
 
-								ListView tabs {
-									factory: BuilderListItemFactory {
-										template ListItem {
-											child: Box {
-												spacing: 10;
+								Button {
+									margin-start: 5;
+									margin-end: 5;
 
-												Image tab_icon {
-													icon-name: "image-missing-symbolic";
-												}
+									Box {
+										orientation: horizontal;
+										spacing: 15;
 
-												Label {
-													label: bind template.item as <Adw.TabPage>.title;
-													ellipsize: end;
-													halign: start;
-													hexpand: true;
-													tooltip-text: bind template.item as <Adw.TabPage>.keyword;
-												}
-											};
+										Image {
+											icon-name: "list-add-symbolic";
 										}
-									};
+
+										Label {
+											label: _("New tab");
+
+											styles [
+												"heading"
+											]
+										}
+									}
 
 									styles [
-										"navigation-sidebar",
+										"flat"
 									]
+								}
+
+								ScrolledWindow {
+									vexpand: true;
+
+									ListView tabs {
+										factory: BuilderListItemFactory {
+											template ListItem {
+												child: Box {
+													spacing: 10;
+
+													Image tab_icon {
+														icon-name: "image-missing-symbolic";
+													}
+
+													Label {
+														label: bind template.item as <Adw.TabPage>.title;
+														ellipsize: end;
+														halign: start;
+														hexpand: true;
+														tooltip-text: bind template.item as <Adw.TabPage>.keyword;
+													}
+												};
+											}
+										};
+
+										styles [
+											"navigation-sidebar",
+										]
+									}
 								}
 							}
 						}
@@ -168,7 +177,16 @@ Adw.ApplicationWindow window {
 								}
 
 								Button url_button {
-									label: "example.com";
+									Label {
+										label: "example.com";
+										margin-start: 6;
+										margin-end: 6;
+										ellipsize: end;
+
+										styles [
+											"header"
+										]
+									}
 								}
 
 								Button {
@@ -274,7 +292,6 @@ Adw.ApplicationWindow window {
 								orientation: horizontal;
 
 								Frame frame {
-									margin-start: 10;
 									margin-end: 10;
 									margin-bottom: 10;
 									hexpand: true;
