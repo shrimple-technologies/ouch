@@ -33,7 +33,7 @@ build-flatpak:
 		{{ ID }} \
 		--runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 
-# MAINTAINERS: Run this command when you have finished releasing a new version of ouch (e.g. pushed version bump commit, pushed tag, updated tar.gz file checksums).
+# MAINTAINERS: Run this command when you have finished releasing a new version of ouch (e.g. pushed version bump commit, pushed tag, etc.).
 pack:
 	@rm -rf ouch-*.*.* .tmp {{ ID }}.flatpak .build .flatpak-builder
 	@mkdir -p .tmp .tmp/assets
@@ -50,9 +50,9 @@ pack:
 	@echo "\#!/usr/bin/bash" >> .tmp/install.sh
 	@echo "sudo install -Dm 755 ouch --target-directory /usr/local/bin" >> .tmp/install.sh
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch.desktop --target-directory /usr/share/applications" >> .tmp/install.sh
-	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps/" >> .tmp/install.sh
-	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps/" >> .tmp/install.sh
-	@echo "sudo install -Dm 644 assets/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps/" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 assets/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps" >> .tmp/install.sh
 	@chmod +x .tmp/install.sh
 	@tar \
 		-czvf \
