@@ -404,7 +404,7 @@ pub fn init(app: &adw::Application) {
 			} else {
 				frame.set_margin_start(10);
 			}
-			
+
 			osv.set_show_sidebar(toggle_sidebar.is_active());
 		}
 	});
