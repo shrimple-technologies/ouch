@@ -16,7 +16,7 @@ As Ouch Browser is beta software, it's installation options are limited.
 
 ### Binary
 
-> Warning
+> **Warning**
 >
 > Ouch Browser is only available on x84_64 architectures.
 
@@ -43,10 +43,6 @@ flatpak install shrimple site.srht.shrimple.ouch
 ```
 
 ## Building
-
-> Warning
->
-> Ouch Browser is only available on x84_64 architectures.
 
 ### Binary
 
