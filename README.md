@@ -70,7 +70,7 @@ Building Ouch Browser as a Flatpak with GNOME Builder is recommended due to it's
 
 #### Flatpak Builder
 
-Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than using GNOME Builder, due to being run as a single command, and is editor-agonistic. Before running, you must remove GPG signing in the `Justfile` located in the source folder:
+Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than using GNOME Builder, due to being run as a single command, and is editor-agonistic. Before building, you must remove GPG signing in the `Justfile` located in the source folder:
 
 ```diff
 build-flatpak:
