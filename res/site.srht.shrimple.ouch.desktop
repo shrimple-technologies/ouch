@@ -6,6 +6,6 @@ Exec=ouch
 Icon=site.srht.shrimple.ouch
 Terminal=false
 Categories=Network;WebBrowser;
-MimeType=text/html;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;multipart/related;application/x-mimearchive;message/rfc822;application/x-xpinstall;
+MimeType=text/html;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;multipart/related;application/x-mimearchive;
 StartupNotify=true
 X-Purism-FormFactor=Workstation;Mobile;
