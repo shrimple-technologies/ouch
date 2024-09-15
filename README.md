@@ -73,7 +73,7 @@ build-flatpak:
     @flatpak-builder \
         --force-clean \
         --user \
--		--gpg-sign=22C359EDF1E87959D2DAD548E4BE7E015E072434 \
+-       --gpg-sign=22C359EDF1E87959D2DAD548E4BE7E015E072434 \
         --repo=.build/repo \
         .build \
         build-aux/flatpak/{{ ID }}.json
