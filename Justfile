@@ -42,7 +42,6 @@ pack:
 	@cp {{ ID }}.flatpak .tmp
 	@cp target/release/ouch .tmp
 	@cp res/{{ ID }}.desktop .tmp
-	@cp res/{{ ID }}.metainfo.xml .tmp
 	@cp res/{{ ID }}.svg .tmp
 	@cp res/{{ ID }}-symbolic.svg .tmp
 	@cp res/site.srht.shrimple.svg .tmp
