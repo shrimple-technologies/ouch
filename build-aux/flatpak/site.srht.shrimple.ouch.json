@@ -56,7 +56,7 @@
 			"builddir": true,
 			"buildsystem": "simple",
 			"build-commands": [
-				"blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp",
+				"blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp src/ui/oobe.blp",
 				"cargo build --release --features flatpak",
 
 				"mkdir -p ${FLATPAK_DEST}/share/locale/fr/LC_MESSAGES",

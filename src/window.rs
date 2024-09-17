@@ -97,6 +97,10 @@ pub fn init(app: &adw::Application) {
 		&["Max Walters", "Ally Walters"],
 	);
 
+	let _oobe = gtk::Builder::from_string(include_str!("ui/oobe.ui"))
+		.object::<adw::Dialog>("oobe")
+		.expect("Couldn't get OOBE dialog");
+
 	#[cfg(feature = "devel")]
 	window.add_css_class("devel");
 
