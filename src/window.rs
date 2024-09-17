@@ -540,8 +540,8 @@ pub fn init(app: &adw::Application) {
 											.as_str(),
 									);
 							}
-						},
-						_ => ()
+						}
+						_ => (),
 					}
 				}
 			));
