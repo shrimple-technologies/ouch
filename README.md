@@ -102,7 +102,7 @@ For Visual Studio Code users, we also provide a file (`.vscode/extensions.json`)
 
 ## Contributing Translations
 
-Translations are more than welcome, please go to our [Weblate component](https://hosted.weblate.org/projects/shrimple/ouch/) to get started.
+Translations are more than welcome, please go to our [Weblate project](https://hosted.weblate.org/projects/ouch/ouch/) to get started.
 
 ## Frequently Asked Questions
 
