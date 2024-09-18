@@ -236,3 +236,61 @@ msgstr "Zoomé à {}%"
 #: src/window.rs:513
 msgid "There was a problem loading this website"
 msgstr "Il y avait un problème de chargement de ce site"
+
+#: src/ui/oobe.blp:22
+msgid ""
+"If you are seeing this, that means that you are running a developer build of "
+"Ouch Browser. If you don't know what this means, or you have obtained Ouch "
+"Browser via a release, or from Flatpak, please report this to Shrimple "
+"Technologies, as this build can be extremely unstable."
+msgstr ""
+
+#: src/ui/oobe.blp:28
+msgid "DEVELOPER BUILD"
+msgstr ""
+
+#: src/ui/oobe.blp:44
+msgid "Previous"
+msgstr ""
+
+#: src/ui/oobe.blp:57
+msgid "Next"
+msgstr ""
+
+#: src/ui/oobe.blp:76
+msgid "Welcome to Ouch Browser!"
+msgstr ""
+
+#: src/ui/oobe.blp:77
+msgid ""
+"This tutorial will teach you everything you need to know about Ouch Browser."
+msgstr ""
+
+#: src/ui/oobe.blp:85
+msgid "Skip"
+msgstr ""
+
+#: src/ui/oobe.blp:93
+msgid "Let's go!"
+msgstr ""
+
+#: src/ui/oobe.blp:106
+msgid "The command palette is your friend!"
+msgstr ""
+
+#: src/ui/oobe.blp:107
+msgid ""
+"Think of the command palette as your beloved search bar, but more powerful! "
+"You can summon the command palette at any time by hitting Ctrl + L, or "
+"clicking on the website's domain."
+msgstr ""
+
+#: src/ui/oobe.blp:113
+msgid "Created by a collective"
+msgstr ""
+
+#: src/ui/oobe.blp:114
+msgid ""
+"Ouch Browser is developed and maintained by Shrimple Technologies, a "
+"collective with the purpose of proving that complex things can be made easy!"
+msgstr ""
