@@ -100,7 +100,7 @@ pub fn init(app: &adw::Application) {
 		&["Max Walters", "Ally Walters"],
 	);
 
-	let _oobe = gtk::Builder::from_string(include_str!("ui/oobe.ui"))
+	let oobe = gtk::Builder::from_string(include_str!("ui/oobe.ui"))
 		.object::<adw::Dialog>("oobe")
 		.expect("Couldn't get OOBE dialog");
 
@@ -328,6 +328,56 @@ pub fn init(app: &adw::Application) {
 			}
 		))
 		.build();
+	let action_oobe = ActionEntry::builder("show-oobe")
+		.activate(clone!(
+			#[strong]
+			oobe,
+			#[strong]
+			window,
+			move |_, _, _| {
+				#[cfg(feature = "devel")]
+				gtk::Builder::from_string(include_str!("ui/oobe.ui"))
+					.object::<gtk::MenuButton>("developer_warning")
+					.expect("Couldn't get OOBE dialog")
+					.set_visible(true);
+
+				oobe.present(Some(&window));
+			}
+		))
+		.build();
+	let action_oobe_replay = ActionEntry::builder("show-oobe-replay")
+		.activate(clone!(
+			#[strong]
+			oobe,
+			#[strong]
+			window,
+			move |_, _, _| {
+				#[cfg(feature = "devel")]
+				gtk::Builder::from_string(include_str!("ui/oobe.ui"))
+					.object::<gtk::MenuButton>("developer_warning")
+					.expect("Couldn't get OOBE dialog")
+					.set_visible(true);
+
+				oobe.set_can_close(true);
+				oobe.present(Some(&window));
+			}
+		))
+		.build();
+	/* let action_oobe_next = ActionEntry::builder("oobe-next")
+		.activate(clone!(
+			#[strong]
+			oobe,
+			move |_, _, _| {
+				let _oobe = oobe.child();
+				let carousel = _oobe
+					.expect("Couldn't get OOBE carousel")
+					.downcast_ref::<adw::Carousel>()
+					.expect("Couldn't get OOBE carousel");
+				
+				carousel.nth_page(carousel.position() as u32);
+			}
+		))
+		.build(); */
 	window.add_action_entries([
 		action_cmd,
 		action_about,
@@ -336,13 +386,12 @@ pub fn init(app: &adw::Application) {
 		action_preferences,
 		action_copy_link,
 		action_zoom_in,
+		action_oobe,
+		action_oobe_replay,
+		// action_oobe_next,
 	]);
 
-	url_dialog.connect_close_attempt(
-		|_| {
-			()
-		}
-	);
+	url_dialog.connect_close_attempt(|_| ());
 
 	url_bar.connect_activate(clone!(
 		#[strong]
