@@ -81,13 +81,16 @@ pub fn init(app: &adw::Application) {
 	let about = gtk::Builder::from_string(include_str!("ui/about.ui"))
 		.object::<adw::AboutDialog>("about")
 		.expect("Couldn't get about dialog");
-	about.set_developers(&["Max Walters", "Ally Walters"]);
+	about.set_developers(&["Max Walters <mdwalters.pm@proton.me>", "Ally Walters"]);
 	about.set_translator_credits(gettext("translator-credits").as_str());
 	about.add_acknowledgement_section(
 		Some(gettext("Acknowledgements").as_str()),
 		&["The Browser Company", "The GNOME Developers"],
 	);
-	about.add_acknowledgement_section(Some(gettext("Banner designs").as_str()), &["Max Walters"]);
+	about.add_acknowledgement_section(
+		Some(gettext("Icon design").as_str()),
+		&["Jakub Stiener https://jimmac.eu/"],
+	);
 
 	let about_shrimple = gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
 		.object::<adw::AboutDialog>("about_shrimple")
@@ -335,13 +338,11 @@ pub fn init(app: &adw::Application) {
 		action_zoom_in,
 	]);
 
-	url_dialog.connect_close_attempt(clone!(
-		#[strong]
-		url_dialog,
-		move |_| {
-			url_dialog.close();
+	url_dialog.connect_close_attempt(
+		|_| {
+			()
 		}
-	));
+	);
 
 	url_bar.connect_activate(clone!(
 		#[strong]
@@ -404,7 +405,7 @@ pub fn init(app: &adw::Application) {
 					);
 			}
 
-			url_dialog.close();
+			url_dialog.force_close();
 			copy_link_button.set_sensitive(true);
 		}
 	));
@@ -637,6 +638,20 @@ fn error_page(msg: &str) -> String {
 						}}
 
 						svg {{ margin-bottom: 0.5rem; }}
+
+						@media (prefers-color-scheme: light) {{
+							body {{
+								background-color: #fff;
+								color: #000;
+							}}
+						}}
+
+						@media (prefers-color-scheme: dark) {{
+							body {{
+								background-color: #000;
+								color: #fff;
+							}}
+						}}
 					</style>
 				</head>
 				<body>
