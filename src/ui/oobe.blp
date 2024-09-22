@@ -2,7 +2,7 @@ using Gtk 4.0;
 using Adw 1;
 
 Adw.Dialog oobe {
-	width-request: 580;
+	width-request: 500;
 	height-request: 500;
 	can-close: false;
 	presentation-mode: auto;
@@ -13,7 +13,7 @@ Adw.Dialog oobe {
 			show-start-title-buttons: false;
 			show-end-title-buttons: false;
 
-			[start]
+			/* [start]
 			MenuButton developer_warning {
 				visible: false;
 
@@ -34,87 +34,99 @@ Adw.Dialog oobe {
 						"warning"
 					]
 				}
-			}
-
+			} */
 			title-widget: Adw.CarouselIndicatorDots {
 				carousel: carousel;
 			};
 		}
 
-		Overlay {
-			[overlay]
-			Button {
-				tooltip-text: _("Previous");
-				icon-name: "go-previous-symbolic";
-				valign: center;
-				halign: start;
-				margin-start: 12;
+		Adw.Clamp {
+			Adw.Carousel carousel {
+				interactive: false;
 
-				styles [
-					"circular"
-				]
-			}
+				Adw.StatusPage {
+					hexpand: true;
+					icon-name: "site.srht.shrimple.ouch-symbolic";
+					title: _("Welcome to Ouch Browser!");
+					description: _("This tutorial will teach you everything you need to know about Ouch Browser.");
 
-			[overlay]
-			Button {
-				tooltip-text: _("Next");
-				icon-name: "go-next-symbolic";
-				valign: center;
-				halign: end;
-				margin-end: 12;
+					Box {
+						orientation: horizontal;
+						spacing: 10;
+						halign: center;
 
-				styles [
-					"circular",
-					"suggested-action"
-				]
-			}
+						Button {
+							label: _("Skip");
+							action-name: "win.oobe-close";
 
-			Adw.Clamp {
-				Adw.Carousel carousel {
-					interactive: false;
+							styles [
+								"pill"
+							]
+						}
 
-					Adw.StatusPage {
-						hexpand: true;
-						icon-name: "site.srht.shrimple.ouch-symbolic";
-						title: _("Welcome to Ouch Browser!");
-						description: _("This tutorial will teach you everything you need to know about Ouch Browser.");
+						Button {
+							label: _("Start!");
+							action-name: "win.oobe-next";
 
-						Box {
-							halign: center;
-							orientation: horizontal;
-							spacing: 7;
-
-							Button {
-								label: _("Skip");
-
-								styles [
-									"pill"
-								]
-							}
-
-							Button {
-								label: _("Let's go!");
-
-								styles [
-									"pill",
-									"suggested-action"
-								]
-							}
+							styles [
+								"pill",
+								"suggested-action"
+							]
 						}
 					}
+				}
 
-					Adw.StatusPage {
-						hexpand: true;
-						icon-name: "preferences-desktop-keyboard-shortcuts-symbolic";
-						title: _("The command palette is your friend!");
-						description: _("Think of the command palette as your beloved search bar, but more powerful! You can summon the command palette at any time by hitting Ctrl + L, or clicking on the website's domain.");
+				Adw.StatusPage {
+					hexpand: true;
+					icon-name: "preferences-desktop-keyboard-shortcuts-symbolic";
+					title: _("The command palette is your friend!");
+					description: _("Think of the command palette as your beloved search bar, but more powerful! You can summon the command palette at any time by hitting Ctrl + L, or clicking on the website's domain.");
+
+					Button {
+						halign: center;
+						label: _("Next");
+						action-name: "win.oobe-next";
+
+						styles [
+							"pill",
+							"suggested-action"
+						]
 					}
+				}
 
-					Adw.StatusPage {
-						hexpand: true;
-						icon-name: "emoji-nature-symbolic";
-						title: _("Created by a collective");
-						description: _("Ouch Browser is developed and maintained by Shrimple Technologies, a collective with the purpose of proving that complex things can be made easy!");
+				Adw.StatusPage {
+					hexpand: true;
+					icon-name: "emoji-nature-symbolic";
+					title: _("Created by a collective");
+					description: _("Ouch Browser is developed and maintained by Shrimple Technologies, a collective with the purpose of proving that complex things can be made easy!");
+
+					Button {
+						halign: center;
+						label: _("Next");
+						action-name: "win.oobe-next";
+
+						styles [
+							"pill",
+							"suggested-action"
+						]
+					}
+				}
+
+				Adw.StatusPage {
+					hexpand: true;
+					icon-name: "face-smile-big-symbolic";
+					title: _("That's all!");
+					description: _("Check back here every update for new tips for how to use Ouch Browser!");
+
+					Button {
+						halign: center;
+						label: _("Let's go!");
+						action-name: "win.oobe-close";
+
+						styles [
+							"pill",
+							"suggested-action"
+						]
 					}
 				}
 			}

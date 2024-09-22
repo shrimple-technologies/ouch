@@ -22,6 +22,7 @@ use adw::prelude::*;
 use gettextrs::*;
 use glib::clone;
 use gtk::gdk;
+use gtk::gio;
 use gtk::gio::ActionEntry;
 use gtk::glib;
 use url::Url;
@@ -100,14 +101,19 @@ pub fn init(app: &adw::Application) {
 		&["Max Walters", "Ally Walters"],
 	);
 
-	let oobe = gtk::Builder::from_string(include_str!("ui/oobe.ui"))
+	let oobe_ui = gtk::Builder::from_string(include_str!("ui/oobe.ui"));
+	let oobe = oobe_ui
 		.object::<adw::Dialog>("oobe")
 		.expect("Couldn't get OOBE dialog");
+	let oobe_carousel = oobe_ui
+		.object::<adw::Carousel>("carousel")
+		.expect("Couldn't get OOBE carousel");
 
 	#[cfg(feature = "devel")]
 	window.add_css_class("devel");
 
 	let web_view = WebView::new();
+	let settings = gio::Settings::new("site.srht.shrimple.ouch");
 
 	web_view.connect_load_changed(clone!(
 		#[strong]
@@ -235,7 +241,12 @@ pub fn init(app: &adw::Application) {
 		}
 	));
 
-	url_dialog.present(Some(&window));
+	if settings.boolean("oobe-shown") {
+		url_dialog.present(Some(&window));
+	} else {
+		oobe.present(Some(&window));
+	}
+
 	view.append(&web_view);
 
 	window.set_application(Some(app));
@@ -333,14 +344,17 @@ pub fn init(app: &adw::Application) {
 			#[strong]
 			oobe,
 			#[strong]
+			oobe_carousel,
+			#[strong]
 			window,
 			move |_, _, _| {
-				#[cfg(feature = "devel")]
-				gtk::Builder::from_string(include_str!("ui/oobe.ui"))
+				/* #[cfg(feature = "devel")]
+				oobe_ui
 					.object::<gtk::MenuButton>("developer_warning")
 					.expect("Couldn't get OOBE dialog")
-					.set_visible(true);
+					.set_visible(true); */
 
+				oobe_carousel.scroll_to(&oobe_carousel.nth_page(0), false);
 				oobe.present(Some(&window));
 			}
 		))
@@ -350,34 +364,56 @@ pub fn init(app: &adw::Application) {
 			#[strong]
 			oobe,
 			#[strong]
+			oobe_carousel,
+			#[strong]
 			window,
 			move |_, _, _| {
-				#[cfg(feature = "devel")]
-				gtk::Builder::from_string(include_str!("ui/oobe.ui"))
+				/* #[cfg(feature = "devel")]
+				oobe_ui
 					.object::<gtk::MenuButton>("developer_warning")
 					.expect("Couldn't get OOBE dialog")
-					.set_visible(true);
+					.set_visible(true); */
 
+				oobe_carousel.scroll_to(&oobe_carousel.nth_page(0), false);
 				oobe.set_can_close(true);
 				oobe.present(Some(&window));
 			}
 		))
 		.build();
-	/* let action_oobe_next = ActionEntry::builder("oobe-next")
+	let action_oobe_next = ActionEntry::builder("oobe-next")
+		.activate(clone!(
+			#[strong]
+			oobe_carousel,
+			move |_, _, _| {
+				if ((oobe_carousel.position() as u32) + 1) != oobe_carousel.n_pages() {
+					oobe_carousel.scroll_to(
+						&oobe_carousel.nth_page((oobe_carousel.position() as u32) + 1),
+						true,
+					);
+				}
+			}
+		))
+		.build();
+	let action_oobe_close = ActionEntry::builder("oobe-close")
 		.activate(clone!(
 			#[strong]
 			oobe,
+			#[strong]
+			url_dialog,
+			#[strong]
+			window,
+			#[strong]
+			settings,
 			move |_, _, _| {
-				let _oobe = oobe.child();
-				let carousel = _oobe
-					.expect("Couldn't get OOBE carousel")
-					.downcast_ref::<adw::Carousel>()
-					.expect("Couldn't get OOBE carousel");
-				
-				carousel.nth_page(carousel.position() as u32);
+				settings.set_boolean("oobe-shown", true).unwrap();
+				oobe.force_close();
+
+				if !oobe.can_close() {
+					url_dialog.present(Some(&window));
+				}
 			}
 		))
-		.build(); */
+		.build();
 	window.add_action_entries([
 		action_cmd,
 		action_about,
@@ -388,7 +424,8 @@ pub fn init(app: &adw::Application) {
 		action_zoom_in,
 		action_oobe,
 		action_oobe_replay,
-		// action_oobe_next,
+		action_oobe_next,
+		action_oobe_close,
 	]);
 
 	url_dialog.connect_close_attempt(|_| ());

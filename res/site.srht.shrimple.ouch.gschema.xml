@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+	<schema id="site.srht.shrimple.ouch" path="/site/srht/shrimple/ouch/" gettext-domain="ouch">
+		<key type="b" name="oobe-shown">
+			<default>false</default>
+			<summary>OOBE shown?</summary>
+			<description>
+				This value is true if the OOBE has been already shown to the user, and false if it hasn't.
+			</description>
+		</key>
+	</schema>
+</schemalist>

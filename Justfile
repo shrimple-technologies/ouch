@@ -33,6 +33,10 @@ build-flatpak:
 		{{ ID }} \
 		--runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 
+build-schemas:
+	@sudo cp res/{{ ID }}.gschema.xml /usr/share/glib-2.0/schemas
+	@sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+
 # MAINTAINERS: Run this command when you have finished releasing a new version of ouch (e.g. pushed version bump commit, pushed tag, etc.).
 pack:
 	@rm -rf ouch-*.*.* .tmp {{ ID }}.flatpak .build .flatpak-builder
@@ -53,6 +57,8 @@ pack:
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps" >> .tmp/install.sh
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps" >> .tmp/install.sh
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 res/${FLATPAK_ID}.gschema.xml --target-directory ${FLATPAK_DEST}/share/glib-2.0/schemas" >> .tmp/install.sh
+	@echo "glib-compile-schemas ${FLATPAK_DEST}/share/glib-2.0/schemas" >> .tmp/install.sh
 	@chmod +x .tmp/install.sh
 	@tar \
 		-czvf \
