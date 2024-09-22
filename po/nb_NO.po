@@ -238,7 +238,7 @@ msgstr "Førstørret til {}%"
 msgid "There was a problem loading this website"
 msgstr "Kunne ikke laste inn nettsiden"
 
-#: src/ui/oobe.blp:22
+#: src/ui/oobe.blp:25
 msgid ""
 "If you are seeing this, that means that you are running a developer build of "
 "Ouch Browser. If you don't know what this means, or you have obtained Ouch "
@@ -246,52 +246,60 @@ msgid ""
 "Technologies, as this build can be extremely unstable."
 msgstr ""
 
-#: src/ui/oobe.blp:28
+#: src/ui/oobe.blp:31
 msgid "DEVELOPER BUILD"
 msgstr ""
 
-#: src/ui/oobe.blp:44
-msgid "Previous"
-msgstr ""
-
-#: src/ui/oobe.blp:57
-msgid "Next"
-msgstr ""
-
-#: src/ui/oobe.blp:76
+#: src/ui/oobe.blp:51
 msgid "Welcome to Ouch Browser!"
 msgstr ""
 
-#: src/ui/oobe.blp:77
+#: src/ui/oobe.blp:52
 msgid ""
 "This tutorial will teach you everything you need to know about Ouch Browser."
 msgstr ""
 
-#: src/ui/oobe.blp:85
+#: src/ui/oobe.blp:60
 msgid "Skip"
 msgstr ""
 
-#: src/ui/oobe.blp:93
-msgid "Let's go!"
+#: src/ui/oobe.blp:68
+msgid "Start!"
 msgstr ""
 
-#: src/ui/oobe.blp:106
+#: src/ui/oobe.blp:83
 msgid "The command palette is your friend!"
 msgstr ""
 
-#: src/ui/oobe.blp:107
+#: src/ui/oobe.blp:84
 msgid ""
 "Think of the command palette as your beloved search bar, but more powerful! "
 "You can summon the command palette at any time by hitting Ctrl + L, or "
 "clicking on the website's domain."
 msgstr ""
 
-#: src/ui/oobe.blp:113
+#: src/ui/oobe.blp:88 src/ui/oobe.blp:106
+msgid "Next"
+msgstr ""
+
+#: src/ui/oobe.blp:101
 msgid "Created by a collective"
 msgstr ""
 
-#: src/ui/oobe.blp:114
+#: src/ui/oobe.blp:102
 msgid ""
 "Ouch Browser is developed and maintained by Shrimple Technologies, a "
 "collective with the purpose of proving that complex things can be made easy!"
+msgstr ""
+
+#: src/ui/oobe.blp:119
+msgid "That's all!"
+msgstr ""
+
+#: src/ui/oobe.blp:120
+msgid "Chech back here every update for new tips for how to use Ouch Browser!"
+msgstr ""
+
+#: src/ui/oobe.blp:124
+msgid "Let's go!"
 msgstr ""
