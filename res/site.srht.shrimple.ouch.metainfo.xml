@@ -88,6 +88,11 @@
 			</description>
 		</release>
 		-->
+		<release version="0.5.0-rc.1" date="2024-10-03" type="development">
+			<description>
+				<p>This is a release canidate of Ouch Browser in the 0.5.0 trilogy.</p>
+			</description>
+		</release>
 		<release version="0.4.1" date="2024-09-15" type="development">
 			<description>
 				<ul>
