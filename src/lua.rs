@@ -30,7 +30,13 @@ pub fn load(src: &str) -> LuaResult<()> {
 	lua.globals().set(
 		"print",
 		lua.create_function(|_: &Lua, text: String| {
-			println!("PLUGIN |  {}", text);
+			// This **SHOULD** have the same functionality as the
+			// standard Lua `print` function.
+			//
+			// This function is intended to be a replacement for
+			// the standard Lua `print` function, but diffrentiates
+			// it's output from Ouch Browser's debug outputs.
+			println!("PLUGIN |  {:?}", text);
 			Ok(())
 		})?
 	)?;
