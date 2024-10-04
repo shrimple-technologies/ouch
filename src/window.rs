@@ -702,7 +702,7 @@ pub fn init(app: &adw::Application) {
 		}
 	));
 
-	let _ = lua::load(include_str!("../tests/plugins/print_version.lua"));
+	let _ = lua::load(include_str!("../tests/plugins/types.lua"));
 }
 
 fn error_page(msg: &str) -> String {
