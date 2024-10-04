@@ -27,6 +27,7 @@ use gtk::gio::ActionEntry;
 use gtk::glib;
 use url::Url;
 use webkit::{prelude::*, NetworkError, WebView};
+#[path = "lua.rs"] mod lua;
 
 pub fn init(app: &adw::Application) {
 	let builder = gtk::Builder::from_string(include_str!("ui/window.ui"));
@@ -700,6 +701,8 @@ pub fn init(app: &adw::Application) {
 			view.append(&web_view)
 		}
 	));
+
+	let _ = lua::load(include_str!("../tests/plugins/print_version.lua"));
 }
 
 fn error_page(msg: &str) -> String {
