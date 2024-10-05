@@ -19,16 +19,39 @@
  */
 
 use mlua::prelude::*;
+use adw::prelude::*;
+use std::sync::Arc;
 
-pub fn load(src: &str) -> LuaResult<()> {
+pub fn load(src: &str, window: Arc<adw::ApplicationWindow>) -> LuaResult<()> {
 	let lua = Lua::new();	
 	let table = lua.create_table()?;
+	let win = lua.create_table()?;
+
+	win.set(
+		"dialog",
+		lua.create_function(move |_: &Lua, (title, content): (String, String)| {
+			let dialog = adw::AlertDialog::new(
+				Some(&title),
+				Some(&content)
+			);
+			
+			dialog.add_response("default", "OK");
+			dialog.set_response_appearance(
+				"default",
+				adw::ResponseAppearance::Suggested,
+			);
+			dialog.present(Some(window.as_ref()));
+			
+			Ok(())
+		})?
+	)?;	
 
 	table.set("version", "0.5.0-rc.1")?;
+	table.set("window", win)?;	
 
 	lua.globals().set("ouch", table)?;
 	lua.globals().set(
-		"print"
+		"print",
 		lua.create_function(|_: &Lua, text: String| {
 			// This **SHOULD** have the same functionality as the
 			// standard Lua `print` function.
@@ -36,12 +59,16 @@ pub fn load(src: &str) -> LuaResult<()> {
 			// This function is intended to be a replacement for
 			// the standard Lua `print` function, but diffrentiates
 			// it's output from Ouch Browser's debug outputs.
-			println!("PLUGIN |  {}", text);
+			println!("[PLUGIN] {}", text);
 			Ok(())
 		})?
 	)?;
 
-	lua.load(src).exec()?;
-
-	Ok(())
+	match lua.load(src).exec() {
+		Err(error) => {
+			println!("[PLUGIN|ERROR] {}", error.to_string());
+			return Ok(())
+		},
+		Ok(()) => { return Ok(()) }
+	}
 }
