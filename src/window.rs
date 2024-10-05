@@ -27,7 +27,8 @@ use gtk::gio::ActionEntry;
 use gtk::glib;
 use url::Url;
 use webkit::{prelude::*, NetworkError, WebView};
-#[path = "lua.rs"] mod lua;
+#[path = "lua.rs"]
+mod lua;
 
 pub fn init(app: &adw::Application) {
 	let builder = gtk::Builder::from_string(include_str!("ui/window.ui"));
