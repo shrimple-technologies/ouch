@@ -72,19 +72,24 @@ pub fn init(app: &adw::Application) {
 		.object::<gtk::Frame>("frame")
 		.expect("Couldn't get web view's frame");
 
-	let help_overlay = gtk::Builder::from_string(include_str!("ui/help-overlay.ui"))
-		.object::<gtk::ShortcutsWindow>("help_overlay")
-		.expect("Couldn't get help overlay");
+	let help_overlay =
+		gtk::Builder::from_string(include_str!("ui/help-overlay.ui"))
+			.object::<gtk::ShortcutsWindow>("help_overlay")
+			.expect("Couldn't get help overlay");
 	help_overlay.set_transient_for(Some(&window));
 
-	let preferences = gtk::Builder::from_string(include_str!("ui/preferences.ui"))
-		.object::<adw::PreferencesDialog>("preferences")
-		.expect("Couldn't get preferences dialog");
+	let preferences =
+		gtk::Builder::from_string(include_str!("ui/preferences.ui"))
+			.object::<adw::PreferencesDialog>("preferences")
+			.expect("Couldn't get preferences dialog");
 
 	let about = gtk::Builder::from_string(include_str!("ui/about.ui"))
 		.object::<adw::AboutDialog>("about")
 		.expect("Couldn't get about dialog");
-	about.set_developers(&["Max Walters <mdwalters.pm@proton.me>", "Ally Walters"]);
+	about.set_developers(&[
+		"Max Walters <mdwalters.pm@proton.me>",
+		"Ally Walters",
+	]);
 	about.set_translator_credits(gettext("translator-credits").as_str());
 	about.add_acknowledgement_section(
 		Some(gettext("Acknowledgements").as_str()),
@@ -95,9 +100,10 @@ pub fn init(app: &adw::Application) {
 		&["Jakub Stiener https://jimmac.eu/"],
 	);
 
-	let about_shrimple = gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
-		.object::<adw::AboutDialog>("about_shrimple")
-		.expect("Couldn't get about dialog");
+	let about_shrimple =
+		gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
+			.object::<adw::AboutDialog>("about_shrimple")
+			.expect("Couldn't get about dialog");
 	about_shrimple.add_acknowledgement_section(
 		Some(gettext("Members").as_str()),
 		&["Max Walters", "Ally Walters"],
@@ -137,7 +143,10 @@ pub fn init(app: &adw::Application) {
 						.set_loading(false);
 					tabs.set_model(Some(&view.pages()));
 
-					let tab_page = view.selected_page().expect("Couldn't get tab page").child();
+					let tab_page = view
+						.selected_page()
+						.expect("Couldn't get tab page")
+						.child();
 					let web_view = tab_page.downcast_ref::<WebView>().unwrap();
 
 					// see https://todo.sr.ht/~shrimple/ouch/1
@@ -172,7 +181,12 @@ pub fn init(app: &adw::Application) {
 
 						view.selected_page()
 							.expect("Couldn't get tab page")
-							.set_title(web_view.title().expect("Couldn't get title").as_str());
+							.set_title(
+								web_view
+									.title()
+									.expect("Couldn't get title")
+									.as_str(),
+							);
 
 						view.selected_page()
 							.expect("Couldn't get tab page")
@@ -230,13 +244,18 @@ pub fn init(app: &adw::Application) {
 						),
 					);
 					dialog.add_response("default", "OK");
-					dialog.set_response_appearance("default", adw::ResponseAppearance::Suggested);
+					dialog.set_response_appearance(
+						"default",
+						adw::ResponseAppearance::Suggested,
+					);
 					dialog.present(Some(&window));
 
 					true
 				}
 				_ => {
-					toast_overlay.add_toast(adw::Toast::new("This script dialog type is invalid"));
+					toast_overlay.add_toast(adw::Toast::new(
+						"This script dialog type is invalid",
+					));
 					true
 				}
 			}
@@ -319,7 +338,9 @@ pub fn init(app: &adw::Application) {
 						.unwrap()
 						.clipboard()
 						.set_text(url.expect("Couldn't get URL").as_str());
-					toast_overlay.add_toast(adw::Toast::new(gettext("Link copied").as_str()));
+					toast_overlay.add_toast(adw::Toast::new(
+						gettext("Link copied").as_str(),
+					));
 				}
 			}
 		))
@@ -335,7 +356,10 @@ pub fn init(app: &adw::Application) {
 
 				toast_overlay.add_toast(adw::Toast::new(
 					gettext("Zoomed in to {}%")
-						.replace("{}", &(web_view.zoom_level() * 100.0).to_string())
+						.replace(
+							"{}",
+							&(web_view.zoom_level() * 100.0).to_string(),
+						)
 						.as_str(),
 				));
 			}
@@ -387,9 +411,12 @@ pub fn init(app: &adw::Application) {
 			#[strong]
 			oobe_carousel,
 			move |_, _, _| {
-				if ((oobe_carousel.position() as u32) + 1) != oobe_carousel.n_pages() {
+				if ((oobe_carousel.position() as u32) + 1)
+					!= oobe_carousel.n_pages()
+				{
 					oobe_carousel.scroll_to(
-						&oobe_carousel.nth_page((oobe_carousel.position() as u32) + 1),
+						&oobe_carousel
+							.nth_page((oobe_carousel.position() as u32) + 1),
 						true,
 					);
 				}
@@ -443,7 +470,8 @@ pub fn init(app: &adw::Application) {
 		view,
 		move |url_bar| {
 			let url = url_bar.buffer().text().as_str().to_string();
-			let tab_page = view.selected_page().expect("Couldn't get tab page").child();
+			let tab_page =
+				view.selected_page().expect("Couldn't get tab page").child();
 			let web_view = tab_page.downcast_ref::<WebView>();
 
 			if url == "" {
@@ -457,7 +485,8 @@ pub fn init(app: &adw::Application) {
 				} else {
 					web_view.unwrap().load_uri(&format!(
 						"https://google.com/search?q={}",
-						glib::Uri::escape_string(url.as_str(), None, true).as_str()
+						glib::Uri::escape_string(url.as_str(), None, true)
+							.as_str()
 					));
 				}
 			} else if url.as_str().contains(".") {
@@ -552,7 +581,8 @@ pub fn init(app: &adw::Application) {
 				.unwrap()
 				.clipboard()
 				.set_text(url.expect("Couldn't get URL").as_str());
-			toast_overlay.add_toast(adw::Toast::new(gettext("Link copied").as_str()));
+			toast_overlay
+				.add_toast(adw::Toast::new(gettext("Link copied").as_str()));
 		}
 	));
 
@@ -584,9 +614,12 @@ pub fn init(app: &adw::Application) {
 								.set_loading(false);
 							tabs.set_model(Some(&view.pages()));
 
-							let tab_page =
-								view.selected_page().expect("Couldn't get tab page").child();
-							let web_view = tab_page.downcast_ref::<WebView>().unwrap();
+							let tab_page = view
+								.selected_page()
+								.expect("Couldn't get tab page")
+								.child();
+							let web_view =
+								tab_page.downcast_ref::<WebView>().unwrap();
 
 							// see https://todo.sr.ht/~shrimple/ouch/1
 							if web_view.title() != None {
@@ -598,7 +631,9 @@ pub fn init(app: &adw::Application) {
 								);
 
 								let _url = url.clone();
-								if url.expect("Couldn't get URL").scheme() == "file" {
+								if url.expect("Couldn't get URL").scheme()
+									== "file"
+								{
 									url_button
 										.child()
 										.expect("Couldn't get command palette toggle's label")
@@ -621,7 +656,10 @@ pub fn init(app: &adw::Application) {
 								view.selected_page()
 									.expect("Couldn't get tab page")
 									.set_title(
-										web_view.title().expect("Couldn't get title").as_str(),
+										web_view
+											.title()
+											.expect("Couldn't get title")
+											.as_str(),
 									);
 
 								view.selected_page()
@@ -629,7 +667,9 @@ pub fn init(app: &adw::Application) {
 									.set_keyword(
 										web_view
 											.uri()
-											.expect("Couldn't get web view's url")
+											.expect(
+												"Couldn't get web view's url",
+											)
 											.as_str(),
 									);
 							}
@@ -673,11 +713,9 @@ pub fn init(app: &adw::Application) {
 									.expect("Couldn't get dialog header")
 									.as_str(),
 								),
-								Some(
-									&web_dialog
-										.message()
-										.expect("Could not get script dialog message"),
-								),
+								Some(&web_dialog.message().expect(
+									"Could not get script dialog message",
+								)),
 							);
 							dialog.add_response("default", "OK");
 							dialog.set_response_appearance(
@@ -689,8 +727,9 @@ pub fn init(app: &adw::Application) {
 							true
 						}
 						_ => {
-							toast_overlay
-								.add_toast(adw::Toast::new("This script dialog type is invalid"));
+							toast_overlay.add_toast(adw::Toast::new(
+								"This script dialog type is invalid",
+							));
 							true
 						}
 					}
@@ -703,7 +742,8 @@ pub fn init(app: &adw::Application) {
 		}
 	));
 
-	let _ = lua::load(include_str!("../tests/plugins/dialog.lua"), window.into());
+	let _ =
+		lua::load(include_str!("../tests/plugins/dialog.lua"), window.into());
 }
 
 fn error_page(msg: &str) -> String {

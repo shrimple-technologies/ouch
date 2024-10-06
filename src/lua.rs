@@ -29,15 +29,21 @@ pub fn load(src: &str, window: Arc<adw::ApplicationWindow>) -> LuaResult<()> {
 
 	win.set(
 		"dialog",
-		lua.create_function(move |_: &Lua, (title, content): (String, String)| {
-			let dialog = adw::AlertDialog::new(Some(&title), Some(&content));
+		lua.create_function(
+			move |_: &Lua, (title, content): (String, String)| {
+				let dialog =
+					adw::AlertDialog::new(Some(&title), Some(&content));
 
-			dialog.add_response("default", "OK");
-			dialog.set_response_appearance("default", adw::ResponseAppearance::Suggested);
-			dialog.present(Some(window.as_ref()));
+				dialog.add_response("default", "OK");
+				dialog.set_response_appearance(
+					"default",
+					adw::ResponseAppearance::Suggested,
+				);
+				dialog.present(Some(window.as_ref()));
 
-			Ok(())
-		})?,
+				Ok(())
+			},
+		)?,
 	)?;
 
 	table.set("version", "0.5.0-rc.1")?;

@@ -25,7 +25,8 @@ use gettextrs::*;
 
 fn main() -> glib::ExitCode {
 	textdomain("ouch").expect("Couldn't get gettext domain");
-	bind_textdomain_codeset("ouch", "UTF-8").expect("Couldn't get gettext domain");
+	bind_textdomain_codeset("ouch", "UTF-8")
+		.expect("Couldn't get gettext domain");
 
 	let app = adw::Application::builder()
 		.application_id("site.srht.shrimple.ouch")
