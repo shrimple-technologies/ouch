@@ -9,9 +9,10 @@ flatpak = []
 
 [dependencies]
 adw = { version = "0.7", package = "libadwaita", features = ["v1_5"] }
-anyhow = "1.0"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
 gtk = { version = "0.9", package = "gtk4", features = ["gnome_46", "v4_14"] }
 mlua = { version = "0.9", features = ["lua54", "vendored"] }
+# Will be needed for the plugin installer in the near future (maybe?)
+# sourceview = { version = "0.9", package = "sourceview5", features = ["gtk_v4_12", "v5_10"] }
 url = "2.5"
 webkit = { version = "0.4", package = "webkit6", features = ["v2_44"] }

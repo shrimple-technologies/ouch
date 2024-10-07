@@ -49,7 +49,7 @@ flatpak install shrimple site.srht.shrimple.ouch
 
 To build Ouch Browser, you need [GTK 4](https://gitlab.gnome.org/GNOME/gtk), [libadwaita](https://gitlab.gnome.org/GNOME/libadwaita), [WebKitGTK](https://webkitgtk.org/), [Lua 5.4](https://lua.org/home.html), [Blueprint](https://gitlab.gnome.org/jwestman/blueprint-compiler), and [just](https://github.com/casey/just) installed on your system.
 
-If you are on Fedora, you can install the GNOME Software Development group. Check your Linux distribution's package manager for a similar meta-package.
+If you are on Fedora, you can install the GNOME Software Development group, which should provide all of the needed dependencies. Check your Linux distribution's package manager for a similar meta-package.
 
 ```sh
 sudo dnf group install gnome-software-development
