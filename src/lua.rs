@@ -21,6 +21,8 @@
 use adw::prelude::*;
 use mlua::prelude::*;
 use std::sync::Arc;
+#[path = "consts.rs"]
+mod consts;
 
 pub fn load(src: &str, window: Arc<adw::ApplicationWindow>) -> LuaResult<()> {
 	let lua = Lua::new();
@@ -46,7 +48,7 @@ pub fn load(src: &str, window: Arc<adw::ApplicationWindow>) -> LuaResult<()> {
 		)?,
 	)?;
 
-	table.set("version", "0.5.0-rc.1")?;
+	table.set("VERSION", consts::VERSION)?;
 	table.set("window", win)?;
 
 	lua.globals().set("ouch", table)?;

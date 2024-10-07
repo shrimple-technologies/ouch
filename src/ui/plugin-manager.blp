@@ -1,0 +1,39 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.PreferencesDialog plugin-manager {
+	search-enabled: true;
+
+	Adw.PreferencesPage {
+		title: _("Plugins");
+
+		Adw.PreferencesGroup {
+			title: _("Installed plugins");
+
+			header-suffix: Button {
+				Adw.ButtonContent {
+					icon-name: "list-add-symbolic";
+					label: _("Install");
+				}
+
+				styles [
+					"flat"
+				]
+			};
+
+			Adw.ActionRow {
+				title: _("There are no plugins installed.");
+				sensitive: false;
+			}
+		}
+
+		Adw.PreferencesGroup {
+			title: _("Built-in plugins");
+
+			Adw.SwitchRow {
+				title: _("vBlock Orion");
+				active: true;
+			}
+		}
+	}
+}

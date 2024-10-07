@@ -83,6 +83,11 @@ pub fn init(app: &adw::Application) {
 			.object::<adw::PreferencesDialog>("preferences")
 			.expect("Couldn't get preferences dialog");
 
+	let plugin_manager =
+		gtk::Builder::from_string(include_str!("ui/plugin-manager.ui"))
+			.object::<adw::PreferencesDialog>("plugin-manager")
+			.expect("Couldn't get plugin manager dialog");
+
 	let about = gtk::Builder::from_string(include_str!("ui/about.ui"))
 		.object::<adw::AboutDialog>("about")
 		.expect("Couldn't get about dialog");
@@ -443,6 +448,17 @@ pub fn init(app: &adw::Application) {
 			}
 		))
 		.build();
+	let action_plugin_manager = ActionEntry::builder("show-plugin-manager")
+		.activate(clone!(
+			#[strong]
+			plugin_manager,
+			#[strong]
+			window,
+			move |_, _, _| {
+				plugin_manager.present(Some(&window));
+			}
+		))
+		.build();
 	window.add_action_entries([
 		action_cmd,
 		action_about,
@@ -455,6 +471,7 @@ pub fn init(app: &adw::Application) {
 		action_oobe_replay,
 		action_oobe_next,
 		action_oobe_close,
+		action_plugin_manager,
 	]);
 
 	url_dialog.connect_close_attempt(|_| ());
@@ -742,8 +759,7 @@ pub fn init(app: &adw::Application) {
 		}
 	));
 
-	let _ =
-		lua::load(include_str!("plugins/vblock/main.lua"), window.into());
+	let _ = lua::load(include_str!("plugins/vblock/main.lua"), window.into());
 }
 
 fn error_page(msg: &str) -> String {
