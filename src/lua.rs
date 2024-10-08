@@ -69,7 +69,7 @@ pub fn load(src: &str, window: Arc<adw::ApplicationWindow>) -> LuaResult<()> {
 	match lua.load(src).exec() {
 		Err(error) => {
 			println!("[PLUGIN|ERROR] {}", error.to_string());
-			return Ok(());
+			return Err(error);
 		}
 		Ok(()) => return Ok(()),
 	}
