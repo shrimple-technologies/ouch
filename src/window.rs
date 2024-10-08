@@ -759,7 +759,8 @@ pub fn init(app: &adw::Application) {
 		}
 	));
 
-	let _ = lua::load(include_str!("plugins/vblock/main.lua"), window.into());
+	let _ = lua::load(include_str!("plugins/usermods/main.lua"), window.clone().into());
+	let _ = lua::load(include_str!("plugins/vblock/main.lua"), window.clone().into());	
 }
 
 fn error_page(msg: &str) -> String {
