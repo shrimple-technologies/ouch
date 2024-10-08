@@ -66,7 +66,7 @@ just build
 
 #### GNOME Builder
 
-Building Ouch Browser as a Flatpak with GNOME Builder is recommended due to it's simplicity
+Building Ouch Browser as a Flatpak with GNOME Builder is recommended due to being integrated with GNOME.
 
 0. Open GNOME Builder, then click on "Clone Repository..." then enter `https://git.sr.ht/~shrimple/ouch` into the "Repository URL" field.
 
@@ -76,7 +76,7 @@ Building Ouch Browser as a Flatpak with GNOME Builder is recommended due to it's
 
 #### Flatpak Builder
 
-Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than using GNOME Builder, due to being run as a single command, and is editor-agonistic. Before building, you must remove GPG signing in the `Justfile` located in the source folder:
+Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than using GNOME Builder, due to being run as a single command, and is editor-agonistic. Before building, you must remove GPG signing in the `Justfile` located in the source folder. This is only needed for distributing official releases, and isn't needed if you are building the Flatpak yourself.
 
 ```diff
 build-flatpak:
@@ -115,8 +115,6 @@ For Visual Studio Code users, we also provide a file (`.vscode/extensions.json`)
 Translations are more than welcome, please go to our [Weblate project](https://hosted.weblate.org/projects/ouch/ouch/) to get started.
 
 ## Frequently Asked Questions
-
-<!-- I probably need to reword this for accessiability. -->
 
 Please see [this file](FAQ.md).
 

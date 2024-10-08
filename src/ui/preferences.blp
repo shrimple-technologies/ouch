@@ -18,13 +18,34 @@ Adw.PreferencesDialog preferences {
 			}
 		}
 
-		/* Adw.PreferencesGroup {
+		Adw.PreferencesGroup {
 			title: _("Appearance");
 
 			Adw.SwitchRow {
 				title: _("Force dark mode");
 				subtitle: _("Dark mode makes Ouch Browser use a dark appearance, meant to be easy on the eyes.");
 				active: false;
+			}
+
+			Adw.ActionRow {
+				title: _("Accent colour");
+
+				Box {
+					orientation: horizontal;
+					spacing: 10;
+					halign: center;
+					margin-top: 10;
+					margin-bottom: 10;
+
+					Button {
+						label: "";
+
+						styles [
+							"circular",
+							"suggested-action"
+						]
+					}
+				}
 			}
 		}
 
@@ -36,7 +57,7 @@ Adw.PreferencesDialog preferences {
 				subtitle: _("Developer tools enables you to inspect a website, and make live changes to the website.");
 				active: false;
 			}
-		} */
+		}
 	}
 
 	Adw.PreferencesPage {
