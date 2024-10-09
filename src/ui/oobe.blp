@@ -12,29 +12,6 @@ Adw.Dialog oobe {
 		Adw.HeaderBar {
 			show-start-title-buttons: false;
 			show-end-title-buttons: false;
-
-			/* [start]
-			MenuButton developer_warning {
-				visible: false;
-
-				popover: Popover {
-					Label {
-						halign: start;
-						wrap: true;
-						max-width-chars: 50;
-						label: _("If you are seeing this, that means that you are running a developer build of Ouch Browser. If you don't know what this means, or you have obtained Ouch Browser via a release, or from Flatpak, please report this to Shrimple Technologies, as this build can be extremely unstable.");
-					}
-				};
-
-				Adw.ButtonContent {
-					icon-name: "software-update-urgent-symbolic";
-					label: _("DEVELOPER BUILD");
-
-					styles [
-						"warning"
-					]
-				}
-			} */
 			title-widget: Adw.CarouselIndicatorDots {
 				carousel: carousel;
 			};

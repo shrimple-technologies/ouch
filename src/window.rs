@@ -379,12 +379,6 @@ pub fn init(app: &adw::Application) {
 			#[strong]
 			window,
 			move |_, _, _| {
-				/* #[cfg(feature = "devel")]
-				oobe_ui
-					.object::<gtk::MenuButton>("developer_warning")
-					.expect("Couldn't get OOBE dialog")
-					.set_visible(true); */
-
 				oobe_carousel.scroll_to(&oobe_carousel.nth_page(0), false);
 				oobe.present(Some(&window));
 			}
@@ -399,12 +393,6 @@ pub fn init(app: &adw::Application) {
 			#[strong]
 			window,
 			move |_, _, _| {
-				/* #[cfg(feature = "devel")]
-				oobe_ui
-					.object::<gtk::MenuButton>("developer_warning")
-					.expect("Couldn't get OOBE dialog")
-					.set_visible(true); */
-
 				oobe_carousel.scroll_to(&oobe_carousel.nth_page(0), false);
 				oobe.set_can_close(true);
 				oobe.present(Some(&window));
