@@ -29,6 +29,8 @@ use url::Url;
 use webkit::{prelude::*, NetworkError, WebView};
 #[path = "lua.rs"]
 mod lua;
+#[path = "consts.rs"]
+mod consts;
 
 pub fn init(app: &adw::Application) {
 	let builder = gtk::Builder::from_string(include_str!("ui/window.ui"));
@@ -104,6 +106,7 @@ pub fn init(app: &adw::Application) {
 		Some(gettext("Icon design").as_str()),
 		&["Jakub Stiener https://jimmac.eu/"],
 	);
+	about.set_version(consts::VERSION);
 
 	let about_shrimple =
 		gtk::Builder::from_string(include_str!("ui/about-shrimple.ui"))
