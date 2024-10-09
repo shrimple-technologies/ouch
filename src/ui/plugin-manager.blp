@@ -2,24 +2,12 @@ using Gtk 4.0;
 using Adw 1;
 
 Adw.PreferencesDialog plugin-manager {
-	search-enabled: true;
-
 	Adw.PreferencesPage {
+		icon-name: "application-x-addon-symbolic";
 		title: _("Plugins");
 
 		Adw.PreferencesGroup {
 			title: _("Installed plugins");
-
-			header-suffix: Button {
-				Adw.ButtonContent {
-					icon-name: "list-add-symbolic";
-					label: _("Install");
-				}
-
-				styles [
-					"flat"
-				]
-			};
 
 			Adw.ActionRow {
 				title: _("There are no plugins installed.");
@@ -40,5 +28,17 @@ Adw.PreferencesDialog plugin-manager {
 				active: true;
 			}
 		}
+	}
+
+	Adw.PreferencesPage {
+		icon-name: "folder-download-symbolic";
+		title: _("Browse");
+
+		Adw.PreferencesGroup {
+			Adw.ActionRow {
+				title: _("There are no plugins available.");
+				sensitive: false;
+			}
+		}	
 	}
 }
