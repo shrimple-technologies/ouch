@@ -9,6 +9,7 @@ Source0: %{URL}/archive/%{version}.tar.gz
 
 BuildRequires: rust
 BuildRequires: cargo
+BuildRequires: blueprint-compiler
 BuildRequires: libadwaita-devel >= 1.5.0
 BuildRequires: gtk4-devel >= 4.15.0
 BuildRequires: webkitgtk6.0-devel >= 2.46.0
@@ -32,16 +33,41 @@ with a modern look and feel, and a emphasis on productivity.
 
 
 %build
-cargo build --release --verbose
+blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp src/ui/oobe.blp
+cargo build --release
 
 
 %install
+mkdir -p %{_prefix}/share/locale/fr/LC_MESSAGES
+mkdir -p %{_prefix}/share/locale/pt_BR/LC_MESSAGES
+mkdir -p %{_prefix}/share/locale/nb_NO/LC_MESSAGES
+msgfmt -o %{_prefix}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
+msgfmt -o %{_prefix}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
+msgfmt -o %{_prefix}/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
+
+install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{_prefix}/share/glib-2.0/schemas
+install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory %{_prefix}/share/applications
+install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory %{_prefix}/share/icons/hicolor/scalable/apps
+install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory %{_prefix}/share/icons/hicolor/symbolic/apps
+install -Dm 644 res/site.srht.shrimple.svg --target-directory %{_prefix}/share/icons/hicolor/scalable/apps
 install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
+
+
+%pre
+glib-compile-schemas %{_prefix}/share/glib-2.0/schemas
 
 
 %files
 %license licenses/GPL-3.0-or-later.txt
 %{_bindir}/ouch
+%{_prefix}/share/applications/site.srht.shrimple.ouch.desktop
+%{_prefix}/share/icons/hicolor/scalable/apps/site.srht.shrimple.ouch.svg
+%{_prefix}/share/icons/hicolor/scalable/apps/site.srht.shrimple.svg
+%{_prefix}/share/icons/hicolor/symbolic/apps/site.srht.shrimple.ouch-symbolic.svg
+%{_prefix}/share/locale/fr/LC_MESSAGES/ouch.mo
+%{_prefix}/share/locale/pt_BR/LC_MESSAGES/ouch.mo
+%{_prefix}/share/locale/nb_NO/LC_MESSAGES/ouch.mo
+%{_prefix}/share/glib-2.0/schemas/site.srht.shrimple.ouch.gschema.xml
 
 
 %changelog
