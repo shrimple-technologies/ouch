@@ -276,7 +276,7 @@ msgstr ""
 msgid ""
 "Think of the command palette as your beloved search bar, but more powerful! "
 "You can summon the command palette at any time by hitting Ctrl + L, or "
-"clicking on the website's domain."
+"clicking on the website's domain in the title bar."
 msgstr ""
 
 #: src/ui/oobe.blp:88 src/ui/oobe.blp:106
