@@ -43,6 +43,20 @@ flatpak remote-add --if-not-exists shrimple https://shrimple.srht.site/repo/flat
 flatpak install shrimple site.srht.shrimple.ouch
 ```
 
+### RPM
+
+1. Add Ouch Browser's COPR repo
+
+```sh
+sudo dnf enable shrimple/ouch
+```
+
+2. Install Ouch Browser
+
+```sh
+sudo dnf install ouch
+```
+
 ## Building
 
 ### Binary
