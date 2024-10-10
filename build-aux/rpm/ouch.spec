@@ -71,3 +71,5 @@ install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 
 
 %changelog
+* Sun Sep 15 2024 Max Walters <mdwalters.pm@proton.me>
+- Remove Ouch Browser from being a handler for XPI files and exported mail archives
