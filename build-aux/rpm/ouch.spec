@@ -1,5 +1,5 @@
 Name: ouch
-Version: 0.5.0
+Version: 0.4.1
 Release: 1%{?dist}
 Summary: Focus on your browsing
 License: GPL-3.0-or-later
@@ -13,13 +13,13 @@ BuildRequires: blueprint-compiler
 BuildRequires: libadwaita-devel >= 1.5.0
 BuildRequires: gtk4-devel >= 4.15.0
 BuildRequires: webkitgtk6.0-devel >= 2.46.0
-BuildRequires: lua-devel >= 5.4.0
+# BuildRequires: lua-devel >= 5.4.0
 
 Requires: libadwaita >= 1.5.0
 Requires: gtk4 >= 4.15.0
 Requires: webkitgtk6.0 >= 2.46.0
 # I have no idea if this is actually required at runtime.
-Requires: lua >= 5.4.0 
+# Requires: lua >= 5.4.0 
 
 
 %description
@@ -33,7 +33,7 @@ with a modern look and feel, and a emphasis on productivity.
 
 
 %build
-blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp src/ui/oobe.blp
+blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp
 cargo build --release
 
 
@@ -45,7 +45,7 @@ msgfmt -o %{_prefix}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
 msgfmt -o %{_prefix}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
 msgfmt -o %{_prefix}/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
 
-install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{_prefix}/share/glib-2.0/schemas
+# install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{_prefix}/share/glib-2.0/schemas
 install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory %{_prefix}/share/applications
 install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory %{_prefix}/share/icons/hicolor/scalable/apps
 install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory %{_prefix}/share/icons/hicolor/symbolic/apps
@@ -53,8 +53,8 @@ install -Dm 644 res/site.srht.shrimple.svg --target-directory %{_prefix}/share/i
 install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 
 
-%pre
-glib-compile-schemas %{_prefix}/share/glib-2.0/schemas
+# %pre
+# glib-compile-schemas %{_prefix}/share/glib-2.0/schemas
 
 
 %files
