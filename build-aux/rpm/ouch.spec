@@ -38,36 +38,36 @@ cargo build --release
 
 
 %install
-mkdir -p %{buildroot}%{_prefix}/share/locale/fr/LC_MESSAGES
-mkdir -p %{buildroot}%{_prefix}/share/locale/pt_BR/LC_MESSAGES
-mkdir -p %{buildroot}%{_prefix}/share/locale/nb_NO/LC_MESSAGES
-msgfmt -o %{buildroot}%{_prefix}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
-msgfmt -o %{buildroot}%{_prefix}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
-msgfmt -o %{buildroot}%{_prefix}/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
+mkdir -p %{buildroot}%{_datadir}/locale/fr/LC_MESSAGES
+mkdir -p %{buildroot}%{_datadir}/locale/pt_BR/LC_MESSAGES
+mkdir -p %{buildroot}%{_datadir}/locale/nb_NO/LC_MESSAGES
+msgfmt -o %{buildroot}%{_datadir}/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
+msgfmt -o %{buildroot}%{_datadir}/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
+msgfmt -o %{buildroot}%{_datadir}/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
 
-# install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{_prefix}/share/glib-2.0/schemas
-install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory %{buildroot}%{_prefix}/share/applications
-install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory %{buildroot}%{_prefix}/share/icons/hicolor/scalable/apps
-install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory %{buildroot}%{_prefix}/share/icons/hicolor/symbolic/apps
-install -Dm 644 res/site.srht.shrimple.svg --target-directory %{buildroot}%{_prefix}/share/icons/hicolor/scalable/apps
+# install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{buildroot}%{_datadir}/glib-2.0/schemas
+install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory %{buildroot}%{_datadir}/applications
+install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory %{buildroot}%{_datadir}/icons/hicolor/symbolic/apps
+install -Dm 644 res/site.srht.shrimple.svg --target-directory %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 
 
 # %pre
-# glib-compile-schemas %{_prefix}/share/glib-2.0/schemas
+# glib-compile-schemas %{buildroot}%{_datadir}/share/glib-2.0/schemas
 
 
 %files
 %license licenses/GPL-3.0-or-later.txt
 %{_bindir}/ouch
-%{_prefix}/share/applications/site.srht.shrimple.ouch.desktop
-%{_prefix}/share/icons/hicolor/scalable/apps/site.srht.shrimple.ouch.svg
-%{_prefix}/share/icons/hicolor/scalable/apps/site.srht.shrimple.svg
-%{_prefix}/share/icons/hicolor/symbolic/apps/site.srht.shrimple.ouch-symbolic.svg
-%{_prefix}/share/locale/fr/LC_MESSAGES/ouch.mo
-%{_prefix}/share/locale/pt_BR/LC_MESSAGES/ouch.mo
-%{_prefix}/share/locale/nb_NO/LC_MESSAGES/ouch.mo
-%{_prefix}/share/glib-2.0/schemas/site.srht.shrimple.ouch.gschema.xml
+%{_datadir}/applications/site.srht.shrimple.ouch.desktop
+%{_datadir}/icons/hicolor/scalable/apps/site.srht.shrimple.ouch.svg
+%{_datadir}/icons/hicolor/scalable/apps/site.srht.shrimple.svg
+%{_datadir}/icons/hicolor/symbolic/apps/site.srht.shrimple.ouch-symbolic.svg
+%{_datadir}/locale/fr/LC_MESSAGES/ouch.mo
+%{_datadir}/locale/pt_BR/LC_MESSAGES/ouch.mo
+%{_datadir}/locale/nb_NO/LC_MESSAGES/ouch.mo
+%{_datadir}/glib-2.0/schemas/site.srht.shrimple.ouch.gschema.xml
 
 
 %changelog
