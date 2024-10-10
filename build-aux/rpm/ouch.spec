@@ -38,19 +38,18 @@ cargo build --release
 
 
 %install
-# It really doesn't allow installing translations
-# mkdir -p %{_prefix}/share/locale/fr/LC_MESSAGES
-# mkdir -p %{_prefix}/share/locale/pt_BR/LC_MESSAGES
-# mkdir -p %{_prefix}/share/locale/nb_NO/LC_MESSAGES
-# msgfmt -o %{_prefix}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
-# msgfmt -o %{_prefix}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
-# msgfmt -o %{_prefix}/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
+mkdir -p %{buildroot}%{_prefix}/share/locale/fr/LC_MESSAGES
+mkdir -p %{buildroot}%{_prefix}/share/locale/pt_BR/LC_MESSAGES
+mkdir -p %{buildroot}%{_prefix}/share/locale/nb_NO/LC_MESSAGES
+msgfmt -o %{buildroot}%{_prefix}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
+msgfmt -o %{buildroot}%{_prefix}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
+msgfmt -o %{buildroot}%{_prefix}/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
 
 # install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{_prefix}/share/glib-2.0/schemas
-install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory %{_prefix}/share/applications
-install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory %{_prefix}/share/icons/hicolor/scalable/apps
-install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory %{_prefix}/share/icons/hicolor/symbolic/apps
-install -Dm 644 res/site.srht.shrimple.svg --target-directory %{_prefix}/share/icons/hicolor/scalable/apps
+install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory %{buildroot}%{_prefix}/share/applications
+install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory %{buildroot}%{_prefix}/share/icons/hicolor/scalable/apps
+install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory %{buildroot}%{_prefix}/share/icons/hicolor/symbolic/apps
+install -Dm 644 res/site.srht.shrimple.svg --target-directory %{buildroot}%{_prefix}/share/icons/hicolor/scalable/apps
 install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 
 
