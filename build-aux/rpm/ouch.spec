@@ -1,5 +1,5 @@
 Name: ouch
-Version: 0.5.0-rc.1
+Version: 0.5.0
 Release: 1%{?dist}
 Summary: Focus on your browsing
 License: GPL-3.0-or-later
