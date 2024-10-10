@@ -1,13 +1,14 @@
 # bee <micenest@pm.me>, 2024.
+# grayairr <grayair@proton.me>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.0\n"
-"Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
+"Report-Msgid-Bugs-To: ~shrimple/shrimple@lists.sr.ht\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
-"PO-Revision-Date: 2024-09-07 11:08+0000\n"
-"Last-Translator: bee <micenest@pm.me>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"shrimple/ouch/pt_BR/>\n"
+"PO-Revision-Date: 2024-10-11 21:16+0000\n"
+"Last-Translator: grayairr <grayair@proton.me>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/ouch/"
+"ouch/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -171,7 +172,7 @@ msgstr "Privacidade"
 
 #: src/ui/preferences.blp:66
 msgid "User Agent"
-msgstr ""
+msgstr "Agente de Usuário"
 
 #: src/ui/preferences.blp:72
 msgid "Fonts"
@@ -193,11 +194,11 @@ msgstr "Tamanho"
 
 #: src/ui/preferences.blp:89
 msgid "Serif"
-msgstr ""
+msgstr "Serifa"
 
 #: src/ui/preferences.blp:103
 msgid "Monospace"
-msgstr ""
+msgstr "Monoespaçada"
 
 #: src/ui/help-overlay.blp:20
 msgid "Open command palette"
@@ -221,7 +222,7 @@ msgstr "Link copiado"
 
 #: src/window.rs:80
 msgid "Acknowledgements"
-msgstr ""
+msgstr "Agradecimentos"
 
 #: src/window.rs:83
 msgid "Banner designs"
@@ -233,7 +234,7 @@ msgstr "Membros"
 
 #: src/window.rs:284
 msgid "Zoomed in to {}%"
-msgstr ""
+msgstr "Zoom em {}%"
 
 #: src/window.rs:513
 msgid "There was a problem loading this website"
@@ -246,31 +247,35 @@ msgid ""
 "Browser via a release, or from Flatpak, please report this to Shrimple "
 "Technologies, as this build can be extremely unstable."
 msgstr ""
+"Se você está lendo isto, significa que está utilizando uma versão de "
+"desenvolvedor do Ouch Browser. Se não sabe o que isto significa, ou baixou o "
+"Ouch Browser da versão de lançamento, ou do Flatpak, por favor informe a "
+"Shrimple Technologies, pois esta versão pode ser extremamente instável."
 
 #: src/ui/oobe.blp:31
 msgid "DEVELOPER BUILD"
-msgstr ""
+msgstr "VERSÃO DE DESENVOLVEDOR"
 
 #: src/ui/oobe.blp:51
 msgid "Welcome to Ouch Browser!"
-msgstr ""
+msgstr "Bem vindo ao Ouch Browser!"
 
 #: src/ui/oobe.blp:52
 msgid ""
 "This tutorial will teach you everything you need to know about Ouch Browser."
-msgstr ""
+msgstr "Este tutorial te ensinará tudo que precisa saber sobre o Ouch Browser."
 
 #: src/ui/oobe.blp:60
 msgid "Skip"
-msgstr ""
+msgstr "Pular"
 
 #: src/ui/oobe.blp:68
 msgid "Start!"
-msgstr ""
+msgstr "Iniciar!"
 
 #: src/ui/oobe.blp:83
 msgid "The command palette is your friend!"
-msgstr ""
+msgstr "A paleta de comandos é seu amigo!"
 
 #: src/ui/oobe.blp:84
 msgid ""
@@ -278,29 +283,34 @@ msgid ""
 "You can summon the command palette at any time by hitting Ctrl + L, or "
 "clicking on the website's domain in the title bar."
 msgstr ""
+"Imagine a paleta de comandos como sua amada barra de pesquisa, só que mais "
+"poderoso! Você pode abrir a paleta de comandos a qualquer momento, ao "
+"apertar Ctrl + L, ou clicando no domínio do site na barra de título."
 
 #: src/ui/oobe.blp:88 src/ui/oobe.blp:106
 msgid "Next"
-msgstr ""
+msgstr "Próximo"
 
 #: src/ui/oobe.blp:101
 msgid "Created by a collective"
-msgstr ""
+msgstr "Criado por uma coletiva"
 
 #: src/ui/oobe.blp:102
 msgid ""
 "Ouch Browser is developed and maintained by Shrimple Technologies, a "
 "collective with the purpose of proving that complex things can be made easy!"
 msgstr ""
+"Ouch Browser é desenvolvido e mantido pela Shrimple Technologies, um grupo "
+"com o objetivo de provar que coisas difíceis podem ser fáceis!"
 
 #: src/ui/oobe.blp:119
 msgid "That's all!"
-msgstr ""
+msgstr "É só!"
 
 #: src/ui/oobe.blp:120
 msgid "Chech back here every update for new tips for how to use Ouch Browser!"
-msgstr ""
+msgstr "Confira aqui a cada atualização para dicas de como usar o Ouch Browser!"
 
 #: src/ui/oobe.blp:124
 msgid "Let's go!"
-msgstr ""
+msgstr "Vamos lá!"
