@@ -10,16 +10,16 @@ Source0: %{URL}/archive/%{version}.tar.gz
 BuildRequires: rust
 BuildRequires: cargo
 BuildRequires: blueprint-compiler
-BuildRequires: libadwaita-devel >= 1.5.0
-BuildRequires: gtk4-devel >= 4.15.0
-BuildRequires: webkitgtk6.0-devel >= 2.46.0
-# BuildRequires: lua-devel >= 5.4.0
+BuildRequires: libadwaita-devel
+BuildRequires: gtk4-devel
+BuildRequires: webkitgtk6.0-devel
+# BuildRequires: lua-devel
 
-Requires: libadwaita >= 1.5.0
-Requires: gtk4 >= 4.15.0
-Requires: webkitgtk6.0 >= 2.46.0
+Requires: libadwaita
+Requires: gtk4
+Requires: webkitgtk6.0
 # I have no idea if this is actually required at runtime.
-# Requires: lua >= 5.4.0 
+# Requires: lua
 
 
 %description
