@@ -27,10 +27,10 @@ use gtk::gio::ActionEntry;
 use gtk::glib;
 use url::Url;
 use webkit::{prelude::*, NetworkError, WebView};
-#[path = "lua.rs"]
-mod lua;
 #[path = "consts.rs"]
 mod consts;
+#[path = "lua.rs"]
+mod lua;
 
 pub fn init(app: &adw::Application) {
 	let builder = gtk::Builder::from_string(include_str!("ui/window.ui"));
@@ -483,7 +483,9 @@ pub fn init(app: &adw::Application) {
 			let web_view = tab_page.downcast_ref::<WebView>();
 
 			if url == "" {
-				web_view.unwrap().load_uri("https://start.ubuntu.com/");
+				web_view
+					.unwrap()
+					.load_uri(settings.string("homepage").as_str());
 			} else if let Some(scheme) = glib::Uri::peek_scheme(&url) {
 				if scheme.as_str() == "https"
 					|| scheme.as_str() == "http"
@@ -492,7 +494,8 @@ pub fn init(app: &adw::Application) {
 					web_view.unwrap().load_uri(url.as_str());
 				} else {
 					web_view.unwrap().load_uri(&format!(
-						"https://google.com/search?q={}",
+						"{}{}",
+						settings.string("search-engine").as_str(),
 						glib::Uri::escape_string(url.as_str(), None, true)
 							.as_str()
 					));
@@ -501,7 +504,8 @@ pub fn init(app: &adw::Application) {
 				web_view.unwrap().load_uri(&format!("https://{url}"));
 			} else {
 				web_view.unwrap().load_uri(&format!(
-					"https://google.com/search?q={}",
+					"{}{}",
+					settings.string("search-engine").as_str(),
 					glib::Uri::escape_string(url.as_str(), None, true).as_str()
 				));
 			}
@@ -750,8 +754,14 @@ pub fn init(app: &adw::Application) {
 		}
 	));
 
-	let _ = lua::load(include_str!("plugins/usermods/main.lua"), window.clone().into());
-	let _ = lua::load(include_str!("plugins/vblock/main.lua"), window.clone().into());	
+	let _ = lua::load(
+		include_str!("plugins/usermods/main.lua"),
+		window.clone().into(),
+	);
+	let _ = lua::load(
+		include_str!("plugins/vblock/main.lua"),
+		window.clone().into(),
+	);
 }
 
 fn error_page(msg: &str) -> String {
