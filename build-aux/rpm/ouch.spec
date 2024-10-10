@@ -53,7 +53,7 @@ install -Dm 644 res/site.srht.shrimple.svg --target-directory %{buildroot}%{_dat
 install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 
 
-# %pre
+# %post
 # glib-compile-schemas %{buildroot}%{_datadir}/share/glib-2.0/schemas
 
 
