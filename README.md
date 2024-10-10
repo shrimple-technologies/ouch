@@ -128,10 +128,6 @@ For Visual Studio Code users, we also provide a file (`.vscode/extensions.json`)
 
 Translations are more than welcome, please go to our [Weblate project](https://hosted.weblate.org/projects/ouch/ouch/) to get started.
 
-## Frequently Asked Questions
-
-Please see [this file](FAQ.md).
-
 ## Credits
 
 - [Jakub Steiner](http://jimmac.eu/) for designing the app icon.
