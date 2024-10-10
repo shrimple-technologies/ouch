@@ -67,7 +67,7 @@ install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 %{_datadir}/locale/fr/LC_MESSAGES/ouch.mo
 %{_datadir}/locale/pt_BR/LC_MESSAGES/ouch.mo
 %{_datadir}/locale/nb_NO/LC_MESSAGES/ouch.mo
-%{_datadir}/glib-2.0/schemas/site.srht.shrimple.ouch.gschema.xml
+# %{_datadir}/glib-2.0/schemas/site.srht.shrimple.ouch.gschema.xml
 
 
 %changelog
