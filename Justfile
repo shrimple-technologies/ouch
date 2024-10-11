@@ -23,7 +23,6 @@ build-flatpak:
 	@flatpak-builder \
 		--force-clean \
 		--user \
-		--gpg-sign=22C359EDF1E87959D2DAD548E4BE7E015E072434 \
 		--repo=.build/repo \
 		.build \
 		build-aux/flatpak/{{ ID }}.json
@@ -57,18 +56,19 @@ pack:
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch.svg --target-directory /usr/share/icons/hicolor/scalable/apps" >> .tmp/install.sh
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps" >> .tmp/install.sh
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps" >> .tmp/install.sh
-	@echo "sudo install -Dm 644 res/${FLATPAK_ID}.gschema.xml --target-directory ${FLATPAK_DEST}/share/glib-2.0/schemas" >> .tmp/install.sh
-	@echo "glib-compile-schemas ${FLATPAK_DEST}/share/glib-2.0/schemas" >> .tmp/install.sh
+	@echo "sudo install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory /usr/share/glib-2.0/schemas" >> .tmp/install.sh
+
+	@echo "sudo glib-compile-schemas /usr/share/glib-2.0/schemas" >> .tmp/install.sh
 	@chmod +x .tmp/install.sh
 	@tar \
 		-czvf \
-		ouch-{{ VERSION }}.tar.gz \
+		ouch-{{ VERSION }}-`uname -m`.tar.gz \
 		--directory=.tmp \
 		.
 	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
 	
 clean:
-	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder ouch-*.*.*
+	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder ouch-*.*.*.tar.gz
 
 fmt:
 	@blueprint-compiler format -f -t -s 4 {{ BLUEPRINT_FILES }}
