@@ -4,7 +4,7 @@ Focus on your browsing.
 
 ## Features
 
-- Arc Browser-like workflow (UX, keyboard shortcuts, etc.)
+- Arc Browser-like workflow (UI, keyboard shortcuts, etc.)
 - Intergration with the GNOME platform
 - Privacy respecting (we do not collect **any** data)
 - Mobile support
@@ -45,6 +45,8 @@ flatpak install shrimple site.srht.shrimple.ouch
 
 ### RPM
 
+#### Fedora Workstation (and most Fedora derivatives and spins)
+
 1. Add Ouch Browser's COPR repo
 
 ```sh
@@ -56,6 +58,12 @@ sudo dnf enable shrimple/ouch
 ```sh
 sudo dnf install ouch
 ```
+
+#### Fedora Atomic (Silverblue, Kinoite, etc.)
+
+> **Note**
+> 
+> None of the maintainers of Ouch Browser use an Fedora Atomic desktop. If you do, please contribute instructions on how to install the Ouch Browser COPR repo.
 
 ## Building
 
