@@ -1,0 +1,293 @@
+# Max Walters <mdwalters.pm@proton.me>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
+"POT-Creation-Date: 2024-09-02 21:-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+# TRANSLATORS: This is not a string that is a part of the source code. This is your name (or username), followed by your email enclosed in angles (<example@domain.com>) or your website. This will be shown in Ouch Browser's credits.
+#: src/window.rs:87
+msgid "translator-credits"
+msgstr ""
+
+#: res/site.srht.shrimple.ouch.metainfo.xml:6
+#: res/site.srht.shrimple.ouch.desktop:3
+#: src/ui/window.blp:5
+#: src/ui/window.blp:39
+#: src/ui/window.blp:133
+#: src/ui/about.blp:6
+msgid "Ouch Browser"
+msgstr ""
+
+#: res/site.srht.shrimple.ouch.metainfo.xml:13
+#: res/site.srht.shrimple.ouch.desktop:4
+msgid "Focus on your browsing"
+msgstr ""
+
+#: res/site.srht.shrimple.ouch.metainfo.xml:8
+#: src/ui/about-shrimple.blp:6
+#: src/ui/about.blp:7
+msgid "Shrimple Technologies"
+msgstr ""
+
+#: src/ui/window.blp:48
+msgid "Menu"
+msgstr ""
+
+#: src/ui/window.blp:54
+msgid "Downloads"
+msgstr ""
+
+#: src/ui/window.blp:65
+msgid "Archive"
+msgstr ""
+
+#: src/ui/window.blp:71
+msgid "New…"
+msgstr ""
+
+#: src/ui/window.blp:106
+msgid "New tab"
+msgstr ""
+
+#: src/ui/window.blp:144
+#: src/ui/help-overlay.blp:14
+msgid "Copy link"
+msgstr ""
+
+#: src/ui/window.blp:154
+msgid "Website settings"
+msgstr ""
+
+#: src/ui/window.blp:162
+msgid "Toggle sidebar"
+msgstr ""
+
+#: src/ui/window.blp:169
+#: src/ui/window.blp:216
+msgid "Back"
+msgstr ""
+
+#: src/ui/window.blp:175
+#: src/ui/window.blp:222
+msgid "Forward"
+msgstr ""
+
+#: src/ui/window.blp:181
+#: src/ui/window.blp:228
+msgid "Refresh"
+msgstr ""
+
+#: src/ui/window.blp:187
+#: src/ui/window.blp:234
+msgid "Stop loading"
+msgstr ""
+
+#: src/ui/window.blp:194
+msgid "Toggle split view"
+msgstr ""
+
+#: src/ui/window.blp:340
+msgid "Settings"
+msgstr ""
+
+#: src/ui/window.blp:341
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/ui/window.blp:344
+msgid "About Shrimple Technologies"
+msgstr ""
+
+#: src/ui/window.blp:345
+msgid "About Ouch Browser"
+msgstr ""
+
+#: src/ui/preferences.blp:8
+#: src/ui/help-overlay.blp:11
+msgid "General"
+msgstr ""
+
+#: src/ui/preferences.blp:12
+msgid "Accessibility"
+msgstr ""
+
+#: src/ui/preferences.blp:15
+msgid "Enable gestures"
+msgstr ""
+
+#: src/ui/preferences.blp:16
+msgid "Gestures allow you to easily do actions by swiping. You may want to enable this setting if you are on a mobile device, or if you use a touchscreen device."
+msgstr ""
+
+#: src/ui/preferences.blp:22
+msgid "Appearance"
+msgstr ""
+
+#: src/ui/preferences.blp:43
+#: src/ui/help-overlay.blp:39
+msgid "Browser"
+msgstr ""
+
+#: src/ui/preferences.blp:47
+msgid "Security"
+msgstr ""
+
+#: src/ui/preferences.blp:50
+msgid "JavaScript"
+msgstr ""
+
+#: src/ui/preferences.blp:51
+msgid "JavaScript is required to make some websites work. If you disable this, then most websites will not load or work correctly anymore."
+msgstr ""
+
+#: src/ui/preferences.blp:56
+msgid "Enable clipboard access for websites"
+msgstr ""
+
+#: src/ui/preferences.blp:57
+msgid "You may want to enable this setting if you mostly use websites that directly grab text from your clipboard (e.g. graphic design creation websites)"
+msgstr ""
+
+#: src/ui/preferences.blp:63
+msgid "Privacy"
+msgstr ""
+
+#: src/ui/preferences.blp:66
+msgid "User Agent"
+msgstr ""
+
+#: src/ui/preferences.blp:72
+msgid "Fonts"
+msgstr ""
+
+#: src/ui/preferences.blp:75
+msgid "Sans-serif"
+msgstr ""
+
+#: src/ui/preferences.blp:78
+#: src/ui/preferences.blp:92
+#: src/ui/preferences.blp:106
+msgid "Name"
+msgstr ""
+
+#: src/ui/preferences.blp:83
+#: src/ui/preferences.blp:97
+#: src/ui/preferences.blp:111
+msgid "Size"
+msgstr ""
+
+#: src/ui/preferences.blp:89
+msgid "Serif"
+msgstr ""
+
+#: src/ui/preferences.blp:103
+msgid "Monospace"
+msgstr ""
+
+#: src/ui/help-overlay.blp:20
+msgid "Open command palette"
+msgstr ""
+
+#: src/ui/help-overlay.blp:26
+msgid "Open settings"
+msgstr ""
+
+#: src/ui/help-overlay.blp:32
+msgid "Quit"
+msgstr ""
+
+#: src/ui/help-overlay.blp:42
+msgid "Refresh page"
+msgstr ""
+
+#: src/window.rs:266
+#: src/window.rs:398
+msgid "Link copied"
+msgstr ""
+
+#: src/window.rs:80
+msgid "Acknowledgements"
+msgstr ""
+
+#: src/window.rs:83
+msgid "Banner designs"
+msgstr ""
+
+#: src/window.rs:89
+msgid "Members"
+msgstr ""
+
+# TRANSLATORS: The {} part of this string is meant to be a percentage (e.g. 50%).
+#: src/window.rs:284
+msgid "Zoomed in to {}%"
+msgstr ""
+
+#: src/window.rs:513
+msgid "There was a problem loading this website"
+msgstr ""
+
+#: src/ui/oobe.blp:25
+msgid "If you are seeing this, that means that you are running a developer build of Ouch Browser. If you don't know what this means, or you have obtained Ouch Browser via a release, or from Flatpak, please report this to Shrimple Technologies, as this build can be extremely unstable."
+msgstr ""
+
+#: src/ui/oobe.blp:31
+msgid "DEVELOPER BUILD"
+msgstr ""
+
+#: src/ui/oobe.blp:51
+msgid "Welcome to Ouch Browser!"
+msgstr ""
+
+#: src/ui/oobe.blp:52
+msgid "This tutorial will teach you everything you need to know about Ouch Browser."
+msgstr ""
+
+#: src/ui/oobe.blp:60
+msgid "Skip"
+msgstr ""
+
+#: src/ui/oobe.blp:68
+msgid "Start!"
+msgstr ""
+
+#: src/ui/oobe.blp:83
+msgid "The command palette is your friend!"
+msgstr ""
+
+#: src/ui/oobe.blp:84
+msgid "Think of the command palette as your beloved search bar, but more powerful! You can summon the command palette at any time by hitting Ctrl + L, or clicking on the website's domain in the title bar."
+msgstr ""
+
+#: src/ui/oobe.blp:88
+#: src/ui/oobe.blp:106
+msgid "Next"
+msgstr ""
+
+#: src/ui/oobe.blp:101
+msgid "Created by a collective"
+msgstr ""
+
+#: src/ui/oobe.blp:102
+msgid "Ouch Browser is developed and maintained by Shrimple Technologies, a collective with the purpose of proving that complex things can be made easy!"
+msgstr ""
+
+#: src/ui/oobe.blp:119
+msgid "That's all!"
+msgstr ""
+
+#: src/ui/oobe.blp:120
+msgid "Chech back here every update for new tips for how to use Ouch Browser!"
+msgstr ""
+
+#: src/ui/oobe.blp:124
+msgid "Let's go!"
+msgstr ""
