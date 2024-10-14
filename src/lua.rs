@@ -18,6 +18,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+use gtk::prelude::*;
 use adw::prelude::*;
 use mlua::prelude::*;
 use std::sync::Arc;
@@ -29,6 +30,7 @@ pub fn load(src: &str, window: Arc<adw::ApplicationWindow>) -> LuaResult<()> {
 	let table = lua.create_table()?;
 	let win = lua.create_table()?;
 
+    let window_clone = window.clone();
 	win.set(
 		"dialog",
 		lua.create_function(
@@ -41,7 +43,7 @@ pub fn load(src: &str, window: Arc<adw::ApplicationWindow>) -> LuaResult<()> {
 					"default",
 					adw::ResponseAppearance::Suggested,
 				);
-				dialog.present(Some(window.as_ref()));
+				dialog.present(Some(window_clone.as_ref()));
 
 				Ok(())
 			},
@@ -69,6 +71,30 @@ pub fn load(src: &str, window: Arc<adw::ApplicationWindow>) -> LuaResult<()> {
 	match lua.load(src).exec() {
 		Err(error) => {
 			println!("[PLUGIN|ERROR] {}", error.to_string());
+
+            let textview = gtk::TextView::new();
+            textview.buffer().set_text(&error.to_string().as_str());
+            textview.set_editable(false);
+            textview.set_cursor_visible(false);
+            textview.set_monospace(true);
+            textview.set_wrap_mode(gtk::WrapMode::Word);
+            textview.add_css_class("card");
+
+            let dialog =
+				adw::AlertDialog::new(
+                    Some("There was a problem loading a plugin"),
+                    Some("If you don't know where this is coming from, please report this to Ouch Browser's bug tracker.")
+                );
+
+
+			dialog.add_response("default", "Ignore");
+			dialog.set_response_appearance(
+				"default",
+				adw::ResponseAppearance::Destructive,
+			);
+            dialog.set_extra_child(Some(&textview));
+			dialog.present(Some(window.clone().as_ref()));
+
 			return Err(error);
 		}
 		Ok(()) => return Ok(()),
