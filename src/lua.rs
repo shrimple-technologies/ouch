@@ -19,7 +19,6 @@
  */
 
 use adw::prelude::*;
-use gtk::prelude::*;
 use mlua::prelude::*;
 use std::sync::Arc;
 #[path = "consts.rs"]
