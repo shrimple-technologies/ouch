@@ -82,7 +82,10 @@
 		<release version="0.5.0" type="development">
 			<description>
 				<ul>
-					<li>Adds OOBE!</li>
+					<li>Adds OOBE</li>
+					<li>Adds support for plugins via Lua</li>
+					<li>Adds support for more search engines and homepages!</li>
+					<li>Fixes multiple bugs</li>
 					<li>Now uses libadwaita 1.5, GTK 4.16, and WebKitGTK 2.46</li>
 				</ul>
 			</description>

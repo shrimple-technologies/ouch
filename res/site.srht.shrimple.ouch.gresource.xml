@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+	<gresource prefix="/site/srht/shrimple/ouch/">
+		<file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
+		<file compressed="true" preprocess="xml-stripblanks">ui/preferences.ui</file>
+		<file compressed="true" preprocess="xml-stripblanks">ui/oobe.ui</file>
+		<file compressed="true" preprocess="xml-stripblanks">ui/about.ui</file>
+		<file compressed="true" preprocess="xml-stripblanks">ui/about-shrimple.ui</file>
+		<file compressed="true" preprocess="xml-stripblanks">ui/help-overlay.ui</file>
+		<file compressed="true" preprocess="xml-stripblanks">ui/plugin-manager.ui</file>
+	</gresource>
+</gresources>

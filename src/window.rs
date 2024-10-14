@@ -1,4 +1,4 @@
-/* window.rs
+/* src/window.rs
  *
  * Copyright 2024 Shrimple Technologies
  *
@@ -31,6 +31,8 @@ use webkit::{prelude::*, NetworkError, WebView};
 mod consts;
 #[path = "lua.rs"]
 mod lua;
+#[path = "ui.rs"]
+mod ui; // This is just to make Rust compile the file with everything else
 
 pub fn init(app: &adw::Application) {
 	let builder = gtk::Builder::from_string(include_str!("ui/window.ui"));

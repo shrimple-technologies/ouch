@@ -16,3 +16,6 @@ mlua = { version = "0.9", features = ["lua54", "vendored"] }
 # sourceview = { version = "0.9", package = "sourceview5", features = ["gtk_v4_12", "v5_10"] }
 url = "2.5"
 webkit = { version = "0.4", package = "webkit6", features = ["v2_44"] }
+
+[build-dependencies]
+glib-build-tools = "0.20.0"

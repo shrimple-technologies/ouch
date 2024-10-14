@@ -1,4 +1,4 @@
-/* src/consts.rs
+/* build.rs
  *
  * Copyright 2024 Shrimple Technologies
  *
@@ -18,4 +18,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-pub const VERSION: &str = "0.5.0-rc.3";
+fn main() {
+	glib_build_tools::compile_resources(
+		&["src"],
+		"res/site.srht.shrimple.ouch.gresource.xml",
+		"site.srht.shrimple.ouch.gresource",
+	);
+}

@@ -5,12 +5,14 @@
 			<choices>
 				<choice value="https://start.fedoraproject.org/"/>
 				<choice value="https://mystie.is-a.dev/old/p/foxhome/"/>
-				<choice value="https://start.ubuntu.com/"/>	
+				<choice value="https://start.ubuntu.com/"/>
+				<choice value="https://search.vale.rocks/"/>
 			</choices>
 			<aliases>
 				<alias value="FedoraStart" target="https://start.fedoraproject.org/"/>
 				<alias value="FoxHome" target="https://mystie.is-a.dev/old/p/foxhome/"/>
 				<alias value="UbuntuStartPage" target="https://start.ubuntu.com/"/>
+				<alias value="SearchValeRocks" target="https://search.vale.rocks/"/>
 			</aliases>
 
 			<default>"https://start.ubuntu.com/"</default>
@@ -25,12 +27,16 @@
 			<choices>
 				<choice value="https://bing.com/search?q="/>
 				<choice value="https://duckduckgo.com/?q="/>
+				<choice value="https://ecosia.org/search?q="/>
 				<choice value="https://google.com/search?q="/>
+				<choice value="https://search.vale.rocks/?search="/>
 			</choices>
 			<aliases>
 				<alias value="Bing" target="https://bing.com/search?q="/>
 				<alias value="DuckDuckGo" target="https://duckduckgo.com/?q="/>
+				<alias value="Ecosia" target="https://ecosia.org/search?q="/>
 				<alias value="Google" target="https://google.com/search?q="/>
+				<alias value="SearchValeRocks" target="https://search.vale.rocks/?search="/>
 			</aliases>
 
 			<default>"https://duckduckgo.com/?q="</default>

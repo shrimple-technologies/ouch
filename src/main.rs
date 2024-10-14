@@ -1,4 +1,4 @@
-/* main.rs
+/* src/main.rs
  *
  * Copyright 2024 Shrimple Technologies
  *
@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-use gtk::{/* gio, */ glib, prelude::*};
+use gtk::{gio, glib, prelude::*};
 mod css;
 mod window;
 use gettextrs::*;
@@ -27,6 +27,9 @@ fn main() -> glib::ExitCode {
 	textdomain("ouch").expect("Couldn't get gettext domain");
 	bind_textdomain_codeset("ouch", "UTF-8")
 		.expect("Couldn't get gettext domain");
+
+	gio::resources_register_include!("site.srht.shrimple.ouch.gresource")
+		.expect("Couldn't load resources");
 
 	let app = adw::Application::builder()
 		.application_id("site.srht.shrimple.ouch")
