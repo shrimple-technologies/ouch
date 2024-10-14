@@ -65,6 +65,7 @@
 				"msgfmt -o ${FLATPAK_DEST}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po",
 				"msgfmt -o ${FLATPAK_DEST}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po",
 				"msgfmt -o ${FLATPAK_DEST}/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po",
+				"msgfmt -o ${FLATPAK_DEST}/share/locale/eo/LC_MESSAGES/ouch.mo po/eo.po",
 
 				"install -Dm 644 res/${FLATPAK_ID}.gschema.xml --target-directory ${FLATPAK_DEST}/share/glib-2.0/schemas",
 				"glib-compile-schemas ${FLATPAK_DEST}/share/glib-2.0/schemas",

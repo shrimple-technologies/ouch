@@ -1,5 +1,5 @@
 Name: ouch
-Version: 0.4.1
+Version: 0.5.0
 Release: 1%{?dist}
 Summary: Focus on your browsing
 License: GPL-3.0-or-later
@@ -13,13 +13,13 @@ BuildRequires: blueprint-compiler
 BuildRequires: libadwaita-devel
 BuildRequires: gtk4-devel
 BuildRequires: webkitgtk6.0-devel
-# BuildRequires: lua-devel
+BuildRequires: lua-devel
 
 Requires: libadwaita
 Requires: gtk4
 Requires: webkitgtk6.0
 # I have no idea if this is actually required at runtime.
-# Requires: lua
+Requires: lua
 
 
 %description
@@ -33,7 +33,7 @@ with a modern look and feel, and a emphasis on productivity.
 
 
 %build
-blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp
+blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp src/ui/oobe.blp src/ui/plugin-manager.blp
 cargo build --release
 
 
@@ -41,11 +41,13 @@ cargo build --release
 mkdir -p %{buildroot}%{_datadir}/locale/fr/LC_MESSAGES
 mkdir -p %{buildroot}%{_datadir}/locale/pt_BR/LC_MESSAGES
 mkdir -p %{buildroot}%{_datadir}/locale/nb_NO/LC_MESSAGES
+mkdir -p %{buildroot}%{_datadir}/locale/eo/LC_MESSAGES
 msgfmt -o %{buildroot}%{_datadir}/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
 msgfmt -o %{buildroot}%{_datadir}/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
 msgfmt -o %{buildroot}%{_datadir}/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
+msgfmt -o %{buildroot}%{_datadir}/locale/nb_NO/LC_MESSAGES/ouch.mo po/eo.po
 
-# install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{buildroot}%{_datadir}/glib-2.0/schemas
+install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{buildroot}%{_datadir}/glib-2.0/schemas
 install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory %{buildroot}%{_datadir}/applications
 install -Dm 644 res/site.srht.shrimple.ouch.svg --target-directory %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 install -Dm 644 res/site.srht.shrimple.ouch-symbolic.svg --target-directory %{buildroot}%{_datadir}/icons/hicolor/symbolic/apps
@@ -53,8 +55,8 @@ install -Dm 644 res/site.srht.shrimple.svg --target-directory %{buildroot}%{_dat
 install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 
 
-# %post
-# glib-compile-schemas %{buildroot}%{_datadir}/share/glib-2.0/schemas
+%post
+glib-compile-schemas %{buildroot}%{_datadir}/share/glib-2.0/schemas
 
 
 %files
@@ -67,7 +69,8 @@ install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 %{_datadir}/locale/fr/LC_MESSAGES/ouch.mo
 %{_datadir}/locale/pt_BR/LC_MESSAGES/ouch.mo
 %{_datadir}/locale/nb_NO/LC_MESSAGES/ouch.mo
-# %{_datadir}/glib-2.0/schemas/site.srht.shrimple.ouch.gschema.xml
+%{_datadir}/locale/eo/LC_MESSAGES/ouch.mo
+%{_datadir}/glib-2.0/schemas/site.srht.shrimple.ouch.gschema.xml
 
 
 %changelog

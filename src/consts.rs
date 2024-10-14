@@ -18,4 +18,4 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-pub const VERSION: &str = "0.5.0-rc.2";
+pub const VERSION: &str = "0.5.0-rc.3";

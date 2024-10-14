@@ -1,4 +1,4 @@
-VERSION := "0.5.0-rc.2"
+VERSION := "0.5.0-rc.3"
 ID := "site.srht.shrimple.ouch"
 BLUEPRINT_FILES := "src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp src/ui/oobe.blp src/ui/plugin-manager.blp"
 
@@ -57,7 +57,6 @@ pack:
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.ouch-symbolic.svg --target-directory /usr/share/icons/hicolor/symbolic/apps" >> .tmp/install.sh
 	@echo "sudo install -Dm 644 assets/site.srht.shrimple.svg --target-directory /usr/share/icons/hicolor/scalable/apps" >> .tmp/install.sh
 	@echo "sudo install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory /usr/share/glib-2.0/schemas" >> .tmp/install.sh
-
 	@echo "sudo glib-compile-schemas /usr/share/glib-2.0/schemas" >> .tmp/install.sh
 	@chmod +x .tmp/install.sh
 	@tar \
@@ -68,7 +67,7 @@ pack:
 	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder
 	
 clean:
-	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder ouch-*.*.*.tar.gz
+	@rm -rf .tmp {{ ID }}.flatpak .build .flatpak-builder ouch-*.*.*
 
 fmt:
 	@blueprint-compiler format -f -t -s 4 {{ BLUEPRINT_FILES }}
@@ -85,6 +84,7 @@ build-translations:
 	@sudo msgfmt -o /usr/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
 	@sudo msgfmt -o /usr/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
 	@sudo msgfmt -o /usr/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
+	@sudo msgfmt -o /usr/share/locale/eo/LC_MESSAGES/ouch.mo po/eo.po
 
 run:
 	@blueprint-compiler batch-compile \
