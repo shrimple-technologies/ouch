@@ -45,7 +45,7 @@ mkdir -p %{buildroot}%{_datadir}/locale/eo/LC_MESSAGES
 msgfmt -o %{buildroot}%{_datadir}/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
 msgfmt -o %{buildroot}%{_datadir}/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
 msgfmt -o %{buildroot}%{_datadir}/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
-msgfmt -o %{buildroot}%{_datadir}/locale/nb_NO/LC_MESSAGES/ouch.mo po/eo.po
+msgfmt -o %{buildroot}%{_datadir}/locale/eo/LC_MESSAGES/ouch.mo po/eo.po
 
 install -Dm 644 res/site.srht.shrimple.ouch.gschema.xml --target-directory %{buildroot}%{_datadir}/glib-2.0/schemas
 install -Dm 644 res/site.srht.shrimple.ouch.desktop --target-directory %{buildroot}%{_datadir}/applications
