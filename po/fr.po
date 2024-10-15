@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.0\n"
-"Report-Msgid-Bugs-To: ~shrimple/shrimple@lists.sr.ht\n"
+"Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
 "PO-Revision-Date: 2024-10-14 02:22+0000\n"
 "Last-Translator: Max Walters <mdwalters.pm@proton.me>\n"
@@ -236,18 +236,6 @@ msgstr "Zoomé à {}%"
 #: src/window.rs:513
 msgid "There was a problem loading this website"
 msgstr "Il y avait un problème de chargement de ce site"
-
-#: src/ui/oobe.blp:25
-msgid ""
-"If you are seeing this, that means that you are running a developer build of "
-"Ouch Browser. If you don't know what this means, or you have obtained Ouch "
-"Browser via a release, or from Flatpak, please report this to Shrimple "
-"Technologies, as this build can be extremely unstable."
-msgstr ""
-
-#: src/ui/oobe.blp:31
-msgid "DEVELOPER BUILD"
-msgstr ""
 
 #: src/ui/oobe.blp:51
 msgid "Welcome to Ouch Browser!"

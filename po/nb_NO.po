@@ -238,18 +238,6 @@ msgstr "Førstørret til {}%"
 msgid "There was a problem loading this website"
 msgstr "Kunne ikke laste inn nettsiden"
 
-#: src/ui/oobe.blp:25
-msgid ""
-"If you are seeing this, that means that you are running a developer build of "
-"Ouch Browser. If you don't know what this means, or you have obtained Ouch "
-"Browser via a release, or from Flatpak, please report this to Shrimple "
-"Technologies, as this build can be extremely unstable."
-msgstr ""
-
-#: src/ui/oobe.blp:31
-msgid "DEVELOPER BUILD"
-msgstr ""
-
 #: src/ui/oobe.blp:51
 msgid "Welcome to Ouch Browser!"
 msgstr ""

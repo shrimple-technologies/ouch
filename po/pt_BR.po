@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.0\n"
-"Report-Msgid-Bugs-To: ~shrimple/shrimple@lists.sr.ht\n"
+"Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
 "PO-Revision-Date: 2024-10-11 21:16+0000\n"
 "Last-Translator: grayairr <grayair@proton.me>\n"
@@ -240,22 +240,6 @@ msgstr "Zoom em {}%"
 msgid "There was a problem loading this website"
 msgstr "Houve um problema ao carregar esse website"
 
-#: src/ui/oobe.blp:25
-msgid ""
-"If you are seeing this, that means that you are running a developer build of "
-"Ouch Browser. If you don't know what this means, or you have obtained Ouch "
-"Browser via a release, or from Flatpak, please report this to Shrimple "
-"Technologies, as this build can be extremely unstable."
-msgstr ""
-"Se você está lendo isto, significa que está utilizando uma versão de "
-"desenvolvedor do Ouch Browser. Se não sabe o que isto significa, ou baixou o "
-"Ouch Browser da versão de lançamento, ou do Flatpak, por favor informe a "
-"Shrimple Technologies, pois esta versão pode ser extremamente instável."
-
-#: src/ui/oobe.blp:31
-msgid "DEVELOPER BUILD"
-msgstr "VERSÃO DE DESENVOLVEDOR"
-
 #: src/ui/oobe.blp:51
 msgid "Welcome to Ouch Browser!"
 msgstr "Bem vindo ao Ouch Browser!"
@@ -309,8 +293,24 @@ msgstr "É só!"
 
 #: src/ui/oobe.blp:120
 msgid "Chech back here every update for new tips for how to use Ouch Browser!"
-msgstr "Confira aqui a cada atualização para dicas de como usar o Ouch Browser!"
+msgstr ""
+"Confira aqui a cada atualização para dicas de como usar o Ouch Browser!"
 
 #: src/ui/oobe.blp:124
 msgid "Let's go!"
 msgstr "Vamos lá!"
+
+#~ msgid ""
+#~ "If you are seeing this, that means that you are running a developer build "
+#~ "of Ouch Browser. If you don't know what this means, or you have obtained "
+#~ "Ouch Browser via a release, or from Flatpak, please report this to "
+#~ "Shrimple Technologies, as this build can be extremely unstable."
+#~ msgstr ""
+#~ "Se você está lendo isto, significa que está utilizando uma versão de "
+#~ "desenvolvedor do Ouch Browser. Se não sabe o que isto significa, ou "
+#~ "baixou o Ouch Browser da versão de lançamento, ou do Flatpak, por favor "
+#~ "informe a Shrimple Technologies, pois esta versão pode ser extremamente "
+#~ "instável."
+
+#~ msgid "DEVELOPER BUILD"
+#~ msgstr "VERSÃO DE DESENVOLVEDOR"

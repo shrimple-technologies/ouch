@@ -2,12 +2,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.5.0\n"
-"Report-Msgid-Bugs-To: ~shrimple/shrimple@lists.sr.ht\n"
+"Report-Msgid-Bugs-To: https://todo.sr.ht/~shrimple/ouch\n"
 "POT-Creation-Date: 2024-09-02 21:-0400\n"
 "PO-Revision-Date: 2024-10-14 02:35+0000\n"
 "Last-Translator: Max Walters <mdwalters.pm@proton.me>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/ouch/ouch/eo/>"
-"\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/ouch/ouch/eo/"
+">\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +21,8 @@ msgid "translator-credits"
 msgstr "Max Walters <mdwalters.pm@proton.me>"
 
 #: res/site.srht.shrimple.ouch.metainfo.xml:6
-#: res/site.srht.shrimple.ouch.desktop:3
-#: src/ui/window.blp:5
-#: src/ui/window.blp:39
-#: src/ui/window.blp:133
-#: src/ui/about.blp:6
+#: res/site.srht.shrimple.ouch.desktop:3 src/ui/window.blp:5
+#: src/ui/window.blp:39 src/ui/window.blp:133 src/ui/about.blp:6
 msgid "Ouch Browser"
 msgstr "Ouch Browser"
 
@@ -34,8 +31,7 @@ msgstr "Ouch Browser"
 msgid "Focus on your browsing"
 msgstr ""
 
-#: res/site.srht.shrimple.ouch.metainfo.xml:8
-#: src/ui/about-shrimple.blp:6
+#: res/site.srht.shrimple.ouch.metainfo.xml:8 src/ui/about-shrimple.blp:6
 #: src/ui/about.blp:7
 msgid "Shrimple Technologies"
 msgstr ""
@@ -60,8 +56,7 @@ msgstr ""
 msgid "New tab"
 msgstr ""
 
-#: src/ui/window.blp:144
-#: src/ui/help-overlay.blp:14
+#: src/ui/window.blp:144 src/ui/help-overlay.blp:14
 msgid "Copy link"
 msgstr ""
 
@@ -73,23 +68,19 @@ msgstr ""
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/ui/window.blp:169
-#: src/ui/window.blp:216
+#: src/ui/window.blp:169 src/ui/window.blp:216
 msgid "Back"
 msgstr ""
 
-#: src/ui/window.blp:175
-#: src/ui/window.blp:222
+#: src/ui/window.blp:175 src/ui/window.blp:222
 msgid "Forward"
 msgstr ""
 
-#: src/ui/window.blp:181
-#: src/ui/window.blp:228
+#: src/ui/window.blp:181 src/ui/window.blp:228
 msgid "Refresh"
 msgstr ""
 
-#: src/ui/window.blp:187
-#: src/ui/window.blp:234
+#: src/ui/window.blp:187 src/ui/window.blp:234
 msgid "Stop loading"
 msgstr ""
 
@@ -113,8 +104,7 @@ msgstr ""
 msgid "About Ouch Browser"
 msgstr ""
 
-#: src/ui/preferences.blp:8
-#: src/ui/help-overlay.blp:11
+#: src/ui/preferences.blp:8 src/ui/help-overlay.blp:11
 msgid "General"
 msgstr ""
 
@@ -127,15 +117,17 @@ msgid "Enable gestures"
 msgstr ""
 
 #: src/ui/preferences.blp:16
-msgid "Gestures allow you to easily do actions by swiping. You may want to enable this setting if you are on a mobile device, or if you use a touchscreen device."
+msgid ""
+"Gestures allow you to easily do actions by swiping. You may want to enable "
+"this setting if you are on a mobile device, or if you use a touchscreen "
+"device."
 msgstr ""
 
 #: src/ui/preferences.blp:22
 msgid "Appearance"
 msgstr ""
 
-#: src/ui/preferences.blp:43
-#: src/ui/help-overlay.blp:39
+#: src/ui/preferences.blp:43 src/ui/help-overlay.blp:39
 msgid "Browser"
 msgstr ""
 
@@ -148,7 +140,9 @@ msgid "JavaScript"
 msgstr ""
 
 #: src/ui/preferences.blp:51
-msgid "JavaScript is required to make some websites work. If you disable this, then most websites will not load or work correctly anymore."
+msgid ""
+"JavaScript is required to make some websites work. If you disable this, then "
+"most websites will not load or work correctly anymore."
 msgstr ""
 
 #: src/ui/preferences.blp:56
@@ -156,7 +150,9 @@ msgid "Enable clipboard access for websites"
 msgstr ""
 
 #: src/ui/preferences.blp:57
-msgid "You may want to enable this setting if you mostly use websites that directly grab text from your clipboard (e.g. graphic design creation websites)"
+msgid ""
+"You may want to enable this setting if you mostly use websites that directly "
+"grab text from your clipboard (e.g. graphic design creation websites)"
 msgstr ""
 
 #: src/ui/preferences.blp:63
@@ -175,14 +171,12 @@ msgstr ""
 msgid "Sans-serif"
 msgstr ""
 
-#: src/ui/preferences.blp:78
-#: src/ui/preferences.blp:92
+#: src/ui/preferences.blp:78 src/ui/preferences.blp:92
 #: src/ui/preferences.blp:106
 msgid "Name"
 msgstr "Nom"
 
-#: src/ui/preferences.blp:83
-#: src/ui/preferences.blp:97
+#: src/ui/preferences.blp:83 src/ui/preferences.blp:97
 #: src/ui/preferences.blp:111
 msgid "Size"
 msgstr ""
@@ -211,8 +205,7 @@ msgstr ""
 msgid "Refresh page"
 msgstr ""
 
-#: src/window.rs:266
-#: src/window.rs:398
+#: src/window.rs:266 src/window.rs:398
 msgid "Link copied"
 msgstr ""
 
@@ -237,20 +230,13 @@ msgstr ""
 msgid "There was a problem loading this website"
 msgstr ""
 
-#: src/ui/oobe.blp:25
-msgid "If you are seeing this, that means that you are running a developer build of Ouch Browser. If you don't know what this means, or you have obtained Ouch Browser via a release, or from Flatpak, please report this to Shrimple Technologies, as this build can be extremely unstable."
-msgstr ""
-
-#: src/ui/oobe.blp:31
-msgid "DEVELOPER BUILD"
-msgstr ""
-
 #: src/ui/oobe.blp:51
 msgid "Welcome to Ouch Browser!"
 msgstr "Bonvenon al Ouch Browser!"
 
 #: src/ui/oobe.blp:52
-msgid "This tutorial will teach you everything you need to know about Ouch Browser."
+msgid ""
+"This tutorial will teach you everything you need to know about Ouch Browser."
 msgstr ""
 
 #: src/ui/oobe.blp:60
@@ -266,11 +252,13 @@ msgid "The command palette is your friend!"
 msgstr ""
 
 #: src/ui/oobe.blp:84
-msgid "Think of the command palette as your beloved search bar, but more powerful! You can summon the command palette at any time by hitting Ctrl + L, or clicking on the website's domain in the title bar."
+msgid ""
+"Think of the command palette as your beloved search bar, but more powerful! "
+"You can summon the command palette at any time by hitting Ctrl + L, or "
+"clicking on the website's domain in the title bar."
 msgstr ""
 
-#: src/ui/oobe.blp:88
-#: src/ui/oobe.blp:106
+#: src/ui/oobe.blp:88 src/ui/oobe.blp:106
 msgid "Next"
 msgstr ""
 
@@ -279,7 +267,9 @@ msgid "Created by a collective"
 msgstr ""
 
 #: src/ui/oobe.blp:102
-msgid "Ouch Browser is developed and maintained by Shrimple Technologies, a collective with the purpose of proving that complex things can be made easy!"
+msgid ""
+"Ouch Browser is developed and maintained by Shrimple Technologies, a "
+"collective with the purpose of proving that complex things can be made easy!"
 msgstr ""
 
 #: src/ui/oobe.blp:119
