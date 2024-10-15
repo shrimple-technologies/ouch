@@ -39,7 +39,7 @@ fn main() -> glib::ExitCode {
 	app.connect_startup(css::init);
 	app.connect_activate(window::init);
 
-	app.set_accels_for_action("window.close", &["<Ctrl>Q"]);
+	app.set_accels_for_action("window.close", &["<Ctrl>Q", "<Ctrl>W"]); // TODO: Separate <Ctrl>W to close a tab, and if tab is open, close the window
 	app.set_accels_for_action("win.cmd", &["<Ctrl>L", "<Alt>D"]);
 	app.set_accels_for_action("win.show-preferences", &["<Ctrl>comma"]);
 	app.set_accels_for_action("win.copy-link", &["<Ctrl><Shift>C"]);
