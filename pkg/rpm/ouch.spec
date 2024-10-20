@@ -6,7 +6,6 @@ License: GPL-3.0-or-later
 URL: https://git.sr.ht/~shrimple/ouch
 Source0: %{URL}/archive/%{version}.tar.gz
 
-
 BuildRequires: rust
 BuildRequires: cargo
 BuildRequires: blueprint-compiler
@@ -14,28 +13,23 @@ BuildRequires: libadwaita-devel
 BuildRequires: gtk4-devel
 BuildRequires: webkitgtk6.0-devel
 BuildRequires: lua-devel
-
+BuildRequires: libpanel-devel
 Requires: libadwaita
 Requires: gtk4
 Requires: webkitgtk6.0
-# I have no idea if this is actually required at runtime.
 Requires: lua
-
+Requires: libpanel
 
 %description
-
 Ouch Browser isn't just another web browser, it's a whole new look on the web,
 with a modern look and feel, and a emphasis on productivity.
-
 
 %prep
 %autosetup
 
-
 %build
 blueprint-compiler batch-compile src/ui src/ui src/ui/window.blp src/ui/about.blp src/ui/about-shrimple.blp src/ui/help-overlay.blp src/ui/preferences.blp src/ui/oobe.blp src/ui/plugin-manager.blp
 cargo build --release
-
 
 %install
 mkdir -p %{buildroot}%{_datadir}/locale/fr/LC_MESSAGES
@@ -57,7 +51,6 @@ install -Dm755 target/release/ouch --target-directory %{buildroot}%{_bindir}
 
 %post
 glib-compile-schemas %{buildroot}%{_datadir}/share/glib-2.0/schemas
-
 
 %files
 %license licenses/GPL-3.0-or-later.txt
