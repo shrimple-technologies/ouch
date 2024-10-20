@@ -291,3 +291,19 @@ msgstr ""
 #: src/ui/oobe.blp:124
 msgid "Let's go!"
 msgstr ""
+
+#: src/ui/plugin-manager.blp:7
+msgid "Plugins"
+msgstr ""
+
+#: src/ui/plugin-manager.blp:10
+msgid "Installed plugins"
+msgstr ""
+
+#: src/ui/plugin-manager.blp:19
+msgid "Built-in plugins"
+msgstr ""
+
+#: src/ui/plugin-manager.blp:35
+msgid "Browse"
+msgstr ""

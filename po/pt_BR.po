@@ -300,6 +300,22 @@ msgstr ""
 msgid "Let's go!"
 msgstr "Vamos lá!"
 
+#: src/ui/plugin-manager.blp:7
+msgid "Plugins"
+msgstr ""
+
+#: src/ui/plugin-manager.blp:10
+msgid "Installed plugins"
+msgstr ""
+
+#: src/ui/plugin-manager.blp:19
+msgid "Built-in plugins"
+msgstr ""
+
+#: src/ui/plugin-manager.blp:35
+msgid "Browse"
+msgstr ""
+
 #~ msgid ""
 #~ "If you are seeing this, that means that you are running a developer build "
 #~ "of Ouch Browser. If you don't know what this means, or you have obtained "
