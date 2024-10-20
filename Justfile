@@ -25,7 +25,7 @@ build-flatpak:
 		--user \
 		--repo=.build/repo \
 		.build \
-		build-aux/flatpak/{{ ID }}.json
+		pkg/flatpak/{{ ID }}.json
 	@flatpak build-bundle \
 		.build/repo \
 		{{ ID }}.flatpak \
