@@ -35,16 +35,14 @@ Wait a few seconds, and Ouch Browser should appear in your launcher. If it doesn
 
 ### Flatpak
 
-1. Ensure you have Shrimple Technologies' Flatpak repository installed
+1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.4.1/ouch-0.4.1.tar.gz)
+
+2. Extract the file. This will result in a new `ouch-0.4.1` folder in where you downloaded the file, depending on your method of extraction.
+
+3. Open the directory in a terminal, then run:
 
 ```sh
-flatpak remote-add --if-not-exists shrimple https://shrimple.srht.site/repo/flatpak/shrimple.flatpakrepo
-```
-
-2. Install Ouch Browser
-
-```sh
-flatpak install shrimple site.srht.shrimple.ouch
+flatpak install ./site.srht.shrimple.ouch.flatpak
 ```
 
 ### RPM
