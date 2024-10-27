@@ -22,6 +22,8 @@ Adw.ApplicationWindow window {
 			button_back.visible: false;
 			button_reload.visible: false;
 			button_stop.visible: false;
+			toggle_sidebar.visible: false;
+			mmenu.visible: true;
 		}
 	}
 
@@ -200,6 +202,14 @@ Adw.ApplicationWindow window {
 								icon-name: "sidebar-show-symbolic";
 								tooltip-text: _("Toggle sidebar");
 								active: true;
+							}
+
+							[start]
+							MenuButton mmenu {
+								icon-name: "open-menu-symbolic";
+								menu-model: main_menu;
+								tooltip-text: _("Menu");
+								visible: false;
 							}
 
 							[start]
