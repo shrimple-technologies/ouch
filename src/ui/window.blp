@@ -256,6 +256,16 @@ Adw.ApplicationWindow window {
 									hexpand: true;
 								}
 
+								Adw.TabButton {
+									view: view;
+									action-name: "overview.open";
+									hexpand: true;
+									styles [
+										"pill",
+										"suggested-action"
+									]
+								}
+
 								Button {
 									icon-name: "view-refresh-symbolic";
 									tooltip-text: _("Refresh");
@@ -269,9 +279,9 @@ Adw.ApplicationWindow window {
 									hexpand: true;
 								}
 
-								Adw.TabButton {
-									view: view;
-									action-name: "overview.open";
+								Button {
+									icon-name: "folder-download-symbolic";
+									tooltip-text: _("Downloads");
 									hexpand: true;
 								}
 							};
