@@ -278,6 +278,13 @@ pub fn init(app: &adw::Application) {
 
 	view.append(&web_view);
 
+	builder
+		.object::<adw::TabButton>("tab_overview")
+		.expect("Couldn't get tab button")
+		.first_child()
+		.unwrap();
+		.set_css_classes(&["image-button", "pill", "suggested-action"]);
+
 	window.set_application(Some(app));
 	window.present();
 
