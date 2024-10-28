@@ -12,13 +12,9 @@ BuildRequires: blueprint-compiler
 BuildRequires: libadwaita-devel
 BuildRequires: gtk4-devel
 BuildRequires: webkitgtk6.0-devel
-BuildRequires: lua-devel
-BuildRequires: libpanel-devel
 Requires: libadwaita
 Requires: gtk4
 Requires: webkitgtk6.0
-Requires: lua
-Requires: libpanel
 
 %description
 Ouch Browser isn't just another web browser, it's a whole new look on the web,
