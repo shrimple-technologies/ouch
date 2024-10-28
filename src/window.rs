@@ -282,7 +282,7 @@ pub fn init(app: &adw::Application) {
 		.object::<adw::TabButton>("tab_overview")
 		.expect("Couldn't get tab button")
 		.first_child()
-		.unwrap();
+		.unwrap()
 		.set_css_classes(&["image-button", "pill", "suggested-action"]);
 
 	window.set_application(Some(app));
