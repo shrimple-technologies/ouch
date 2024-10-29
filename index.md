@@ -1,5 +1,6 @@
 ---
-title: "Ouch Browser"
+title: Ouch Browser
+toc: false
 ---
 # Welcome to the Ouch Browser wiki!
 
