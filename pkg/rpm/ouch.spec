@@ -63,5 +63,9 @@ glib-compile-schemas %{buildroot}%{_datadir}/share/glib-2.0/schemas
 
 
 %changelog
-* Sun Sep 15 2024 Max Walters <mdwalters.pm@proton.me>
-- Remove Ouch Browser from being a handler for XPI files and exported mail archives
+* Thu Oct 2024 Max Walters <mdwalters.pm@proton.me>
+- Adds OOBE
+- Adds support for plugins via Lua
+- Adds support for more search engines and homepages!
+- Fixes multiple bugs
+- Now uses libadwaita 1.6, GTK 4.16, and WebKitGTK 2.46
