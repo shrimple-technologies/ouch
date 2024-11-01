@@ -63,7 +63,7 @@ glib-compile-schemas %{buildroot}%{_datadir}/share/glib-2.0/schemas
 
 
 %changelog
-* Thu Oct 2024 Max Walters <mdwalters.pm@proton.me>
+* Thu Oct 31 2024 Max Walters <mdwalters.pm@proton.me>
 - Adds OOBE
 - Adds support for plugins via Lua
 - Adds support for more search engines and homepages!
