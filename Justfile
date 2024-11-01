@@ -1,4 +1,4 @@
-VERSION := "0.5.0-rc.3"
+VERSION := "0.5.0"
 ID := "site.srht.shrimple.ouch"
 BLUEPRINT_FILES := "src/ui/about.blp src/ui/help-overlay.blp src/ui/plugin-manager.blp src/ui/window.blp src/ui/about-shrimple.blp src/ui/oobe.blp src/ui/preferences.blp"
 default:
