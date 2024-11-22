@@ -27,7 +27,7 @@ As Ouch Browser is beta software, it's installation options are limited.
 
 1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.5.0/ouch-0.5.0-x86_64.tar.gz)
 
-2. Extract the file. This will result in a new `ouch-0.5.0` folder in where you downloaded the file, depending on your method of extraction.
+2. Extract the file. This will result in a new `ouch-0.5.0-x86_64` folder in where you downloaded the file, depending on your method of extraction.
 
 3. Open the directory, then execute the `install.sh` file.
 
@@ -37,7 +37,7 @@ Wait a few seconds, and Ouch Browser should appear in your launcher. If it doesn
 
 1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.5.0/ouch-0.5.0-x86_64.tar.gz)
 
-2. Extract the file. This will result in a new `ouch-0.5.0` folder in where you downloaded the file, depending on your method of extraction.
+2. Extract the file. This will result in a new `ouch-0.5.0-x86_64` folder in where you downloaded the file, depending on your method of extraction.
 
 3. Open the directory in a terminal, then run:
 
