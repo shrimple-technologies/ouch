@@ -19,15 +19,15 @@ As Ouch Browser is beta software, it's installation options are limited.
 
 > **Warning**
 >
-> Ouch Browser is only officially available on x84_64 architectures. You may need to [build Ouch Browser](#building) for your architecture before continuing.
+> Ouch Browser is only officially available on x86_64 architectures. You may need to [build Ouch Browser](#building) for your architecture before continuing.
 
 > **Note**
 > 
 > You might want to install a package for your package manager instead. We recommend using the [Flatpak](#flatpak) package for installation.
 
-1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.4.1/ouch-0.4.1.tar.gz)
+1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.5.0/ouch-0.5.0-x86_64.tar.gz)
 
-2. Extract the file. This will result in a new `ouch-0.4.1` folder in where you downloaded the file, depending on your method of extraction.
+2. Extract the file. This will result in a new `ouch-0.5.0` folder in where you downloaded the file, depending on your method of extraction.
 
 3. Open the directory, then execute the `install.sh` file.
 
@@ -35,9 +35,9 @@ Wait a few seconds, and Ouch Browser should appear in your launcher. If it doesn
 
 ### Flatpak
 
-1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.4.1/ouch-0.4.1.tar.gz)
+1. Download [the latest release](https://git.sr.ht/~shrimple/ouch/refs/download/0.5.0/ouch-0.5.0-x86_64.tar.gz)
 
-2. Extract the file. This will result in a new `ouch-0.4.1` folder in where you downloaded the file, depending on your method of extraction.
+2. Extract the file. This will result in a new `ouch-0.5.0` folder in where you downloaded the file, depending on your method of extraction.
 
 3. Open the directory in a terminal, then run:
 
@@ -100,25 +100,7 @@ Building Ouch Browser as a Flatpak with GNOME Builder is recommended due to bein
 
 #### Flatpak Builder
 
-Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than using GNOME Builder, due to being run as a single command, and is editor-agonistic. Before building, you must remove GPG signing in the `Justfile` located in the source folder. This is only needed for distributing official releases, and isn't needed if you are building the Flatpak yourself.
-
-```diff
-build-flatpak:
-    @flatpak-builder \
-        --force-clean \
-        --user \
--       --gpg-sign=22C359EDF1E87959D2DAD548E4BE7E015E072434 \
-        --repo=.build/repo \
-        .build \
-        build-aux/flatpak/{{ ID }}.json
-    @flatpak build-bundle \
-        .build/repo \
-        {{ ID }}.flatpak \
-        {{ ID }} \
-        --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
-```
-
-Then, you can build the Flatpak:
+Building Ouch Browser as a Flatpak with Flatpak Builder may be a better way than using GNOME Builder, due to being run as a single command, and is editor-agonistic. You can build the Flatpak with this command:
 
 ```sh
 just build-flatpak
