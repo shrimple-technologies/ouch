@@ -1,4 +1,5 @@
 VERSION := "0.5.0"
+PREFIX := "/usr"
 ID := "site.srht.shrimple.ouch"
 BLUEPRINT_FILES := "src/ui/about.blp src/ui/help-overlay.blp src/ui/plugin-manager.blp src/ui/window.blp src/ui/about-shrimple.blp src/ui/oobe.blp src/ui/preferences.blp"
 default:
@@ -32,8 +33,8 @@ build-flatpak:
 		--runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 
 build-schemas:
-	@sudo cp res/{{ ID }}.gschema.xml /usr/share/glib-2.0/schemas
-	@sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+	@sudo cp res/{{ ID }}.gschema.xml {{ PREFIX }}/share/glib-2.0/schemas
+	@sudo glib-compile-schemas {{ PREFIX }}/share/glib-2.0/schemas
 
 # MAINTAINERS: Run this command when you have finished releasing a new version of ouch (e.g. pushed version bump commit, pushed tag, etc.).
 pack:
@@ -80,10 +81,10 @@ check:
 	@cargo check
 
 build-translations:
-	@sudo msgfmt -o /usr/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
-	@sudo msgfmt -o /usr/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
-	@sudo msgfmt -o /usr/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
-	@sudo msgfmt -o /usr/share/locale/eo/LC_MESSAGES/ouch.mo po/eo.po
+	@sudo msgfmt -o {{ PREFIX }}/share/locale/fr/LC_MESSAGES/ouch.mo po/fr.po
+	@sudo msgfmt -o {{ PREFIX }}/share/locale/pt_BR/LC_MESSAGES/ouch.mo po/pt_BR.po
+	@sudo msgfmt -o {{ PREFIX }}/share/locale/nb_NO/LC_MESSAGES/ouch.mo po/nb_NO.po
+	@sudo msgfmt -o {{ PREFIX }}/share/locale/eo/LC_MESSAGES/ouch.mo po/eo.po
 
 run:
 	@blueprint-compiler batch-compile \
